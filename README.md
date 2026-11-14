@@ -15,8 +15,8 @@ uaid.identify("Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bo
 # {'description': 'Google search indexing bot', 'tags': ['search-engine'], 'url': ..., 'rdns': [...]}
 ```
 
-- `is_bot` checks ~2900 known crawlers plus a keyword heuristic for unknown bots
-  (~94% recall, ~0.1% false positives on 30k real browser user agents).
+- `is_bot` checks ~4500 known crawlers plus a keyword heuristic for unknown bots
+  (~92% recall, ~0.1% false positives on 30k real browser user agents).
   A missing user agent (`None` or `""`) counts as a bot.
 - `identify` returns the most specific known crawler, or `None`.
 - `rdns` lists forward-confirmed reverse DNS suffixes for verifying a crawler's IP.
