@@ -42359,5 +42359,19 @@
       "monitoring"
     ],
     "addition_date": "2026/11/14"
+  },
+  {
+    "match": [
+      "^undici"
+    ],
+    "url": "https://github.com/nodejs/undici",
+    "instances": [
+      "undici"
+    ],
+    "description": "Node.js built-in fetch HTTP client",
+    "tags": [
+      "http-library"
+    ],
+    "addition_date": "2026/11/14"
   }
 ]

@@ -7,12 +7,15 @@ on:
 jobs:
   check:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python: ["3.10", "3.11", "3.12", "3.13", "3.14"]
     steps:
       - uses: actions/checkout@v7
       - uses: astral-sh/setup-uv@v10.3.3
+        with:
+          python-version: ${{ matrix.python }}
       - run: uvx ruff check
       - run: uvx ruff format --check
-      - run: >-
-          curl -sSfL -o tests/browsers.txt
-          https://raw.githubusercontent.com/tn3w/Crawlerdex/master/tools/browser_uas.txt
       - run: uv run pytest
+      - run: uv build
