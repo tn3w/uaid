@@ -1,0 +1,26 @@
+[project]
+name = "uaid"
+version = "0.1.0"
+description = "Identify crawlers and bots by user agent with plain substring matching"
+readme = "README.md"
+license = "Apache-2.0"
+requires-python = ">=3.10"
+keywords = ["crawler", "bot", "user-agent", "detection"]
+
+[project.urls]
+Repository = "https://github.com/tn3w/uaid"
+
+[dependency-groups]
+dev = ["pytest"]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.hooks.custom]
+
+[tool.ruff]
+line-length = 90
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]
