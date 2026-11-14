@@ -5,7 +5,33 @@ description = "Identify crawlers and bots by user agent with plain substring mat
 readme = "README.md"
 license = "Apache-2.0"
 requires-python = ">=3.10"
-keywords = ["crawler", "bot", "user-agent", "detection"]
+keywords = [
+    "bot-detection",
+    "crawler-detection",
+    "user-agent",
+    "user-agent-parser",
+    "crawler",
+    "bot",
+    "spider",
+    "web-scraping",
+    "scraper-detection",
+    "anti-bot",
+    "ai-crawler",
+    "googlebot",
+    "robots",
+    "seo",
+    "reverse-dns",
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Topic :: Internet :: WWW/HTTP",
+    "Topic :: Internet :: Log Analysis",
+    "Topic :: Security",
+    "Typing :: Typed",
+]
 
 [project.urls]
 Repository = "https://github.com/tn3w/uaid"
