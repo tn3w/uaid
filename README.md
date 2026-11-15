@@ -28,3 +28,13 @@ uaid.identify("Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bo
 user agent: a string must be contained, a leading `^` anchors it to the start, a nested
 list requires all parts. The wheel ships a compact, pre-indexed version generated at build
 time.
+
+## Robots.txt stats
+
+A daily workflow reads the robots.txt of the top 25,000 [Tranco](https://tranco-list.eu)
+sites and publishes two files to the [`robots` release](https://github.com/tn3w/uaid/releases/tag/robots):
+
+- `robots-today.json`: fetch status counts, per user agent how many sites block it fully,
+  partially or allow it (and set a crawl delay), Content-Signal counts, and per site the
+  blocked and partially blocked agents.
+- `robots-history.json`: per date and user agent, the share of sites that restrict it.

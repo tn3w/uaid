@@ -6,6 +6,7 @@ on:
 
 jobs:
   publish:
+    if: github.event.release.tag_name != 'robots'
     runs-on: ubuntu-latest
     environment: pypi
     permissions:
