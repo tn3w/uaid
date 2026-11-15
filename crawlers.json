@@ -407,7 +407,8 @@
     "url": "https://www.python-httpx.org",
     "instances": [
       "python-httpx/0.16.1",
-      "python-httpx/0.13.0.dev1"
+      "python-httpx/0.13.0.dev1",
+      "python-httpx/0.28.1"
     ],
     "description": "Modern Python HTTP client with async support",
     "tags": [
@@ -13142,7 +13143,8 @@
     ],
     "url": "https://github.com/atmos/camo",
     "instances": [
-      "github-camo (c006e452)"
+      "github-camo (c006e452)",
+      "github-camo (ea45cab4)"
     ],
     "description": "GitHub image proxy fetching external images for secure rendering",
     "tags": [
@@ -41164,7 +41166,8 @@
     ],
     "url": "https://pip.pypa.io/",
     "instances": [
-      "pip/1.0"
+      "pip/1.0",
+      "pip/24.3.1 {\"ci\":null,\"cpu\":\"x86_64\",\"implementation\":{\"name\":\"CPython\",\"version\":\"3.11.9\"},\"installer\":{\"name\":\"pip\",\"version\":\"24.3.1\"},\"openssl_version\":\"OpenSSL 3.0.13 30 Jan 2024\",\"python\":\"3.11.9\",\"setuptools_version\":\"75.6.0\",\"system\":{\"name\":\"Linux"
     ],
     "description": "Python package installer",
     "tags": [
@@ -61953,6 +61956,32 @@
     "description": "BigCrawl public website catalog crawler",
     "tags": [
       "search-engine"
+    ],
+    "addition_date": "2026/11/15"
+  },
+  {
+    "match": [
+      "cms-checker/"
+    ],
+    "instances": [
+      "Mozilla/5.0 (compatible; CMS-Checker/1.0; +https://example.com)"
+    ],
+    "description": "CMS-Checker website CMS detection crawler",
+    "tags": [
+      "monitoring"
+    ],
+    "addition_date": "2026/11/15"
+  },
+  {
+    "match": [
+      "nameserver-checker-http-validator/"
+    ],
+    "instances": [
+      "nameserver-checker-http-validator/1.0"
+    ],
+    "description": "Nameserver checker HTTP validator",
+    "tags": [
+      "monitoring"
     ],
     "addition_date": "2026/11/15"
   }
