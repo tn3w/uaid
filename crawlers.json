@@ -61984,5 +61984,85 @@
       "search-engine"
     ],
     "addition_date": "2026/11/14"
+  },
+  {
+    "match": [
+      "email-guesser/"
+    ],
+    "instances": [
+      "Mozilla/5.0 (compatible; email-guesser/1.0)"
+    ],
+    "description": "email-guesser address harvesting scanner",
+    "tags": [
+      "scanner"
+    ],
+    "addition_date": "2026/11/15"
+  },
+  {
+    "match": [
+      "metabase-cve-"
+    ],
+    "instances": [
+      "metabase-cve-2026-72898-detect/1.0 (benign detection probes only)"
+    ],
+    "description": "Metabase CVE detection probe",
+    "tags": [
+      "scanner"
+    ],
+    "addition_date": "2026/11/15"
+  },
+  {
+    "match": [
+      "techleadsbot/"
+    ],
+    "url": "https://techleads.fyi/bot",
+    "instances": [
+      "Mozilla/5.0 (compatible; TechLeadsBot/1.0; +https://techleads.fyi/bot)"
+    ],
+    "description": "TechLeadsBot lead generation crawler from TechLeads",
+    "tags": [
+      "seo"
+    ],
+    "addition_date": "2026/11/15"
+  },
+  {
+    "match": [
+      "^msh-pdfmin/"
+    ],
+    "instances": [
+      "msh-pdfmin/1"
+    ],
+    "description": "msh-pdfmin PDF fetching client",
+    "tags": [
+      "http-library"
+    ],
+    "addition_date": "2026/11/15"
+  },
+  {
+    "match": [
+      "fxmacrodata research"
+    ],
+    "url": "https://fxmacrodata.com/contact",
+    "instances": [
+      "FXMacroData research (+https://fxmacrodata.com/contact)"
+    ],
+    "description": "FXMacroData research crawler",
+    "tags": [
+      "academic"
+    ],
+    "addition_date": "2026/11/15"
+  },
+  {
+    "match": [
+      "bigcrawl/"
+    ],
+    "instances": [
+      "BigCrawl/0.1 (public website catalog)"
+    ],
+    "description": "BigCrawl public website catalog crawler",
+    "tags": [
+      "search-engine"
+    ],
+    "addition_date": "2026/11/15"
   }
 ]
