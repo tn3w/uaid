@@ -22,10 +22,11 @@ TAGS = set(
 )
 
 
-def matches(crawler, user_agent):
-    lowered = "^" + user_agent.lower()
-    rules = [[rule] if isinstance(rule, str) else rule for rule in crawler["match"]]
-    return any(all(part in lowered for part in rule) for rule in rules)
+FIELDS = ("description", "tags", "url", "rdns")
+
+
+def info(crawler):
+    return {key: crawler[key] for key in FIELDS if key in crawler}
 
 
 def test_entries_are_valid():
@@ -40,19 +41,19 @@ def test_entries_are_valid():
     assert not invalid
 
 
-def test_entries_are_unique():
-    rules = [json.dumps(crawler["match"]) for crawler in CRAWLERS]
+def test_rules_belong_to_one_entry():
+    rules = [json.dumps(rule) for crawler in CRAWLERS for rule in crawler["match"]]
     assert len(rules) == len(set(rules))
 
 
-def test_instances_match_their_entry():
-    unmatched = [
+def test_instances_identify_as_their_entry():
+    misidentified = [
         agent
         for crawler in CRAWLERS
         for agent in crawler["instances"]
-        if not matches(crawler, agent)
+        if uaid.identify(agent) != info(crawler)
     ]
-    assert not unmatched
+    assert not misidentified
 
 
 def test_browsers_are_not_identified():
@@ -79,6 +80,13 @@ def test_modern_bots_are_bots(agent):
         ("Mozilla/5.0 (compatible; adidxbot/2.0; +http://bing.com/bingbot)", "advertis"),
         ("Mozilla/5.0 (compatible; bingbot/2.0; +http://bing.com/bingbot)", "bing"),
         ("Mozilla/5.0 (compatible; BlogTraffic/1.4 Feed-Fetcher)", "blogtraffic"),
+        ("Lightpanda/1.0 ShapBot/0.1.0", "parallel"),
+        ("Mozilla/5.0 HeadlessChrome/120.0.0.0 Safari/537.36 Puppeteer", "puppeteer"),
+        ("Mozilla/5.0 (compatible; Go-http-client/1.1; +centurybot9@x.com)", "century"),
+        ("AppEngine-Google; (appid: s~virustotalcloud)", "virustotal"),
+        ("WPScan v3.8.22 (https://wpscan.com/wordpress-security-scanner)", "wpscan"),
+        ("Chrome/61.0 Safari/537.36 PingdomPageSpeed/1.0 (pingbot/2.0)", "pingdom"),
+        ("munin/http_loadtime", "munin"),
     ],
 )
 def test_identify_most_specific_crawler(agent, description):
