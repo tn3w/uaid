@@ -7,106 +7,115 @@ import pytest
 import uaid
 
 ROOT = Path(__file__).parent
-
-
-def read_lines(name):
-    return (ROOT / name).read_text().splitlines()
-
-
 CRAWLERS = json.loads((ROOT.parent / "crawlers.json").read_text())
-BROWSERS = read_lines("browsers.txt")
 INSTANCES = [agent for crawler in CRAWLERS for agent in crawler["instances"]]
+FIELDS = ("description", "tags", "url", "rdns")
 TAGS = set(
     "search-engine ai-crawler ai-fetcher social-preview seo monitoring feed-reader "
     "archiver advertising scanner http-library browser-automation academic".split()
 )
 
 
-FIELDS = ("description", "tags", "url", "rdns")
+def read_lines(name):
+    return (ROOT / name).read_text().splitlines()
 
 
 def info(crawler):
     return {key: crawler[key] for key in FIELDS if key in crawler}
 
 
+BROWSERS = read_lines("browsers.txt")
+
+
 def test_entries_are_valid():
-    invalid = [
-        crawler["match"]
-        for crawler in CRAWLERS
-        if not crawler["match"]
-        or not crawler["description"]
-        or not TAGS.issuperset(crawler["tags"])
-        or json.dumps(crawler["match"]) != json.dumps(crawler["match"]).lower()
-    ]
-    assert not invalid
-
-
-def test_rules_belong_to_one_entry():
     rules = [json.dumps(rule) for crawler in CRAWLERS for rule in crawler["match"]]
     assert len(rules) == len(set(rules))
+    assert all(rule == rule.lower() for rule in rules)
+    assert all(crawler["match"] and crawler["description"] for crawler in CRAWLERS)
+    assert all(TAGS.issuperset(crawler["tags"]) for crawler in CRAWLERS)
 
 
-def test_instances_identify_as_their_entry():
-    misidentified = [
-        agent
-        for crawler in CRAWLERS
-        for agent in crawler["instances"]
-        if uaid.identify(agent) != info(crawler)
-    ]
-    assert not misidentified
+def test_instances_identify_as_their_entry_with_a_name():
+    for crawler in CRAWLERS:
+        for agent in crawler["instances"]:
+            found = uaid.identify(agent)
+            assert info(found) == info(crawler), agent
+            assert found["name"], agent
 
 
-def test_browsers_are_not_identified():
+def test_every_rule_is_indexed_by_its_own_trigram():
+    positions = sorted(sum(uaid.data["index"].values(), []))
+    assert positions == list(range(len(uaid.data["rules"])))
+    for gram, indexed in uaid.data["index"].items():
+        assert all(gram in uaid.data["rules"][position][0] for position in indexed)
+
+
+def test_browsers_are_not_bots():
     assert not [agent for agent in BROWSERS if uaid.identify(agent)]
+    assert not [
+        agent for agent in read_lines("modern_browsers.txt") if uaid.is_bot(agent)
+    ]
 
 
-@pytest.mark.parametrize("agent", read_lines("modern_browsers.txt"))
-def test_modern_browsers_are_not_bots(agent):
-    assert not uaid.is_bot(agent)
-
-
-@pytest.mark.parametrize("agent", read_lines("modern_bots.txt"))
-def test_modern_bots_are_bots(agent):
-    assert uaid.is_bot(agent)
+def test_modern_bots_are_bots():
+    assert all(map(uaid.is_bot, read_lines("modern_bots.txt")))
 
 
 @pytest.mark.parametrize(
-    ("agent", "description"),
+    ("agent", "name", "description"),
     [
-        ("Mozilla/5.0 (compatible; Googlebot/2.1; +http://google.com/bot)", "google"),
-        ("MOZILLA/5.0 (COMPATIBLE; GOOGLEBOT/2.1)", "google"),
-        ("curl/8.4.0", "command-line"),
-        ("pycurl/7.45.3", "python curl"),
-        ("Mozilla/5.0 (compatible; adidxbot/2.0; +http://bing.com/bingbot)", "advertis"),
-        ("Mozilla/5.0 (compatible; bingbot/2.0; +http://bing.com/bingbot)", "bing"),
-        ("Mozilla/5.0 (compatible; BlogTraffic/1.4 Feed-Fetcher)", "blogtraffic"),
-        ("Lightpanda/1.0 ShapBot/0.1.0", "parallel"),
-        ("Mozilla/5.0 HeadlessChrome/120.0.0.0 Safari/537.36 Puppeteer", "puppeteer"),
-        ("Mozilla/5.0 (compatible; Go-http-client/1.1; +centurybot9@x.com)", "century"),
-        ("AppEngine-Google; (appid: s~virustotalcloud)", "virustotal"),
-        ("WPScan v3.8.22 (https://wpscan.com/wordpress-security-scanner)", "wpscan"),
-        ("Chrome/61.0 Safari/537.36 PingdomPageSpeed/1.0 (pingbot/2.0)", "pingdom"),
-        ("munin/http_loadtime", "munin"),
+        ("Mozilla/5.0 (compatible; Googlebot/2.1)", "Googlebot", "google"),
+        ("MOZILLA/5.0 (COMPATIBLE; GOOGLEBOT/2.1)", "GOOGLEBOT", "google"),
+        ("curl/8.4.0", "curl", "command-line"),
+        ("pycurl/7.45.3", "pycurl", "python curl"),
+        (
+            "Mozilla/5.0 (compatible; adidxbot/2.0; +http://bing.com/bingbot)",
+            "adidxbot",
+            "advertis",
+        ),
+        ("Mozilla/5.0 (compatible; bingbot/2.0)", "bingbot", "bing"),
+        (
+            "Mozilla/5.0 (compatible; BlogTraffic/1.4 Feed-Fetcher)",
+            "Feed-Fetcher",
+            "blogtraffic",
+        ),
+        ("Lightpanda/1.0 ShapBot/0.1.0", "Lightpanda", "parallel"),
+        (
+            "HeadlessChrome/120.0.0.0 Safari/537.36 Puppeteer",
+            "HeadlessChrome",
+            "puppeteer",
+        ),
+        (
+            "(compatible; Go-http-client/1.1; +centurybot9@x.com)",
+            "Go-http-client",
+            "century",
+        ),
+        (
+            "AppEngine-Google; (appid: s~virustotalcloud)",
+            "AppEngine-Google",
+            "virustotal",
+        ),
+        ("WPScan v3.8.22 (https://wpscan.com)", "WPScan", "wpscan"),
+        (
+            "Safari/537.36 PingdomPageSpeed/1.0 (pingbot/2.0)",
+            "PingdomPageSpeed",
+            "pingdom",
+        ),
+        ("munin/http_loadtime", "munin", "munin"),
+        ("libwww-perl/6.0 LWP::Simple/6.0", "LWP::Simple", "lwp::simple"),
+        ("Symfony BrowserKit", "BrowserKit", "symfony"),
+        ("Mozilla/5.0 (compatible; lightspeed)", "lightspeed", "lightspeed"),
     ],
 )
-def test_identify_most_specific_crawler(agent, description):
-    assert description in uaid.identify(agent)["description"].lower()
+def test_identify_most_specific_crawler(agent, name, description):
+    found = uaid.identify(agent)
+    assert found["name"] == name
+    assert description in found["description"].lower()
 
 
 def test_anchored_rules_only_match_at_start():
     assert uaid.identify("Mozilla/5.0 (X11; Linux) lightning/1.0b1") is None
     assert uaid.identify("Mozilla/5.0 (X11; Linux) Firefox/3.0 FirePHP/0.4") is None
-
-
-def test_identify_matches_full_scan():
-    def full_scan(agent):
-        lowered = "^" + agent.lower()
-        for first, rest, index in uaid.data["rules"]:
-            if first in lowered and all(part in lowered for part in rest):
-                return uaid.data["crawlers"][index]
-
-    agents = BROWSERS + INSTANCES + read_lines("modern_bots.txt")
-    assert not [agent for agent in agents if uaid.identify(agent) != full_scan(agent)]
 
 
 @pytest.mark.parametrize("agent", [None, "", " ", "Mozilla/5.0", "\x00\xff"])

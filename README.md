@@ -12,7 +12,7 @@ import uaid
 uaid.is_bot("curl/8.4.0")  # True
 
 uaid.identify("Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)")
-# {'description': 'Google search indexing bot', 'tags': ['search-engine'], 'url': ..., 'rdns': [...]}
+# {'name': 'Googlebot', 'description': 'Google search indexing bot', 'tags': ['search-engine'], 'url': ..., 'rdns': [...]}
 ```
 
 - `is_bot` checks ~4500 known crawlers plus a keyword heuristic for unknown bots

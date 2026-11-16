@@ -15,12 +15,19 @@ def candidates(lowered: str) -> list[int]:
     return sorted(position for gram in grams & index.keys() for position in index[gram])
 
 
+def extract_name(user_agent: str, pattern: str) -> str:
+    pattern = pattern.strip("^/ ;()")
+    start = user_agent.lower().find(pattern)
+    return user_agent[start : start + len(pattern)]
+
+
 def identify(user_agent: str | None) -> dict | None:
     lowered = "^" + (user_agent or "").lower()
     for position in candidates(lowered):
         first, rest, index = data["rules"][position]
         if first in lowered and all(part in lowered for part in rest):
-            return deepcopy(data["crawlers"][index])
+            crawler = deepcopy(data["crawlers"][index])
+            return {"name": extract_name(user_agent, first), **crawler}
 
 
 def looks_like_bot(user_agent: str | None) -> bool:
