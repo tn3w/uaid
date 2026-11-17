@@ -281,7 +281,8 @@
       "Mozilla/5.0 (seoanalyzer; compatible; bingbot/2.0; +http://www.bing.com/bingbot.htm)",
       "Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko; compatible; bingbot/2.0; +http://www.bing.com/bingbot.htm) Safari/537.36",
       "Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko; compatible; bingbot/2.0; +http://www.bing.com/bingbot.htm) Chrome/103.0.5060.134 Safari/537.36",
-      "Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko; compatible; bingbot/2.0; +http://www.bing.com/bingbot.htm) Chrome/116.0.1938.76 Safari/537.36"
+      "Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko; compatible; bingbot/2.0; +http://www.bing.com/bingbot.htm) Chrome/116.0.1938.76 Safari/537.36",
+      "Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko; compatible; bingbot/2.0; +http://www.bing.com/bingbot.htm) Chrome/136.0.0.0 Safari/537.36 AppleWebKit/537.36 (KHTML, like Gecko; compatible; bingbot/2.0; +http://www.bing.com/bingbot.htm) Chrome/116.0.1938"
     ],
     "description": "Microsoft's web crawling bot for Bing search indexing",
     "tags": [
@@ -358,7 +359,8 @@
       "Python-urllib/3.4",
       "Python-urllib/3.5",
       "Python-urllib/3.6",
-      "Python-urllib/3.7"
+      "Python-urllib/3.7",
+      "Python-urllib/3.11"
     ],
     "description": "Python's built-in URL library for HTTP requests",
     "tags": [
@@ -376,7 +378,8 @@
       "python-requests/2.19.1",
       "python-requests/2.20.0",
       "python-requests/2.21.0",
-      "python-requests/2.22.0"
+      "python-requests/2.22.0",
+      "python-requests/2.34.2"
     ],
     "description": "Popular Python HTTP library for making web requests",
     "tags": [
@@ -3606,7 +3609,8 @@
     ],
     "url": "https://www.scrapy.org/",
     "instances": [
-      "Scrapy/1.0.3 (+http://scrapy.org)"
+      "Scrapy/1.0.3 (+http://scrapy.org)",
+      "Scrapy/2.17.0 (+https://scrapy.org)"
     ],
     "description": "Scrapy Python web crawler framework",
     "tags": [
@@ -62095,5 +62099,31 @@
     "description": "FirstPage web crawler",
     "tags": [],
     "addition_date": "2026/11/16"
+  },
+  {
+    "match": [
+      "gitscan-go/"
+    ],
+    "instances": [
+      "Mozilla/5.0 gitscan-go/0.3"
+    ],
+    "description": "gitscan-go scanner probing websites for exposed Git repositories",
+    "tags": [
+      "scanner"
+    ],
+    "addition_date": "2026/11/17"
+  },
+  {
+    "match": [
+      "walletdomainradar/"
+    ],
+    "instances": [
+      "WalletDomainRadar/0.4 (+passive-public-web-inventory; respects-robots)"
+    ],
+    "description": "WalletDomainRadar passive public web inventory crawler",
+    "tags": [
+      "scanner"
+    ],
+    "addition_date": "2026/11/17"
   }
 ]
