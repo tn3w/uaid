@@ -17,7 +17,7 @@ jobs:
     steps:
       - uses: actions/checkout@v7
       - run: gh release download robots -p robots-history.json
-      - run: curl -fsSLo top.zip https://tranco-list.eu/top-1m.csv.zip
+      - run: curl -fsSL --retry 5 --retry-all-errors -o top.zip https://tranco-list.eu/top-1m.csv.zip
       - run: unzip -p top.zip | node .github/robots.mjs
         env:
           UV_THREADPOOL_SIZE: 128
