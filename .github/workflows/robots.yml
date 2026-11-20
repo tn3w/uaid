@@ -31,3 +31,20 @@ jobs:
       - run: gh release download -R tn3w/iplore -p rdns-v4.rdns
       - run: uv run --no-project --with dnspython python .github/crawler_ips.py rdns-v4.rdns
       - run: gh release upload robots crawler-ips.json --clobber
+
+  crawler-info:
+    needs: robots
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v7
+      - uses: astral-sh/setup-uv@v10.3.3
+      - run: gh release download robots -p robots-today.json
+      - run: >-
+          curl -fsSL --retry 5 --retry-all-errors --retry-delay 30 -o observed.json
+          https://github.com/tn3w/opendata/releases/download/data/crawlers.json
+          || echo '{}' > observed.json
+      - run: >-
+          uv run --no-project --with dnspython
+          python .github/crawler_info.py observed.json robots-today.json
+      - run: gh release upload robots crawler-info.json --clobber

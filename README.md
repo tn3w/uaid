@@ -62,3 +62,15 @@ ips = crawler_ips["rdns"] | crawler_ips["ranges"]
 keys = crawler.get("rdns", []) + crawler.get("ranges", [])
 networks = {network for key in keys for network in ips.get(key, [])}
 ```
+
+## Crawler info
+
+`crawler-info.json` in the same release adds context per crawler and per `rdns` domain:
+
+- `domains`: for each registered domain behind an `rdns` suffix, the HTTP status of its
+  `robots.txt` and `security.txt`, MX records, SPF record, and RDAP registration date,
+  registrar and registrant (when the registry publishes them).
+- `crawlers`, keyed by the first `match` rule: `url_status` of the crawler's info page,
+  `observed` traffic from [tn3w/opendata](https://github.com/tn3w/opendata) (addresses,
+  requests, addresses that fetched robots.txt, verified addresses, first and last seen),
+  and `robots`, today's robots.txt stats for its token with the share of sites restricting it.
