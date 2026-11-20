@@ -24,7 +24,7 @@
     "rdns": [
       ".1e100.net",
       ".googlebot.com",
-      ".googleusercontent.com"
+      ".google.com"
     ]
   },
   {
@@ -45,7 +45,7 @@
     "rdns": [
       ".1e100.net",
       ".googlebot.com",
-      ".googleusercontent.com"
+      ".google.com"
     ]
   },
   {
@@ -62,7 +62,7 @@
     "rdns": [
       ".1e100.net",
       ".googlebot.com",
-      ".googleusercontent.com"
+      ".google.com"
     ]
   },
   {
@@ -79,7 +79,7 @@
     "rdns": [
       ".1e100.net",
       ".googlebot.com",
-      ".googleusercontent.com"
+      ".google.com"
     ]
   },
   {
@@ -96,7 +96,7 @@
     "rdns": [
       ".1e100.net",
       ".googlebot.com",
-      ".googleusercontent.com"
+      ".google.com"
     ]
   },
   {
@@ -114,7 +114,7 @@
     "rdns": [
       ".1e100.net",
       ".googlebot.com",
-      ".googleusercontent.com"
+      ".google.com"
     ]
   },
   {
@@ -135,7 +135,7 @@
     "rdns": [
       ".1e100.net",
       ".googlebot.com",
-      ".googleusercontent.com"
+      ".google.com"
     ]
   },
   {
@@ -155,7 +155,8 @@
     "rdns": [
       ".1e100.net",
       ".googlebot.com",
-      ".googleusercontent.com"
+      ".google.com",
+      ".gae.googleusercontent.com"
     ]
   },
   {
@@ -176,7 +177,7 @@
     "rdns": [
       ".1e100.net",
       ".googlebot.com",
-      ".googleusercontent.com"
+      ".google.com"
     ]
   },
   {
@@ -207,7 +208,7 @@
     "rdns": [
       ".1e100.net",
       ".googlebot.com",
-      ".googleusercontent.com"
+      ".google.com"
     ]
   },
   {
@@ -226,7 +227,7 @@
     "rdns": [
       ".1e100.net",
       ".googlebot.com",
-      ".googleusercontent.com"
+      ".google.com"
     ]
   },
   {
@@ -245,7 +246,7 @@
     "rdns": [
       ".1e100.net",
       ".googlebot.com",
-      ".googleusercontent.com"
+      ".google.com"
     ]
   },
   {
@@ -254,7 +255,8 @@
     ],
     "url": "https://developers.google.com/crawling/docs/crawlers-fetchers/overview-google-crawlers",
     "instances": [
-      "GoogleOther"
+      "GoogleOther",
+      "GoogleOther-Image/1.0"
     ],
     "description": "Google's other bots and services for various Google search features",
     "tags": [
@@ -263,7 +265,7 @@
     "rdns": [
       ".1e100.net",
       ".googlebot.com",
-      ".googleusercontent.com"
+      ".google.com"
     ]
   },
   {
@@ -360,7 +362,8 @@
       "Python-urllib/3.5",
       "Python-urllib/3.6",
       "Python-urllib/3.7",
-      "Python-urllib/3.11"
+      "Python-urllib/3.11",
+      "Python-urllib/3.12"
     ],
     "description": "Python's built-in URL library for HTTP requests",
     "tags": [
@@ -397,7 +400,8 @@
       "Python/3.8 aiohttp/3.7.2",
       "Python/3.7 aiohttp/3.6.2a2",
       "Python/3.10 aiohttp/3.11.11",
-      "Python/3.14 aiohttp/3.14.1"
+      "Python/3.14 aiohttp/3.14.1",
+      "Python/3.11 aiohttp/3.14.4"
     ],
     "description": "Asynchronous HTTP client library for Python",
     "tags": [
@@ -4087,7 +4091,8 @@
       "WhatsApp/2.19.244 A",
       "WhatsApp/2.19.258 A",
       "WhatsApp/2.19.308 A",
-      "WhatsApp/2.19.330 A"
+      "WhatsApp/2.19.330 A",
+      "WhatsApp/2.23.20.0"
     ],
     "description": "WhatsApp's web crawler for link previews",
     "tags": [
@@ -4860,7 +4865,8 @@
       "okhttp/2.7.5",
       "okhttp/3.2.0",
       "okhttp/3.5.0",
-      "okhttp/4.1.0"
+      "okhttp/4.1.0",
+      "okhttp/3.14.9"
     ],
     "description": "OkHttp Java HTTP client library",
     "tags": [
@@ -6325,8 +6331,7 @@
     ],
     "addition_date": "2018/09/07",
     "rdns": [
-      ".amazon.com",
-      ".amazonaws.com"
+      ".amazon.com"
     ]
   },
   {
@@ -7042,7 +7047,7 @@
     "rdns": [
       ".1e100.net",
       ".googlebot.com",
-      ".googleusercontent.com"
+      ".google.com"
     ]
   },
   {
@@ -7189,7 +7194,10 @@
       "curl/7.64.1",
       "curl/7.65.3",
       "curl/7.58.0",
-      "curl/8.14.1"
+      "curl/8.14.1",
+      "curl/7.4.0",
+      "curl/8.22.0",
+      "curl/8.5.0"
     ],
     "description": "cURL command-line tool for HTTP requests",
     "tags": [
@@ -7381,7 +7389,8 @@
     "rdns": [
       ".1e100.net",
       ".googlebot.com",
-      ".googleusercontent.com"
+      ".google.com",
+      ".gae.googleusercontent.com"
     ]
   },
   {
@@ -7525,8 +7534,7 @@
     ],
     "addition_date": "2020/03/02",
     "rdns": [
-      ".amazon.com",
-      ".amazonaws.com"
+      ".crawl.amazonbot.amazon"
     ]
   },
   {
@@ -8579,7 +8587,8 @@
     "rdns": [
       ".1e100.net",
       ".googlebot.com",
-      ".googleusercontent.com"
+      ".google.com",
+      ".gae.googleusercontent.com"
     ]
   },
   {
@@ -8756,7 +8765,7 @@
     "rdns": [
       ".1e100.net",
       ".googlebot.com",
-      ".googleusercontent.com"
+      ".google.com"
     ]
   },
   {
@@ -9553,10 +9562,7 @@
       "ai-crawler",
       "search-engine"
     ],
-    "addition_date": "2024/03/14",
-    "rdns": [
-      ".perplexity.ai"
-    ]
+    "addition_date": "2024/03/14"
   },
   {
     "match": [
@@ -9681,7 +9687,8 @@
       "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36 (compatible; meta-externalagent/1.1 (+https://developers.facebook.com/docs/sharing/webmasters/crawler))",
       "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:145.0) Gecko/20100101 Firefox/145.0 (compatible; meta-externalagent/1.1 (+https://developers.facebook.com/docs/sharing/webmasters/crawler))",
       "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36 (compatible; meta-externalagent/1.1 (+https://developers.facebook.com/docs/sharing/webmasters/crawler))",
-      "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36 (compatible; meta-externalagent/1.1 (+https://developers.facebook.com/docs/sharing/webmasters/crawler))"
+      "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36 (compatible; meta-externalagent/1.1 (+https://developers.facebook.com/docs/sharing/webmasters/crawler))",
+      "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36 Edg/145.0.0.0 (compatible; meta-externalagent/1.1 (+https://developers.facebook.com/docs/sharing/webmasters/crawler))"
     ],
     "description": "Meta external agent web crawler bot",
     "tags": [
@@ -10138,7 +10145,7 @@
     "rdns": [
       ".1e100.net",
       ".googlebot.com",
-      ".googleusercontent.com"
+      ".google.com"
     ]
   },
   {
@@ -10551,7 +10558,7 @@
     "rdns": [
       ".1e100.net",
       ".googlebot.com",
-      ".googleusercontent.com"
+      ".google.com"
     ]
   },
   {
@@ -10567,10 +10574,7 @@
       "ai-fetcher",
       "search-engine"
     ],
-    "addition_date": "2026/04/07",
-    "rdns": [
-      ".perplexity.ai"
-    ]
+    "addition_date": "2026/04/07"
   },
   {
     "match": [
@@ -11807,7 +11811,7 @@
     "rdns": [
       ".1e100.net",
       ".googlebot.com",
-      ".googleusercontent.com"
+      ".google.com"
     ]
   },
   {
@@ -13160,7 +13164,8 @@
     "url": "https://github.com/atmos/camo",
     "instances": [
       "github-camo (c006e452)",
-      "github-camo (ea45cab4)"
+      "github-camo (ea45cab4)",
+      "github-camo (90e6e24a)"
     ],
     "description": "GitHub image proxy fetching external images for secure rendering",
     "tags": [
@@ -13259,7 +13264,7 @@
     "rdns": [
       ".1e100.net",
       ".googlebot.com",
-      ".googleusercontent.com"
+      ".google.com"
     ]
   },
   {
@@ -13278,7 +13283,8 @@
     "rdns": [
       ".1e100.net",
       ".googlebot.com",
-      ".googleusercontent.com"
+      ".google.com",
+      ".gae.googleusercontent.com"
     ]
   },
   {
@@ -13342,7 +13348,7 @@
     "rdns": [
       ".1e100.net",
       ".googlebot.com",
-      ".googleusercontent.com"
+      ".google.com"
     ]
   },
   {
@@ -15213,8 +15219,7 @@
     ],
     "addition_date": "2026/04/17",
     "rdns": [
-      ".amazon.com",
-      ".amazonaws.com"
+      ".amazon.com"
     ]
   },
   {
@@ -18704,8 +18709,7 @@
     ],
     "addition_date": "2026/04/26",
     "rdns": [
-      ".amazon.com",
-      ".amazonaws.com"
+      ".amazon.com"
     ]
   },
   {
@@ -19679,7 +19683,8 @@
     "rdns": [
       ".1e100.net",
       ".googlebot.com",
-      ".googleusercontent.com"
+      ".google.com",
+      ".gae.googleusercontent.com"
     ]
   },
   {
@@ -19698,7 +19703,7 @@
     "rdns": [
       ".1e100.net",
       ".googlebot.com",
-      ".googleusercontent.com"
+      ".google.com"
     ]
   },
   {
@@ -19717,7 +19722,8 @@
     "rdns": [
       ".1e100.net",
       ".googlebot.com",
-      ".googleusercontent.com"
+      ".google.com",
+      ".gae.googleusercontent.com"
     ]
   },
   {
@@ -19736,7 +19742,7 @@
     "rdns": [
       ".1e100.net",
       ".googlebot.com",
-      ".googleusercontent.com"
+      ".google.com"
     ]
   },
   {
@@ -23008,7 +23014,7 @@
     "rdns": [
       ".1e100.net",
       ".googlebot.com",
-      ".googleusercontent.com"
+      ".google.com"
     ]
   },
   {
@@ -27348,7 +27354,8 @@
     "rdns": [
       ".1e100.net",
       ".googlebot.com",
-      ".googleusercontent.com"
+      ".google.com",
+      ".gae.googleusercontent.com"
     ]
   },
   {
@@ -27367,7 +27374,8 @@
     "rdns": [
       ".1e100.net",
       ".googlebot.com",
-      ".googleusercontent.com"
+      ".google.com",
+      ".gae.googleusercontent.com"
     ]
   },
   {
@@ -27386,7 +27394,8 @@
     "rdns": [
       ".1e100.net",
       ".googlebot.com",
-      ".googleusercontent.com"
+      ".google.com",
+      ".gae.googleusercontent.com"
     ]
   },
   {
@@ -42260,7 +42269,8 @@
     ],
     "url": "https://crawler.exa.ai/",
     "instances": [
-      "Mozilla/5.0 (compatible; ExaSearchBot/1.0; +https://crawler.exa.ai/)"
+      "Mozilla/5.0 (compatible; ExaSearchBot/1.0; +https://crawler.exa.ai/)",
+      "Mozilla/5.0 (compatible; ExaSearchBot-Images/1.0; +https://images.crawler.exa.ai)"
     ],
     "description": "Exa AI search engine web crawler",
     "tags": [
@@ -62125,5 +62135,190 @@
       "scanner"
     ],
     "addition_date": "2026/11/17"
+  },
+  {
+    "match": [
+      "lhrsearchbot/"
+    ],
+    "instances": [
+      "Mozilla/5.0 (compatible; LHRSearchBot/1.0; research; contact: data@lhr.com)"
+    ],
+    "description": "LHR research web crawler",
+    "tags": [
+      "academic"
+    ],
+    "addition_date": "2026/11/20"
+  },
+  {
+    "match": [
+      [
+        "sitemap-scheduler/",
+        "xiaohongshu.com"
+      ]
+    ],
+    "url": "https://www.xiaohongshu.com",
+    "instances": [
+      "sitemap-scheduler/1.0 (+https://www.xiaohongshu.com)"
+    ],
+    "description": "Xiaohongshu sitemap crawler",
+    "tags": [
+      "search-engine"
+    ],
+    "addition_date": "2026/11/20"
+  },
+  {
+    "match": [
+      "crolbot/"
+    ],
+    "url": "https://cloro.dev",
+    "instances": [
+      "Mozilla/5.0 (compatible; CrolBot/0.1; +https://cloro.dev)"
+    ],
+    "description": "Cloro web crawler",
+    "tags": [],
+    "addition_date": "2026/11/20"
+  },
+  {
+    "match": [
+      "licitpro-catalogue/"
+    ],
+    "url": "https://licitpro.fr/fr/comment-nous-choisissons",
+    "instances": [
+      "LicitPro-catalogue/1.0 (+https://licitpro.fr/fr/comment-nous-choisissons)"
+    ],
+    "description": "LicitPro public procurement catalogue crawler",
+    "tags": [],
+    "addition_date": "2026/11/20"
+  },
+  {
+    "match": [
+      "webxtrendbot/"
+    ],
+    "url": "https://webxtrend.com/crawler",
+    "instances": [
+      "Mozilla/5.0 (compatible; webXtrendBot/1.1; +https://webxtrend.com/crawler)"
+    ],
+    "description": "webXtrend web crawler",
+    "tags": [],
+    "addition_date": "2026/11/20"
+  },
+  {
+    "match": [
+      "servcastleadbot/"
+    ],
+    "url": "https://www.serverroom.net/contact",
+    "instances": [
+      "ServCastLeadBot/1.0 (+https://www.serverroom.net/contact)"
+    ],
+    "description": "ServerRoom lead discovery crawler",
+    "tags": [],
+    "addition_date": "2026/11/20"
+  },
+  {
+    "match": [
+      "curiousreader/"
+    ],
+    "instances": [
+      "Mozilla/5.0 (compatible; CuriousReader/1.0; mailto:curious-reader@agentmail.to)"
+    ],
+    "description": "CuriousReader AI agent page reader",
+    "tags": [
+      "ai-fetcher"
+    ],
+    "addition_date": "2026/11/20"
+  },
+  {
+    "match": [
+      "^node"
+    ],
+    "url": "https://nodejs.org",
+    "instances": [
+      "node"
+    ],
+    "description": "Node.js built-in fetch (undici) default user agent",
+    "tags": [
+      "http-library"
+    ],
+    "addition_date": "2026/11/20"
+  },
+  {
+    "match": [
+      "historical-dataset-review/"
+    ],
+    "instances": [
+      "historical-dataset-review/1.0"
+    ],
+    "description": "Historical dataset review crawler",
+    "tags": [],
+    "addition_date": "2026/11/20"
+  },
+  {
+    "match": [
+      "generalretrieval-docsfetch/"
+    ],
+    "url": "https://generalretrieval.com",
+    "instances": [
+      "GeneralRetrieval-DocsFetch/1.0 (+https://generalretrieval.com; support@generalretrieval.com; documentation search index; search indexing only; no AI training)"
+    ],
+    "description": "GeneralRetrieval documentation search indexer",
+    "tags": [
+      "search-engine"
+    ],
+    "addition_date": "2026/11/20"
+  },
+  {
+    "match": [
+      "crawlspace"
+    ],
+    "url": "https://crawlspace.dev",
+    "instances": [
+      "Crawlspace"
+    ],
+    "description": "Crawlspace web data crawler for AI",
+    "tags": [
+      "ai-crawler"
+    ],
+    "addition_date": "2026/11/20"
+  },
+  {
+    "match": [
+      "doubaobot"
+    ],
+    "instances": [
+      "DoubaoBot"
+    ],
+    "description": "ByteDance crawler for the Doubao AI assistant",
+    "tags": [
+      "ai-crawler"
+    ],
+    "addition_date": "2026/11/20"
+  },
+  {
+    "match": [
+      "echobot bot"
+    ],
+    "url": "https://www.echobox.com",
+    "instances": [
+      "Echobot Bot"
+    ],
+    "description": "Echobox web crawler",
+    "tags": [
+      "ai-crawler"
+    ],
+    "addition_date": "2026/11/20"
+  },
+  {
+    "match": [
+      "grokappandroid"
+    ],
+    "url": "https://x.ai",
+    "instances": [
+      "GrokAppAndroid"
+    ],
+    "description": "xAI Grok Android app fetcher",
+    "tags": [
+      "ai-fetcher"
+    ],
+    "addition_date": "2026/11/20"
   }
 ]
