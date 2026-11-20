@@ -9,7 +9,7 @@ import uaid
 ROOT = Path(__file__).parent
 CRAWLERS = json.loads((ROOT.parent / "crawlers.json").read_text())
 INSTANCES = [agent for crawler in CRAWLERS for agent in crawler["instances"]]
-FIELDS = ("description", "tags", "url", "rdns")
+FIELDS = ("description", "tags", "url", "rdns", "ranges")
 TAGS = set(
     "search-engine ai-crawler ai-fetcher social-preview seo monitoring feed-reader "
     "archiver advertising scanner http-library browser-automation academic".split()

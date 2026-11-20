@@ -4,7 +4,7 @@ from pathlib import Path
 
 from hatchling.builders.hooks.plugin.interface import BuildHookInterface
 
-FIELDS = ("description", "tags", "url", "rdns")
+FIELDS = ("description", "tags", "url", "rdns", "ranges")
 TARGET = "src/uaid/rules.json"
 
 

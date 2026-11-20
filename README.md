@@ -20,6 +20,7 @@ uaid.identify("Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bo
   A missing user agent (`None` or `""`) counts as a bot.
 - `identify` returns the most specific known crawler, or `None`.
 - `rdns` lists forward-confirmed reverse DNS suffixes for verifying a crawler's IP.
+- `ranges` lists URLs of IP range lists the operator publishes for the crawler.
 - ~15 µs per call through a trigram index, ~20 ms import time.
 
 ## Data
@@ -38,3 +39,26 @@ sites and publishes two files to the [`robots` release](https://github.com/tn3w/
   partially or allow it (and set a crawl delay), Content-Signal counts, and per site the
   blocked and partially blocked agents.
 - `robots-history.json`: per date and user agent, the share of sites that restrict it.
+
+## Crawler IPs
+
+The same workflow publishes `crawler-ips.json` to the `robots` release: the IPv4 networks
+behind every `rdns` suffix and the parsed networks of every `ranges` URL.
+
+```json
+{"date": "2026-11-20", "rdns": {".googlebot.com": ["66.249.64.0/27", ...]},
+ "ranges": {"https://openai.com/gptbot.json": ["132.196.86.0/24", ...]}}
+```
+
+`rdns` networks come from every IPv4 PTR record in the
+[iplore rDNS database](https://github.com/tn3w/iplore). Records ending in a suffix are
+grouped per /24, and a group is kept only if a sampled address forward-confirms (its name
+resolves back to it), which drops spoofed PTR records. A crawler's addresses are the union
+of its `rdns` suffixes and `ranges` URLs:
+
+```python
+crawler = uaid.identify(user_agent)
+ips = crawler_ips["rdns"] | crawler_ips["ranges"]
+networks = {net for key in crawler.get("rdns", []) + crawler.get("ranges", [])
+            for net in ips.get(key, [])}
+```

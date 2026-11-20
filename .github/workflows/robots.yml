@@ -8,17 +8,26 @@ on:
 permissions:
   contents: write
 
+env:
+  GH_TOKEN: ${{ github.token }}
+
 jobs:
   robots:
     runs-on: ubuntu-latest
     timeout-minutes: 60
-    env:
-      GH_TOKEN: ${{ github.token }}
     steps:
       - uses: actions/checkout@v7
       - run: gh release download robots -p robots-history.json
       - run: curl -fsSL --retry 5 --retry-all-errors -o top.zip https://tranco-list.eu/top-1m.csv.zip
-      - run: unzip -p top.zip | node .github/robots.mjs
-        env:
-          UV_THREADPOOL_SIZE: 128
+      - run: unzip -p top.zip | python3 .github/robots.py
       - run: gh release upload robots robots-*.json --clobber
+
+  crawler-ips:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v7
+      - uses: astral-sh/setup-uv@v10.3.3
+      - run: gh release download -R tn3w/iplore -p rdns-v4.rdns
+      - run: uv run --no-project --with dnspython python .github/crawler_ips.py rdns-v4.rdns
+      - run: gh release upload robots crawler-ips.json --clobber

@@ -25,6 +25,9 @@
       ".1e100.net",
       ".googlebot.com",
       ".google.com"
+    ],
+    "ranges": [
+      "https://developers.google.com/static/crawling/ipranges/common-crawlers.json"
     ]
   },
   {
@@ -46,6 +49,9 @@
       ".1e100.net",
       ".googlebot.com",
       ".google.com"
+    ],
+    "ranges": [
+      "https://developers.google.com/static/crawling/ipranges/common-crawlers.json"
     ]
   },
   {
@@ -63,6 +69,9 @@
       ".1e100.net",
       ".googlebot.com",
       ".google.com"
+    ],
+    "ranges": [
+      "https://developers.google.com/static/crawling/ipranges/common-crawlers.json"
     ]
   },
   {
@@ -80,6 +89,9 @@
       ".1e100.net",
       ".googlebot.com",
       ".google.com"
+    ],
+    "ranges": [
+      "https://developers.google.com/static/crawling/ipranges/common-crawlers.json"
     ]
   },
   {
@@ -97,6 +109,9 @@
       ".1e100.net",
       ".googlebot.com",
       ".google.com"
+    ],
+    "ranges": [
+      "https://developers.google.com/static/crawling/ipranges/common-crawlers.json"
     ]
   },
   {
@@ -115,6 +130,9 @@
       ".1e100.net",
       ".googlebot.com",
       ".google.com"
+    ],
+    "ranges": [
+      "https://developers.google.com/static/crawling/ipranges/special-crawlers.json"
     ]
   },
   {
@@ -136,6 +154,9 @@
       ".1e100.net",
       ".googlebot.com",
       ".google.com"
+    ],
+    "ranges": [
+      "https://developers.google.com/static/crawling/ipranges/special-crawlers.json"
     ]
   },
   {
@@ -157,6 +178,10 @@
       ".googlebot.com",
       ".google.com",
       ".gae.googleusercontent.com"
+    ],
+    "ranges": [
+      "https://developers.google.com/static/crawling/ipranges/user-triggered-fetchers.json",
+      "https://developers.google.com/static/crawling/ipranges/user-triggered-fetchers-google.json"
     ]
   },
   {
@@ -178,6 +203,9 @@
       ".1e100.net",
       ".googlebot.com",
       ".google.com"
+    ],
+    "ranges": [
+      "https://developers.google.com/static/crawling/ipranges/special-crawlers.json"
     ]
   },
   {
@@ -209,6 +237,9 @@
       ".1e100.net",
       ".googlebot.com",
       ".google.com"
+    ],
+    "ranges": [
+      "https://developers.google.com/static/crawling/ipranges/special-crawlers.json"
     ]
   },
   {
@@ -228,6 +259,9 @@
       ".1e100.net",
       ".googlebot.com",
       ".google.com"
+    ],
+    "ranges": [
+      "https://developers.google.com/static/crawling/ipranges/common-crawlers.json"
     ]
   },
   {
@@ -247,6 +281,9 @@
       ".1e100.net",
       ".googlebot.com",
       ".google.com"
+    ],
+    "ranges": [
+      "https://developers.google.com/static/crawling/ipranges/common-crawlers.json"
     ]
   },
   {
@@ -266,6 +303,9 @@
       ".1e100.net",
       ".googlebot.com",
       ".google.com"
+    ],
+    "ranges": [
+      "https://developers.google.com/static/crawling/ipranges/common-crawlers.json"
     ]
   },
   {
@@ -292,6 +332,9 @@
     ],
     "rdns": [
       ".search.msn.com"
+    ],
+    "ranges": [
+      "https://www.bing.com/toolbox/bingbot.json"
     ]
   },
   {
@@ -513,6 +556,9 @@
     ],
     "rdns": [
       ".search.msn.com"
+    ],
+    "ranges": [
+      "https://www.bing.com/toolbox/bingbot.json"
     ]
   },
   {
@@ -1027,6 +1073,9 @@
       ".yandex.com",
       ".yandex.net",
       ".yandex.ru"
+    ],
+    "ranges": [
+      "https://yandex.com/ips"
     ]
   },
   {
@@ -1046,6 +1095,9 @@
       ".yandex.com",
       ".yandex.net",
       ".yandex.ru"
+    ],
+    "ranges": [
+      "https://yandex.com/ips"
     ]
   },
   {
@@ -1065,6 +1117,9 @@
       ".yandex.com",
       ".yandex.net",
       ".yandex.ru"
+    ],
+    "ranges": [
+      "https://yandex.com/ips"
     ]
   },
   {
@@ -1084,6 +1139,9 @@
       ".yandex.com",
       ".yandex.net",
       ".yandex.ru"
+    ],
+    "ranges": [
+      "https://yandex.com/ips"
     ]
   },
   {
@@ -1103,6 +1161,9 @@
       ".yandex.com",
       ".yandex.net",
       ".yandex.ru"
+    ],
+    "ranges": [
+      "https://yandex.com/ips"
     ]
   },
   {
@@ -1122,6 +1183,9 @@
       ".yandex.com",
       ".yandex.net",
       ".yandex.ru"
+    ],
+    "ranges": [
+      "https://yandex.com/ips"
     ]
   },
   {
@@ -1141,6 +1205,9 @@
       ".yandex.com",
       ".yandex.net",
       ".yandex.ru"
+    ],
+    "ranges": [
+      "https://yandex.com/ips"
     ]
   },
   {
@@ -1160,6 +1227,9 @@
       ".yandex.com",
       ".yandex.net",
       ".yandex.ru"
+    ],
+    "ranges": [
+      "https://yandex.com/ips"
     ]
   },
   {
@@ -1182,6 +1252,9 @@
       ".yandex.com",
       ".yandex.net",
       ".yandex.ru"
+    ],
+    "ranges": [
+      "https://yandex.com/ips"
     ]
   },
   {
@@ -1201,6 +1274,9 @@
       ".yandex.com",
       ".yandex.net",
       ".yandex.ru"
+    ],
+    "ranges": [
+      "https://yandex.com/ips"
     ]
   },
   {
@@ -1220,6 +1296,9 @@
       ".yandex.com",
       ".yandex.net",
       ".yandex.ru"
+    ],
+    "ranges": [
+      "https://yandex.com/ips"
     ]
   },
   {
@@ -1239,6 +1318,9 @@
       ".yandex.com",
       ".yandex.net",
       ".yandex.ru"
+    ],
+    "ranges": [
+      "https://yandex.com/ips"
     ]
   },
   {
@@ -1259,6 +1341,9 @@
       ".yandex.com",
       ".yandex.net",
       ".yandex.ru"
+    ],
+    "ranges": [
+      "https://yandex.com/ips"
     ]
   },
   {
@@ -1278,6 +1363,9 @@
       ".yandex.com",
       ".yandex.net",
       ".yandex.ru"
+    ],
+    "ranges": [
+      "https://yandex.com/ips"
     ]
   },
   {
@@ -1297,6 +1385,9 @@
       ".yandex.com",
       ".yandex.net",
       ".yandex.ru"
+    ],
+    "ranges": [
+      "https://yandex.com/ips"
     ]
   },
   {
@@ -1316,6 +1407,9 @@
       ".yandex.com",
       ".yandex.net",
       ".yandex.ru"
+    ],
+    "ranges": [
+      "https://yandex.com/ips"
     ]
   },
   {
@@ -1335,6 +1429,9 @@
       ".yandex.com",
       ".yandex.net",
       ".yandex.ru"
+    ],
+    "ranges": [
+      "https://yandex.com/ips"
     ]
   },
   {
@@ -1354,6 +1451,9 @@
       ".yandex.com",
       ".yandex.net",
       ".yandex.ru"
+    ],
+    "ranges": [
+      "https://yandex.com/ips"
     ]
   },
   {
@@ -1373,6 +1473,9 @@
       ".yandex.com",
       ".yandex.net",
       ".yandex.ru"
+    ],
+    "ranges": [
+      "https://yandex.com/ips"
     ]
   },
   {
@@ -1393,6 +1496,9 @@
       ".yandex.com",
       ".yandex.net",
       ".yandex.ru"
+    ],
+    "ranges": [
+      "https://yandex.com/ips"
     ]
   },
   {
@@ -1412,6 +1518,9 @@
       ".yandex.com",
       ".yandex.net",
       ".yandex.ru"
+    ],
+    "ranges": [
+      "https://yandex.com/ips"
     ]
   },
   {
@@ -2078,6 +2187,9 @@
     "rdns": [
       ".ahrefs.com",
       ".ahrefs.net"
+    ],
+    "ranges": [
+      "https://api.ahrefs.com/v3/public/crawler-ip-ranges"
     ]
   },
   {
@@ -2308,6 +2420,9 @@
     "addition_date": "2012/02/05",
     "rdns": [
       ".commoncrawl.org"
+    ],
+    "ranges": [
+      "https://index.commoncrawl.org/ccbot.json"
     ]
   },
   {
@@ -2417,6 +2532,10 @@
       ".fbcdn.net",
       ".fbsv.net",
       ".tfbnw.net"
+    ],
+    "ranges": [
+      "https://raw.githubusercontent.com/lord-alfred/ipranges/main/facebook/ipv4.txt",
+      "https://raw.githubusercontent.com/lord-alfred/ipranges/main/facebook/ipv6.txt"
     ]
   },
   {
@@ -2582,6 +2701,9 @@
     "addition_date": "2012/09/19",
     "rdns": [
       ".duckduckgo.com"
+    ],
+    "ranges": [
+      "https://duckduckgo.com/duckduckbot.json"
     ]
   },
   {
@@ -3110,6 +3232,10 @@
       ".twitter.com",
       ".twttr.com",
       ".x.com"
+    ],
+    "ranges": [
+      "https://raw.githubusercontent.com/lord-alfred/ipranges/main/twitter/ipv4.txt",
+      "https://raw.githubusercontent.com/lord-alfred/ipranges/main/twitter/ipv6.txt"
     ]
   },
   {
@@ -3424,6 +3550,9 @@
     "addition_date": "2015/04/15",
     "rdns": [
       ".applebot.apple.com"
+    ],
+    "ranges": [
+      "https://search.developer.apple.com/applebot.json"
     ]
   },
   {
@@ -3491,6 +3620,9 @@
     "addition_date": "2015/05/26",
     "rdns": [
       ".semrush.com"
+    ],
+    "ranges": [
+      "https://raw.githubusercontent.com/AnTheMaker/GoodBots/main/iplists/semrushbot.ips"
     ]
   },
   {
@@ -3762,6 +3894,9 @@
     "addition_date": "2016/01/23",
     "rdns": [
       ".mojeek.com"
+    ],
+    "ranges": [
+      "https://www.mojeek.com/mojeekbot.json"
     ]
   },
   {
@@ -4187,6 +4322,9 @@
     "addition_date": "2017/04/23",
     "rdns": [
       ".search.msn.com"
+    ],
+    "ranges": [
+      "https://www.bing.com/toolbox/bingbot.json"
     ]
   },
   {
@@ -4389,6 +4527,10 @@
     "rdns": [
       ".pingdom.com",
       ".pingdom.net"
+    ],
+    "ranges": [
+      "https://my.pingdom.com/probes/ipv4",
+      "https://my.pingdom.com/probes/ipv6"
     ]
   },
   {
@@ -4481,6 +4623,9 @@
     "rdns": [
       ".t.me",
       ".telegram.org"
+    ],
+    "ranges": [
+      "https://core.telegram.org/resources/cidr.txt"
     ]
   },
   {
@@ -4632,6 +4777,9 @@
     "addition_date": "2017/10/06",
     "rdns": [
       ".duckduckgo.com"
+    ],
+    "ranges": [
+      "https://duckduckgo.com/duckduckbot.json"
     ]
   },
   {
@@ -5552,6 +5700,9 @@
     "addition_date": "2018/03/27",
     "rdns": [
       ".uptimerobot.com"
+    ],
+    "ranges": [
+      "https://uptimerobot.com/inc/files/ips/IPv4andIPv6.txt"
     ]
   },
   {
@@ -5812,7 +5963,7 @@
     "instances": [
       "BTWebClient/180B(9704)"
     ],
-    "description": "µTorrent BitTorrent Client",
+    "description": "\u00b5Torrent BitTorrent Client",
     "tags": [
       "http-library"
     ],
@@ -7401,6 +7552,10 @@
       ".googlebot.com",
       ".google.com",
       ".gae.googleusercontent.com"
+    ],
+    "ranges": [
+      "https://developers.google.com/static/crawling/ipranges/user-triggered-fetchers.json",
+      "https://developers.google.com/static/crawling/ipranges/user-triggered-fetchers-google.json"
     ]
   },
   {
@@ -7545,6 +7700,9 @@
     "addition_date": "2020/03/02",
     "rdns": [
       ".crawl.amazonbot.amazon"
+    ],
+    "ranges": [
+      "https://developer.amazon.com/amazonbot/ip-addresses/"
     ]
   },
   {
@@ -8495,7 +8653,10 @@
     "tags": [
       "monitoring"
     ],
-    "addition_date": "2022/10/17"
+    "addition_date": "2022/10/17",
+    "ranges": [
+      "https://raw.githubusercontent.com/AnTheMaker/GoodBots/main/iplists/freshpingbot.ips"
+    ]
   },
   {
     "match": [
@@ -8599,6 +8760,10 @@
       ".googlebot.com",
       ".google.com",
       ".gae.googleusercontent.com"
+    ],
+    "ranges": [
+      "https://developers.google.com/static/crawling/ipranges/user-triggered-fetchers.json",
+      "https://developers.google.com/static/crawling/ipranges/user-triggered-fetchers-google.json"
     ]
   },
   {
@@ -8645,6 +8810,9 @@
     "addition_date": "2023/08/09",
     "rdns": [
       ".openai.com"
+    ],
+    "ranges": [
+      "https://openai.com/gptbot.json"
     ]
   },
   {
@@ -8663,6 +8831,9 @@
     "addition_date": "2024/04/19",
     "rdns": [
       ".openai.com"
+    ],
+    "ranges": [
+      "https://openai.com/chatgpt-user.json"
     ]
   },
   {
@@ -8684,6 +8855,9 @@
     "addition_date": "2024/09/24",
     "rdns": [
       ".openai.com"
+    ],
+    "ranges": [
+      "https://openai.com/searchbot.json"
     ]
   },
   {
@@ -8776,6 +8950,9 @@
       ".1e100.net",
       ".googlebot.com",
       ".google.com"
+    ],
+    "ranges": [
+      "https://developers.google.com/static/crawling/ipranges/special-crawlers.json"
     ]
   },
   {
@@ -8878,7 +9055,10 @@
     "tags": [
       "search-engine"
     ],
-    "addition_date": "2023/09/08"
+    "addition_date": "2023/09/08",
+    "ranges": [
+      "https://raw.githubusercontent.com/AnTheMaker/GoodBots/main/iplists/marginalia.ips"
+    ]
   },
   {
     "match": [
@@ -9572,7 +9752,10 @@
       "ai-crawler",
       "search-engine"
     ],
-    "addition_date": "2024/03/14"
+    "addition_date": "2024/03/14",
+    "ranges": [
+      "https://www.perplexity.com/perplexitybot.json"
+    ]
   },
   {
     "match": [
@@ -9590,6 +9773,9 @@
     "addition_date": "2024/04/19",
     "rdns": [
       ".anthropic.com"
+    ],
+    "ranges": [
+      "https://claude.com/crawling/bots.json"
     ]
   },
   {
@@ -9663,6 +9849,10 @@
       ".fbcdn.net",
       ".fbsv.net",
       ".tfbnw.net"
+    ],
+    "ranges": [
+      "https://raw.githubusercontent.com/lord-alfred/ipranges/main/facebook/ipv4.txt",
+      "https://raw.githubusercontent.com/lord-alfred/ipranges/main/facebook/ipv6.txt"
     ]
   },
   {
@@ -9684,6 +9874,10 @@
       ".fbcdn.net",
       ".fbsv.net",
       ".tfbnw.net"
+    ],
+    "ranges": [
+      "https://raw.githubusercontent.com/lord-alfred/ipranges/main/facebook/ipv4.txt",
+      "https://raw.githubusercontent.com/lord-alfred/ipranges/main/facebook/ipv6.txt"
     ]
   },
   {
@@ -9711,6 +9905,10 @@
       ".fbcdn.net",
       ".fbsv.net",
       ".tfbnw.net"
+    ],
+    "ranges": [
+      "https://raw.githubusercontent.com/lord-alfred/ipranges/main/facebook/ipv4.txt",
+      "https://raw.githubusercontent.com/lord-alfred/ipranges/main/facebook/ipv6.txt"
     ]
   },
   {
@@ -9732,6 +9930,10 @@
       ".fbcdn.net",
       ".fbsv.net",
       ".tfbnw.net"
+    ],
+    "ranges": [
+      "https://raw.githubusercontent.com/lord-alfred/ipranges/main/facebook/ipv4.txt",
+      "https://raw.githubusercontent.com/lord-alfred/ipranges/main/facebook/ipv6.txt"
     ]
   },
   {
@@ -9992,6 +10194,9 @@
     "rdns": [
       ".datadog.com",
       ".datadoghq.com"
+    ],
+    "ranges": [
+      "https://ip-ranges.datadoghq.com/"
     ]
   },
   {
@@ -10119,6 +10324,9 @@
     "addition_date": "2026/04/07",
     "rdns": [
       ".anthropic.com"
+    ],
+    "ranges": [
+      "https://claude.com/crawling/bots.json"
     ]
   },
   {
@@ -10137,6 +10345,9 @@
     "addition_date": "2026/04/07",
     "rdns": [
       ".anthropic.com"
+    ],
+    "ranges": [
+      "https://claude.com/crawling/bots.json"
     ]
   },
   {
@@ -10426,6 +10637,9 @@
     "addition_date": "2026/04/07",
     "rdns": [
       ".statuscake.com"
+    ],
+    "ranges": [
+      "https://app.statuscake.com/Workfloor/Locations.php?format=txt"
     ]
   },
   {
@@ -10584,7 +10798,10 @@
       "ai-fetcher",
       "search-engine"
     ],
-    "addition_date": "2026/04/07"
+    "addition_date": "2026/04/07",
+    "ranges": [
+      "https://www.perplexity.com/perplexity-user.json"
+    ]
   },
   {
     "match": [
@@ -10599,7 +10816,10 @@
       "ai-fetcher",
       "search-engine"
     ],
-    "addition_date": "2026/04/07"
+    "addition_date": "2026/04/07",
+    "ranges": [
+      "https://www.perplexity.com/perplexity-user.json"
+    ]
   },
   {
     "match": [
@@ -10631,6 +10851,10 @@
       ".fbcdn.net",
       ".fbsv.net",
       ".tfbnw.net"
+    ],
+    "ranges": [
+      "https://raw.githubusercontent.com/lord-alfred/ipranges/main/facebook/ipv4.txt",
+      "https://raw.githubusercontent.com/lord-alfred/ipranges/main/facebook/ipv6.txt"
     ]
   },
   {
@@ -10649,6 +10873,9 @@
     "addition_date": "2026/04/07",
     "rdns": [
       ".duckduckgo.com"
+    ],
+    "ranges": [
+      "https://raw.githubusercontent.com/lord-alfred/ipranges/main/duckassistbot/ipv4.txt"
     ]
   },
   {
@@ -10665,6 +10892,9 @@
     "addition_date": "2026/04/07",
     "rdns": [
       ".mistral.ai"
+    ],
+    "ranges": [
+      "https://mistral.ai/mistralai-user-ips.json"
     ]
   },
   {
@@ -11287,7 +11517,10 @@
     "tags": [
       "monitoring"
     ],
-    "addition_date": "2026/04/17"
+    "addition_date": "2026/04/17",
+    "ranges": [
+      "https://uptime.betterstack.com/ips.txt"
+    ]
   },
   {
     "match": [
@@ -13295,6 +13528,10 @@
       ".googlebot.com",
       ".google.com",
       ".gae.googleusercontent.com"
+    ],
+    "ranges": [
+      "https://developers.google.com/static/crawling/ipranges/user-triggered-fetchers.json",
+      "https://developers.google.com/static/crawling/ipranges/user-triggered-fetchers-google.json"
     ]
   },
   {
@@ -13359,6 +13596,9 @@
       ".1e100.net",
       ".googlebot.com",
       ".google.com"
+    ],
+    "ranges": [
+      "https://developers.google.com/static/crawling/ipranges/common-crawlers.json"
     ]
   },
   {
@@ -14116,6 +14356,9 @@
     "rdns": [
       ".kagi.com",
       ".kagibot.com"
+    ],
+    "ranges": [
+      "https://kagi.com/bot"
     ]
   },
   {
@@ -14816,7 +15059,10 @@
     "tags": [
       "seo"
     ],
-    "addition_date": "2026/04/17"
+    "addition_date": "2026/04/17",
+    "ranges": [
+      "https://raw.githubusercontent.com/AnTheMaker/GoodBots/main/iplists/molliewebhook.ips"
+    ]
   },
   {
     "match": [
@@ -17236,6 +17482,9 @@
     "addition_date": "2026/04/17",
     "rdns": [
       ".stripe.com"
+    ],
+    "ranges": [
+      "https://stripe.com/files/ips/ips_webhooks.txt"
     ]
   },
   {
@@ -17306,7 +17555,10 @@
     "tags": [
       "monitoring"
     ],
-    "addition_date": "2026/04/17"
+    "addition_date": "2026/04/17",
+    "ranges": [
+      "https://ip-ranges.datadoghq.com/"
+    ]
   },
   {
     "match": [
@@ -19545,6 +19797,10 @@
       ".fbcdn.net",
       ".fbsv.net",
       ".tfbnw.net"
+    ],
+    "ranges": [
+      "https://raw.githubusercontent.com/lord-alfred/ipranges/main/facebook/ipv4.txt",
+      "https://raw.githubusercontent.com/lord-alfred/ipranges/main/facebook/ipv6.txt"
     ]
   },
   {
@@ -19695,6 +19951,10 @@
       ".googlebot.com",
       ".google.com",
       ".gae.googleusercontent.com"
+    ],
+    "ranges": [
+      "https://developers.google.com/static/crawling/ipranges/user-triggered-fetchers.json",
+      "https://developers.google.com/static/crawling/ipranges/user-triggered-fetchers-google.json"
     ]
   },
   {
@@ -19734,6 +19994,10 @@
       ".googlebot.com",
       ".google.com",
       ".gae.googleusercontent.com"
+    ],
+    "ranges": [
+      "https://developers.google.com/static/crawling/ipranges/user-triggered-fetchers.json",
+      "https://developers.google.com/static/crawling/ipranges/user-triggered-fetchers-google.json"
     ]
   },
   {
@@ -23764,7 +24028,7 @@
     ],
     "url": "http://varocarbas.com/bulk-retrieval_bot.php",
     "instances": [
-      "bulk-retrieval bot 1.0 – http://varocarbas.com/bulk-retrieval_bot.php"
+      "bulk-retrieval bot 1.0 \u2013 http://varocarbas.com/bulk-retrieval_bot.php"
     ],
     "description": "Bulk content retrieval tool",
     "tags": [
@@ -24266,12 +24530,12 @@
     ],
     "url": "http://www.netzcheck.com",
     "instances": [
-      "NetzCheckBot/1.0 (security seal – page; http://spasspics.de.netzcheck.com; bot@netzcheck.com)",
-      "NetzCheckBot/1.0 (security seal – page; http://randomfun.de.netzcheck.com; bot@netzcheck.com)",
-      "NetzCheckBot/1.0 (security seal – page; http://trailerfan.de.netzcheck.com; bot@netzcheck.com)",
-      "NetzCheckBot/1.0 (security seal – page; http://myfunbay.com.netzcheck.com; bot@netzcheck.com)",
-      "NetzCheckBot/1.0 (security seal – page; http://lustigewerbespots.com.netzcheck.com; bot@netzcheck.com)",
-      "NetzCheckBot/1.0 (security seal – page; http://domain-pirat.de.netzcheck.com; bot@netzcheck.com)"
+      "NetzCheckBot/1.0 (security seal \u2013 page; http://spasspics.de.netzcheck.com; bot@netzcheck.com)",
+      "NetzCheckBot/1.0 (security seal \u2013 page; http://randomfun.de.netzcheck.com; bot@netzcheck.com)",
+      "NetzCheckBot/1.0 (security seal \u2013 page; http://trailerfan.de.netzcheck.com; bot@netzcheck.com)",
+      "NetzCheckBot/1.0 (security seal \u2013 page; http://myfunbay.com.netzcheck.com; bot@netzcheck.com)",
+      "NetzCheckBot/1.0 (security seal \u2013 page; http://lustigewerbespots.com.netzcheck.com; bot@netzcheck.com)",
+      "NetzCheckBot/1.0 (security seal \u2013 page; http://domain-pirat.de.netzcheck.com; bot@netzcheck.com)"
     ],
     "description": "Security seal verification",
     "tags": [
@@ -27366,6 +27630,10 @@
       ".googlebot.com",
       ".google.com",
       ".gae.googleusercontent.com"
+    ],
+    "ranges": [
+      "https://developers.google.com/static/crawling/ipranges/user-triggered-fetchers.json",
+      "https://developers.google.com/static/crawling/ipranges/user-triggered-fetchers-google.json"
     ]
   },
   {
@@ -27386,6 +27654,10 @@
       ".googlebot.com",
       ".google.com",
       ".gae.googleusercontent.com"
+    ],
+    "ranges": [
+      "https://developers.google.com/static/crawling/ipranges/user-triggered-fetchers.json",
+      "https://developers.google.com/static/crawling/ipranges/user-triggered-fetchers-google.json"
     ]
   },
   {
@@ -27406,6 +27678,10 @@
       ".googlebot.com",
       ".google.com",
       ".gae.googleusercontent.com"
+    ],
+    "ranges": [
+      "https://developers.google.com/static/crawling/ipranges/user-triggered-fetchers.json",
+      "https://developers.google.com/static/crawling/ipranges/user-triggered-fetchers-google.json"
     ]
   },
   {
@@ -31322,7 +31598,10 @@
     "tags": [
       "search-engine"
     ],
-    "addition_date": "2026/05/09"
+    "addition_date": "2026/05/09",
+    "ranges": [
+      "https://www.bing.com/toolbox/bingbot.json"
+    ]
   },
   {
     "match": [
@@ -35356,7 +35635,7 @@
     "url": "http://www.setooz.com/oozbot.html",
     "instances": [
       "OOZBOT/0.20 ( -- ; http://www.setooz.com/oozbot.html ; agentname at setooz dot_com )",
-      "OOZBOT/0.20 ( Setooz výrazný ako say-th-uuz, znamená mosty.  ; http://www.setooz.com/oozbot.html ; agentname at setooz dot_com )",
+      "OOZBOT/0.20 ( Setooz v\u00fdrazn\u00fd ako say-th-uuz, znamen\u00e1 mosty.  ; http://www.setooz.com/oozbot.html ; agentname at setooz dot_com )",
       "OOZBOT/0.20 ( http://www.setooz.com/oozbot.html ; agentname at setooz dot_com )"
     ],
     "description": "Setooz web crawler",
@@ -42537,7 +42816,11 @@
     "tags": [
       "ai-fetcher"
     ],
-    "addition_date": "2026/11/14"
+    "addition_date": "2026/11/14",
+    "ranges": [
+      "https://developers.google.com/static/crawling/ipranges/user-triggered-fetchers.json",
+      "https://developers.google.com/static/crawling/ipranges/user-triggered-fetchers-google.json"
+    ]
   },
   {
     "match": [
