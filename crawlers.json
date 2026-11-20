@@ -4527,7 +4527,10 @@
     "tags": [
       "seo"
     ],
-    "addition_date": "2017/10/09"
+    "addition_date": "2017/10/09",
+    "rdns": [
+      ".babbar.eu"
+    ]
   },
   {
     "match": [
@@ -6854,7 +6857,10 @@
     "tags": [
       "seo"
     ],
-    "addition_date": "2018/11/24"
+    "addition_date": "2018/11/24",
+    "rdns": [
+      ".dataproviderbot.com"
+    ]
   },
   {
     "match": [
@@ -42798,7 +42804,10 @@
     "tags": [
       "ai-crawler"
     ],
-    "addition_date": "2026/11/14"
+    "addition_date": "2026/11/14",
+    "rdns": [
+      ".bot.river.ai"
+    ]
   },
   {
     "match": [
@@ -45565,7 +45574,10 @@
     "tags": [
       "scanner"
     ],
-    "addition_date": "2026/11/14"
+    "addition_date": "2026/11/14",
+    "rdns": [
+      ".recordedfuture.com"
+    ]
   },
   {
     "match": [
