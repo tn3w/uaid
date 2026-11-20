@@ -59,6 +59,6 @@ of its `rdns` suffixes and `ranges` URLs:
 ```python
 crawler = uaid.identify(user_agent)
 ips = crawler_ips["rdns"] | crawler_ips["ranges"]
-networks = {net for key in crawler.get("rdns", []) + crawler.get("ranges", [])
-            for net in ips.get(key, [])}
+keys = crawler.get("rdns", []) + crawler.get("ranges", [])
+networks = {network for key in keys for network in ips.get(key, [])}
 ```
