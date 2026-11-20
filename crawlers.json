@@ -5330,11 +5330,15 @@
   },
   {
     "match": [
-      "^lcc "
+      "^lcc ",
+      "lcc-profile/"
     ],
     "url": "http://corpora.informatik.uni-leipzig.de/crawler_faq.html",
     "instances": [
-      "LCC (+http://corpora.informatik.uni-leipzig.de/crawler_faq.html)"
+      "LCC (+http://corpora.informatik.uni-leipzig.de/crawler_faq.html)",
+      "LCC (+https://corpora.wortschatz-leipzig.de/crawler_faq.html)",
+      "LCC (+http://corpora.uni-leipzig.de/crawler_faq.html)",
+      "Mozilla/5.0 (compatible; LCC-profile/1.0)"
     ],
     "description": "Leipzig Corpora Collection web crawler",
     "tags": [
@@ -42897,7 +42901,10 @@
       "^cursor/"
     ],
     "instances": [
-      "Cursor/3.0.16 (darwin arm64)"
+      "Cursor/3.0.16 (darwin arm64)",
+      "Cursor/3.27.12 (darwin arm64)",
+      "Cursor/3.26.16 (win32 x64)",
+      "Cursor/1.0.0"
     ],
     "description": "Cursor desktop IDE",
     "tags": [
@@ -62316,6 +62323,22 @@
       "GrokAppAndroid"
     ],
     "description": "xAI Grok Android app fetcher",
+    "tags": [
+      "ai-fetcher"
+    ],
+    "addition_date": "2026/11/20"
+  },
+  {
+    "match": [
+      "codex-mcp-client/"
+    ],
+    "url": "https://openai.com/codex/",
+    "instances": [
+      "codex-mcp-client/0.163.0-alpha.10.2",
+      "codex-mcp-client/0.164.0-alpha.11.1",
+      "codex-mcp-client/0.163.0-alpha.11"
+    ],
+    "description": "OpenAI Codex coding agent MCP client",
     "tags": [
       "ai-fetcher"
     ],
