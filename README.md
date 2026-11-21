@@ -18,6 +18,14 @@ uaid.is_bot("Mozilla/5.0 (Windows NT 10.0; Win64; x64) ... Chrome/120.0.0.0")  #
 uaid.is_bot(None)  # True, so is ""
 ```
 
+One call per request, no network, no regex, no waiting.
+
+```
+ (⌐■_■)   papers, please.
+ <)   )>  ~ googlebot? checking 66.249.66.1 ... verified.
+  /   \
+```
+
 ## What is it
 
 ```python
