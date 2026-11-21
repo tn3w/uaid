@@ -1,5 +1,7 @@
 import json
 import random
+from ipaddress import ip_address
+from itertools import pairwise
 from pathlib import Path
 
 import pytest
@@ -47,11 +49,11 @@ def test_every_rule_is_indexed_by_its_own_trigram():
     positions = sorted(sum(uaid.data["index"].values(), []))
     assert positions == list(range(len(uaid.data["rules"])))
     for gram, indexed in uaid.data["index"].items():
-        assert all(gram in uaid.data["rules"][position][0] for position in indexed)
+        assert all(gram in uaid.data["rules"][position][0][0] for position in indexed)
 
 
 def test_browsers_are_not_bots():
-    assert not [agent for agent in BROWSERS if uaid.identify(agent)]
+    assert not [agent for agent in BROWSERS if uaid.match(agent)]
     assert not [
         agent for agent in read_lines("modern_browsers.txt") if uaid.is_bot(agent)
     ]
@@ -121,7 +123,7 @@ def test_anchored_rules_only_match_at_start():
 @pytest.mark.parametrize("agent", [None, "", " ", "Mozilla/5.0", "\x00\xff"])
 def test_missing_or_bare_user_agents_are_bots(agent):
     assert uaid.is_bot(agent)
-    assert uaid.identify(agent) is None
+    assert "tags" not in uaid.identify(agent)
 
 
 def test_identify_returns_independent_copies():
@@ -141,3 +143,137 @@ def test_heuristic_quality():
     false_positives = sum(map(uaid.looks_like_bot, BROWSERS)) / len(BROWSERS)
     assert recall >= 0.9
     assert false_positives <= 0.002
+
+
+GOOGLEBOT = "Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)"
+SHARED_SUFFIXES = {
+    ".amazonaws.com",
+    ".googleusercontent.com",
+    ".cloudapp.azure.com",
+    ".cloudapp.net",
+    ".linodeusercontent.com",
+    ".your-server.de",
+}
+
+
+def googlebot_address():
+    return str(ip_address(uaid.bounds[".googlebot.com"][0]))
+
+
+@pytest.mark.parametrize(
+    ("agent", "version"),
+    [
+        (GOOGLEBOT, "2.1"),
+        ("curl/8.4.0", "8.4.0"),
+        ("Mozilla/5.0 (compatible; lightspeed)", None),
+    ],
+)
+def test_identify_extracts_version(agent, version):
+    assert uaid.identify(agent)["version"] == version
+
+
+def links(agent):
+    return uaid.identify(agent)["links"]
+
+
+def test_links_finds_urls_and_emails():
+    assert links(GOOGLEBOT) == ["http://www.google.com/bot.html"]
+    assert links("foo/1.0 (bot@example.com; @handle)") == ["bot@example.com"]
+    assert links(None) == []
+
+
+@pytest.mark.parametrize(
+    ("agent", "name", "version"),
+    [
+        (
+            "Mozilla/5.0 (compatible; FooBot/1.2; +https://foo.example/bot)",
+            "FooBot",
+            "1.2",
+        ),
+        ("acme-fetcher/3.1 (ops@acme.example)", "acme-fetcher", "3.1"),
+        ("zzq/1.0", "zzq", "1.0"),
+        ("Mozilla/5.0", None, None),
+    ],
+)
+def test_identify_guesses_unknown_bots(agent, name, version):
+    found = uaid.identify(agent)
+    assert (found["name"], found["version"]) == (name, version)
+    assert "tags" not in found
+
+
+def test_identify_is_none_exactly_for_non_bots():
+    for agent in BROWSERS[:2000] + INSTANCES[:2000]:
+        assert (uaid.identify(agent) is not None) == uaid.is_bot(agent), agent
+
+
+def test_verify_confirms_crawler_networks():
+    address = googlebot_address()
+    assert ".googlebot.com" in uaid.networks(address)
+    assert uaid.verify(GOOGLEBOT, address)
+    assert uaid.verify(GOOGLEBOT, f"::ffff:{address}")
+    assert not uaid.verify("Mozilla/5.0 (compatible; bingbot/2.0)", address)
+    assert not uaid.verify(None, address)
+
+
+@pytest.mark.parametrize("address", ["127.0.0.1", "8.8.8.8", "::1", "2001:db8::1"])
+def test_verify_rejects_foreign_addresses(address):
+    assert uaid.networks(address) == []
+    assert not uaid.verify(GOOGLEBOT, address)
+
+
+def test_verify_rejects_invalid_addresses():
+    with pytest.raises(ValueError):
+        uaid.verify(GOOGLEBOT, "not an ip")
+
+
+def test_ip_sources_are_well_formed():
+    for crawler in CRAWLERS:
+        suffixes, urls = crawler.get("rdns", []), crawler.get("ranges", [])
+        assert all(suffix.startswith(".") for suffix in suffixes)
+        assert all(suffix == suffix.lower() for suffix in suffixes)
+        assert not SHARED_SUFFIXES & set(suffixes), crawler["match"]
+        assert all(url.startswith("https://") for url in urls)
+        assert len(set(suffixes + urls)) == len(suffixes + urls)
+
+
+def test_bundled_networks_are_sorted_disjoint_spans():
+    assert {".googlebot.com", ".search.msn.com"} <= uaid.bounds.keys()
+    for key, bounds in uaid.bounds.items():
+        assert bounds and len(bounds) % 2 == 0
+        assert all(left < right for left, right in pairwise(bounds)), key
+
+
+def test_network_spans_include_start_and_exclude_end():
+    keys = [".googlebot.com"]
+    start, end = uaid.bounds[keys[0]][:2]
+    assert uaid.networks(str(ip_address(start)), keys) == keys
+    assert uaid.networks(str(ip_address(end - 1)), keys) == keys
+    assert uaid.networks(str(ip_address(end)), keys) == []
+    assert uaid.networks(str(ip_address(start - 1)), keys) == []
+    assert uaid.networks(str(ip_address(start)), ["unknown"]) == []
+
+
+def test_links_strip_plus_and_keep_order():
+    agent = "Bot/1.0 (+https://example.com/bot; mailto bot@example.com) +http://x.io"
+    assert links(agent) == [
+        "https://example.com/bot",
+        "bot@example.com",
+        "http://x.io",
+    ]
+
+
+def test_robots_txt_lists_tagged_agents():
+    agents = uaid.agents("ai-crawler")
+    assert {"gptbot", "ccbot", "claudebot"} <= set(agents)
+    assert "googlebot" not in agents
+    assert agents == sorted(set(agents))
+    assert all(set(agent) <= uaid.token_characters for agent in agents)
+    lines = uaid.robots_txt("ai-crawler").splitlines()
+    assert lines == [f"User-agent: {agent}" for agent in agents] + ["Disallow: /"]
+    assert uaid.robots_txt("unknown-tag") == ""
+
+
+def test_agents_unite_tags():
+    combined = set(uaid.agents("ai-crawler", "seo"))
+    assert combined == set(uaid.agents("ai-crawler")) | set(uaid.agents("seo"))
+    assert "ahrefsbot" in combined

@@ -11,24 +11,38 @@ import uaid
 
 uaid.is_bot("curl/8.4.0")  # True
 
-uaid.identify("Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)")
-# {'name': 'Googlebot', 'description': 'Google search indexing bot', 'tags': ['search-engine'], 'url': ..., 'rdns': [...]}
+googlebot = "Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)"
+uaid.identify(googlebot)
+# {'name': 'Googlebot', 'version': '2.1', 'links': ['http://www.google.com/bot.html'],
+#  'description': ..., 'tags': ['search-engine'], 'url': ..., 'rdns': [...], 'ranges': [...]}
+uaid.identify("Mozilla/5.0 (compatible; FooBot/1.2; +https://foo.example/bot)")
+# {'name': 'FooBot', 'version': '1.2', 'links': ['https://foo.example/bot']}
+
+uaid.verify(googlebot, "66.249.66.1")  # True, no network request
+uaid.networks("66.249.66.1")  # ['.googlebot.com', 'https://developers.google.com/...']
+uaid.robots_txt("ai-crawler")  # 'User-agent: agentdatabot\n...\nDisallow: /\n'
 ```
 
 - `is_bot` checks ~4500 known crawlers plus a keyword heuristic for unknown bots
   (~92% recall, ~0.1% false positives on 30k real browser user agents).
   A missing user agent (`None` or `""`) counts as a bot.
-- `identify` returns the most specific known crawler, or `None`.
-- `rdns` lists forward-confirmed reverse DNS suffixes for verifying a crawler's IP.
-- `ranges` lists URLs of IP range lists the operator publishes for the crawler.
-- ~15 µs per call through a trigram index, ~20 ms import time.
+- `identify` returns `None` for browsers and a dict for every bot: its name, version and
+  embedded URLs and email addresses (`links`). Known crawlers add their database entry,
+  where `rdns` lists forward-confirmed reverse DNS suffixes and `ranges` the URLs of IP
+  lists the operator publishes. Unknown bots are named after the word that looks like one.
+- `verify` checks that an IP belongs to the crawler its user agent claims, offline against
+  the bundled networks of its `rdns` suffixes and `ranges` URLs (IPv4, IPv6, v4-mapped).
+  `networks` lists which known crawler networks contain an IP.
+- `agents` and `robots_txt` list the robots.txt tokens of crawlers with any of the tags.
+- ~0.3 µs per `is_bot` call on obvious bots, ~11 µs per `identify` or `verify` call,
+  ~30 ms import time.
 
 ## Data
 
 `crawlers.json` is the source database. Each `match` rule is tested against the lowercased
 user agent: a string must be contained, a leading `^` anchors it to the start, a nested
 list requires all parts. The wheel ships a compact, pre-indexed version generated at build
-time.
+time, including the networks from the latest `crawler-ips.json` as delta-encoded spans.
 
 ## Robots.txt stats
 
@@ -53,15 +67,9 @@ behind every `rdns` suffix and the parsed networks of every `ranges` URL.
 `rdns` networks come from every IPv4 PTR record in the
 [iplore rDNS database](https://github.com/tn3w/iplore). Records ending in a suffix are
 grouped per /24, and a group is kept only if a sampled address forward-confirms (its name
-resolves back to it), which drops spoofed PTR records. A crawler's addresses are the union
-of its `rdns` suffixes and `ranges` URLs:
-
-```python
-crawler = uaid.identify(user_agent)
-ips = crawler_ips["rdns"] | crawler_ips["ranges"]
-keys = crawler.get("rdns", []) + crawler.get("ranges", [])
-networks = {network for key in keys for network in ips.get(key, [])}
-```
+resolves back to it), which drops spoofed PTR records. Each build bundles this file, so
+`uaid.verify` gives the result of a full-circle DNS check without any lookup; it is as
+fresh as the release it was built from.
 
 ## Crawler info
 
