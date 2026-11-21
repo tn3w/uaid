@@ -1002,7 +1002,8 @@
     ],
     "rdns": [
       ".majestic.com",
-      ".majestic12.co.uk"
+      ".majestic12.co.uk",
+      ".mj12bot.com"
     ]
   },
   {
@@ -1535,7 +1536,15 @@
     "tags": [
       "search-engine"
     ],
-    "addition_date": "2026/05/02"
+    "addition_date": "2026/05/02",
+    "rdns": [
+      ".yandex.com",
+      ".yandex.net",
+      ".yandex.ru"
+    ],
+    "ranges": [
+      "https://yandex.com/ips"
+    ]
   },
   {
     "match": [
@@ -1549,7 +1558,15 @@
     "tags": [
       "advertising"
     ],
-    "addition_date": "2026/05/02"
+    "addition_date": "2026/05/02",
+    "rdns": [
+      ".yandex.com",
+      ".yandex.net",
+      ".yandex.ru"
+    ],
+    "ranges": [
+      "https://yandex.com/ips"
+    ]
   },
   {
     "match": [
@@ -1563,7 +1580,15 @@
     "tags": [
       "advertising"
     ],
-    "addition_date": "2026/05/02"
+    "addition_date": "2026/05/02",
+    "rdns": [
+      ".yandex.com",
+      ".yandex.net",
+      ".yandex.ru"
+    ],
+    "ranges": [
+      "https://yandex.com/ips"
+    ]
   },
   {
     "match": [
@@ -1582,6 +1607,9 @@
       ".yandex.com",
       ".yandex.net",
       ".yandex.ru"
+    ],
+    "ranges": [
+      "https://yandex.com/ips"
     ]
   },
   {
@@ -1610,7 +1638,15 @@
     "tags": [
       "search-engine"
     ],
-    "addition_date": "2026/05/02"
+    "addition_date": "2026/05/02",
+    "rdns": [
+      ".yandex.com",
+      ".yandex.net",
+      ".yandex.ru"
+    ],
+    "ranges": [
+      "https://yandex.com/ips"
+    ]
   },
   {
     "match": [
@@ -1624,7 +1660,15 @@
     "tags": [
       "advertising"
     ],
-    "addition_date": "2026/05/02"
+    "addition_date": "2026/05/02",
+    "rdns": [
+      ".yandex.com",
+      ".yandex.net",
+      ".yandex.ru"
+    ],
+    "ranges": [
+      "https://yandex.com/ips"
+    ]
   },
   {
     "match": [
@@ -1638,7 +1682,15 @@
     "tags": [
       "search-engine"
     ],
-    "addition_date": "2026/05/02"
+    "addition_date": "2026/05/02",
+    "rdns": [
+      ".yandex.com",
+      ".yandex.net",
+      ".yandex.ru"
+    ],
+    "ranges": [
+      "https://yandex.com/ips"
+    ]
   },
   {
     "match": [
@@ -1652,7 +1704,15 @@
     "tags": [
       "search-engine"
     ],
-    "addition_date": "2026/05/02"
+    "addition_date": "2026/05/02",
+    "rdns": [
+      ".yandex.com",
+      ".yandex.net",
+      ".yandex.ru"
+    ],
+    "ranges": [
+      "https://yandex.com/ips"
+    ]
   },
   {
     "match": [
@@ -1666,7 +1726,15 @@
     "tags": [
       "search-engine"
     ],
-    "addition_date": "2026/05/02"
+    "addition_date": "2026/05/02",
+    "rdns": [
+      ".yandex.com",
+      ".yandex.net",
+      ".yandex.ru"
+    ],
+    "ranges": [
+      "https://yandex.com/ips"
+    ]
   },
   {
     "match": [
@@ -1680,7 +1748,15 @@
     "tags": [
       "search-engine"
     ],
-    "addition_date": "2026/05/02"
+    "addition_date": "2026/05/02",
+    "rdns": [
+      ".yandex.com",
+      ".yandex.net",
+      ".yandex.ru"
+    ],
+    "ranges": [
+      "https://yandex.com/ips"
+    ]
   },
   {
     "match": [
@@ -1694,7 +1770,15 @@
     "tags": [
       "monitoring"
     ],
-    "addition_date": "2026/05/02"
+    "addition_date": "2026/05/02",
+    "rdns": [
+      ".yandex.com",
+      ".yandex.net",
+      ".yandex.ru"
+    ],
+    "ranges": [
+      "https://yandex.com/ips"
+    ]
   },
   {
     "match": [
@@ -1708,7 +1792,15 @@
     "tags": [
       "search-engine"
     ],
-    "addition_date": "2026/05/02"
+    "addition_date": "2026/05/02",
+    "rdns": [
+      ".yandex.com",
+      ".yandex.net",
+      ".yandex.ru"
+    ],
+    "ranges": [
+      "https://yandex.com/ips"
+    ]
   },
   {
     "match": [
@@ -1722,7 +1814,15 @@
     "tags": [
       "search-engine"
     ],
-    "addition_date": "2026/05/02"
+    "addition_date": "2026/05/02",
+    "rdns": [
+      ".yandex.com",
+      ".yandex.net",
+      ".yandex.ru"
+    ],
+    "ranges": [
+      "https://yandex.com/ips"
+    ]
   },
   {
     "match": [
@@ -1995,6 +2095,9 @@
     ],
     "rdns": [
       ".search.msn.com"
+    ],
+    "ranges": [
+      "https://www.bing.com/toolbox/bingbot.json"
     ]
   },
   {
@@ -4272,7 +4375,8 @@
     "addition_date": "2017/03/03",
     "rdns": [
       ".pinimg.com",
-      ".pinterest.com"
+      ".pinterest.com",
+      ".pinterestcrawler.com"
     ]
   },
   {
@@ -8872,7 +8976,15 @@
     "tags": [
       "search-engine"
     ],
-    "addition_date": "2023/08/16"
+    "addition_date": "2023/08/16",
+    "rdns": [
+      ".yandex.com",
+      ".yandex.net",
+      ".yandex.ru"
+    ],
+    "ranges": [
+      "https://yandex.com/ips"
+    ]
   },
   {
     "match": [
@@ -10049,6 +10161,9 @@
     "addition_date": "2025/02/11",
     "rdns": [
       ".search.msn.com"
+    ],
+    "ranges": [
+      "https://www.bing.com/toolbox/bingbot.json"
     ]
   },
   {
@@ -10243,6 +10358,10 @@
     "rdns": [
       ".checkly.com",
       ".checklyhq.com"
+    ],
+    "ranges": [
+      "https://api.checklyhq.com/v1/static-ips",
+      "https://api.checklyhq.com/v1/static-ipv6s"
     ]
   },
   {
@@ -10288,6 +10407,9 @@
     "addition_date": "2026/04/07",
     "rdns": [
       ".anthropic.com"
+    ],
+    "ranges": [
+      "https://claude.com/crawling/bots.json"
     ]
   },
   {
@@ -10305,6 +10427,9 @@
     "addition_date": "2026/04/07",
     "rdns": [
       ".anthropic.com"
+    ],
+    "ranges": [
+      "https://claude.com/crawling/bots.json"
     ]
   },
   {
@@ -10875,7 +11000,7 @@
       ".duckduckgo.com"
     ],
     "ranges": [
-      "https://raw.githubusercontent.com/lord-alfred/ipranges/main/duckassistbot/ipv4.txt"
+      "https://duckduckgo.com/duckassistbot.json"
     ]
   },
   {
@@ -18989,6 +19114,9 @@
     "addition_date": "2026/04/26",
     "rdns": [
       ".crawl.amazonbot.amazon"
+    ],
+    "ranges": [
+      "https://developer.amazon.com/amazonbot/searchbot-ip-addresses/"
     ]
   },
   {
@@ -19006,6 +19134,9 @@
     "addition_date": "2026/04/26",
     "rdns": [
       ".crawl.amazonbot.amazon"
+    ],
+    "ranges": [
+      "https://developer.amazon.com/amazonbot/live-ip-addresses/"
     ]
   },
   {
@@ -19954,7 +20085,8 @@
     ],
     "ranges": [
       "https://developers.google.com/static/crawling/ipranges/user-triggered-fetchers.json",
-      "https://developers.google.com/static/crawling/ipranges/user-triggered-fetchers-google.json"
+      "https://developers.google.com/static/crawling/ipranges/user-triggered-fetchers-google.json",
+      "https://developers.google.com/static/crawling/ipranges/user-triggered-agents.json"
     ]
   },
   {
@@ -20490,7 +20622,10 @@
     "tags": [
       "monitoring"
     ],
-    "addition_date": "2026/04/26"
+    "addition_date": "2026/04/26",
+    "ranges": [
+      "https://s3.amazonaws.com/nr-synthetics-assets/nat-ip-dnsname/production/ip-ranges.json"
+    ]
   },
   {
     "match": [
@@ -20886,7 +21021,10 @@
     "tags": [
       "ai-crawler"
     ],
-    "addition_date": "2026/04/26"
+    "addition_date": "2026/04/26",
+    "ranges": [
+      "https://docs.parallel.ai/resources/shapbot.json"
+    ]
   },
   {
     "match": [
@@ -23441,6 +23579,9 @@
     "addition_date": "2026/05/02",
     "rdns": [
       ".newrelic.com"
+    ],
+    "ranges": [
+      "https://s3.amazonaws.com/nr-synthetics-assets/nat-ip-dnsname/production/ip-ranges.json"
     ]
   },
   {
@@ -23907,7 +24048,10 @@
     "tags": [
       "advertising"
     ],
-    "addition_date": "2026/05/03"
+    "addition_date": "2026/05/03",
+    "ranges": [
+      "https://openai.com/adsbot.json"
+    ]
   },
   {
     "match": [
@@ -31599,6 +31743,9 @@
       "search-engine"
     ],
     "addition_date": "2026/05/09",
+    "rdns": [
+      ".search.msn.com"
+    ],
     "ranges": [
       "https://www.bing.com/toolbox/bingbot.json"
     ]
@@ -42581,7 +42728,10 @@
       "ai-crawler",
       "search-engine"
     ],
-    "addition_date": "2026/11/14"
+    "addition_date": "2026/11/14",
+    "ranges": [
+      "https://app.keenable.ai/bot/keenablebot.json"
+    ]
   },
   {
     "match": [
@@ -42595,7 +42745,10 @@
     "tags": [
       "ai-fetcher"
     ],
-    "addition_date": "2026/11/14"
+    "addition_date": "2026/11/14",
+    "ranges": [
+      "https://app.keenable.ai/bot/keenable-user.json"
+    ]
   },
   {
     "match": [
@@ -42817,6 +42970,12 @@
       "ai-fetcher"
     ],
     "addition_date": "2026/11/14",
+    "rdns": [
+      ".1e100.net",
+      ".googlebot.com",
+      ".google.com",
+      ".gae.googleusercontent.com"
+    ],
     "ranges": [
       "https://developers.google.com/static/crawling/ipranges/user-triggered-fetchers.json",
       "https://developers.google.com/static/crawling/ipranges/user-triggered-fetchers-google.json"
@@ -44047,7 +44206,15 @@
     "tags": [
       "ai-crawler"
     ],
-    "addition_date": "2026/11/14"
+    "addition_date": "2026/11/14",
+    "rdns": [
+      ".yandex.com",
+      ".yandex.net",
+      ".yandex.ru"
+    ],
+    "ranges": [
+      "https://yandex.com/ips"
+    ]
   },
   {
     "match": [
@@ -45902,7 +46069,13 @@
     "tags": [
       "ai-crawler"
     ],
-    "addition_date": "2026/11/14"
+    "addition_date": "2026/11/14",
+    "rdns": [
+      ".mistral.ai"
+    ],
+    "ranges": [
+      "https://mistral.ai/mistralai-index-ips.json"
+    ]
   },
   {
     "match": [
