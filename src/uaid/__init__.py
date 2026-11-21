@@ -1,6 +1,8 @@
 import json
+import socket
 from bisect import bisect_right
-from ipaddress import ip_address
+from functools import lru_cache
+from ipaddress import IPv4Address, IPv6Address, ip_address
 from itertools import accumulate
 from pathlib import Path
 
@@ -14,6 +16,7 @@ not_models = tuple("mobile tablet harmonyos linux windows android opera xbox rv:
 separators = str.maketrans("();,+", "     ")
 token_characters = set("abcdefghijklmnopqrstuvwxyz0123456789-_.")
 rule_edges = "^/ ;()"
+max_length = 4096
 
 
 def trigrams(text: str) -> set[str]:
@@ -77,7 +80,8 @@ def describe(user_agent: str, text: str, lowered: str, grams: set[str]) -> dict:
     words = text.split()
     result = {
         "bot": False,
-        "links": [word for word in words if "://" in word or "@" in word[1:-1]],
+        "urls": [word for word in words if "://" in word],
+        "emails": [word for word in words if "@" in word[1:-1] and "://" not in word],
         "languages": [word for word in words if len(word) == 5 and word[2] == "-"],
     }
     for position in candidates(grams, data["browser_index"]):
@@ -92,41 +96,77 @@ def describe(user_agent: str, text: str, lowered: str, grams: set[str]) -> dict:
     return result
 
 
+def signals(lowered: str) -> list[str]:
+    found = [word for word in keywords if word in lowered]
+    return found if "(" in lowered else ["no-comment", *found]
+
+
 def looks_like_bot(user_agent: str | None) -> bool:
-    lowered = (user_agent or "").lower()
+    lowered = (user_agent or "")[:max_length].lower()
     return "(" not in lowered or any(word in lowered for word in keywords)
 
 
 def is_bot(user_agent: str | None) -> bool:
-    return looks_like_bot(user_agent) or match(user_agent or "") is not None
+    user_agent = (user_agent or "")[:max_length]
+    return looks_like_bot(user_agent) or match(user_agent) is not None
 
 
-def identify(user_agent: str | None) -> dict:
-    user_agent = user_agent or ""
+@lru_cache(maxsize=4096)
+def analyze(user_agent: str) -> dict:
     text, lowered = user_agent.translate(separators), user_agent.lower()
     grams = trigrams("^" + lowered)
     result = describe(user_agent, text, lowered, grams)
     rule = first_rule("^" + lowered, grams)
-    if rule or looks_like_bot(user_agent):
-        pattern, info = rule or (guess(text.split()), {})
+    reasons = signals(lowered)
+    pattern, info = rule or ("", {})
+    if rule or reasons:
+        pattern = pattern or guess(text.split())
         result["bot"] = True
-        if pattern:
-            result |= product(user_agent, text, pattern)
-        result |= info
-    return {key: value for key, value in result.items() if value is not None}
+        result["signals"] = (["database"] if rule else []) + reasons
+    if pattern:
+        result |= product(user_agent, text, pattern)
+    found = {key: value for key, value in result.items() if value not in (None, [])}
+    return found | info
+
+
+def identify(user_agent: str | None) -> dict:
+    result = analyze((user_agent or "")[:max_length])
+    return {
+        key: value[:] if isinstance(value, list) else value
+        for key, value in result.items()
+    }
+
+
+def normalize(ip: str) -> IPv4Address | IPv6Address:
+    address = ip_address(ip)
+    return getattr(address, "ipv4_mapped", None) or address
 
 
 def networks(ip: str, keys: list[str] | None = None) -> list[str]:
-    address = ip_address(ip)
-    number = int(getattr(address, "ipv4_mapped", None) or address)
+    number = int(normalize(ip))
     keys = bounds if keys is None else keys
     return [key for key in keys if bisect_right(bounds.get(key, ()), number) % 2]
 
 
-def verify(user_agent: str | None, ip: str) -> bool:
+@lru_cache(maxsize=4096)
+def confirmed(address: str, suffixes: tuple[str, ...]) -> bool:
+    try:
+        host = socket.gethostbyaddr(address)[0].lower().rstrip(".")
+        if not host.endswith(suffixes):
+            return False
+        resolved = socket.getaddrinfo(host, None)
+    except OSError:
+        return False
+    return any(normalize(info[4][0]) == normalize(address) for info in resolved)
+
+
+def verify(user_agent: str | None, ip: str, lookup: bool = False) -> bool:
     crawler = identify(user_agent)
-    keys = crawler.get("rdns", []) + crawler.get("ranges", [])
-    return bool(networks(ip, keys))
+    address = str(normalize(ip))
+    suffixes = crawler.get("rdns", [])
+    if networks(address, suffixes + crawler.get("ranges", [])):
+        return True
+    return lookup and bool(suffixes) and confirmed(address, tuple(suffixes))
 
 
 def agents(*tags: str) -> list[str]:
@@ -140,6 +180,8 @@ def agents(*tags: str) -> list[str]:
     )
 
 
-def robots_txt(*tags: str) -> str:
+def robots_txt(*tags: str, path: str = "/") -> str:
+    if "\n" in path or "\r" in path:
+        raise ValueError("path must be a single line")
     lines = [f"User-agent: {agent}" for agent in agents(*tags)]
-    return "\n".join([*lines, "Disallow: /", ""]) if lines else ""
+    return "\n".join([*lines, f"Disallow: {path}", ""]) if lines else ""

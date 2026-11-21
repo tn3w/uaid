@@ -1,5 +1,7 @@
+import io
 import json
 import random
+import runpy
 from ipaddress import ip_address
 from itertools import pairwise
 from pathlib import Path
@@ -172,14 +174,24 @@ def test_identify_extracts_version(agent, version):
     assert uaid.identify(agent).get("version") == version
 
 
-def links(agent):
-    return uaid.identify(agent)["links"]
+def contacts(agent):
+    found = uaid.identify(agent)
+    return found.get("urls", []), found.get("emails", [])
 
 
-def test_links_finds_urls_and_emails():
-    assert links(GOOGLEBOT) == ["http://www.google.com/bot.html"]
-    assert links("foo/1.0 (bot@example.com; @handle)") == ["bot@example.com"]
-    assert links(None) == []
+def test_identify_separates_urls_and_emails():
+    assert contacts(GOOGLEBOT) == (["http://www.google.com/bot.html"], [])
+    assert contacts("foo/1.0 (bot@example.com; @handle)") == ([], ["bot@example.com"])
+    assert contacts("bot/1.0 (+https://user@example.com/)") == (
+        ["https://user@example.com/"],
+        [],
+    )
+
+
+def test_identify_leaves_out_empty_fields():
+    assert set(uaid.identify(None)) == {"bot", "signals"}
+    assert {"urls", "emails", "languages"}.isdisjoint(uaid.identify(BROWSERS[0]))
+    assert uaid.identify("bot/1.0 (de-DE)")["languages"] == ["de-DE"]
 
 
 @pytest.mark.parametrize(
@@ -300,7 +312,7 @@ def test_identify_describes_browsers(agent, expected):
 
 def test_verify_confirms_crawler_networks():
     address = googlebot_address()
-    assert ".googlebot.com" in uaid.networks(address)
+    assert uaid.networks(address, [".googlebot.com"]) == [".googlebot.com"]
     assert uaid.verify(GOOGLEBOT, address)
     assert uaid.verify(GOOGLEBOT, f"::ffff:{address}")
     assert not uaid.verify("Mozilla/5.0 (compatible; bingbot/2.0)", address)
@@ -345,13 +357,12 @@ def test_network_spans_include_start_and_exclude_end():
     assert uaid.networks(str(ip_address(start)), ["unknown"]) == []
 
 
-def test_links_strip_plus_and_keep_order():
+def test_contacts_strip_plus_and_keep_order():
     agent = "Bot/1.0 (+https://example.com/bot; mailto bot@example.com) +http://x.io"
-    assert links(agent) == [
-        "https://example.com/bot",
-        "bot@example.com",
-        "http://x.io",
-    ]
+    assert contacts(agent) == (
+        ["https://example.com/bot", "http://x.io"],
+        ["bot@example.com"],
+    )
 
 
 def test_robots_txt_lists_tagged_agents():
@@ -369,3 +380,117 @@ def test_agents_unite_tags():
     combined = set(uaid.agents("ai-crawler", "seo"))
     assert combined == set(uaid.agents("ai-crawler")) | set(uaid.agents("seo"))
     assert "ahrefsbot" in combined
+
+
+LOOKUP_ADDRESS = "203.0.113.7"
+
+
+def fake_dns(monkeypatch, host, addresses):
+    uaid.confirmed.cache_clear()
+    infos = [(2, 1, 6, "", (address, 0)) for address in addresses]
+    monkeypatch.setattr(uaid.socket, "gethostbyaddr", lambda address: (host, [], []))
+    monkeypatch.setattr(uaid.socket, "getaddrinfo", lambda name, port: infos)
+
+
+def fail_dns(*arguments):
+    raise OSError("no dns")
+
+
+def test_verify_lookup_confirms_reverse_and_forward_dns(monkeypatch):
+    fake_dns(monkeypatch, "crawl-203-0-113-7.GoogleBot.com.", [LOOKUP_ADDRESS])
+    assert not uaid.verify(GOOGLEBOT, LOOKUP_ADDRESS)
+    assert uaid.verify(GOOGLEBOT, LOOKUP_ADDRESS, lookup=True)
+    assert uaid.verify(GOOGLEBOT, f"::ffff:{LOOKUP_ADDRESS}", lookup=True)
+
+
+@pytest.mark.parametrize(
+    ("host", "addresses"),
+    [
+        ("crawl.evilgooglebot.com", [LOOKUP_ADDRESS]),
+        ("crawl.googlebot.com.attacker.example", [LOOKUP_ADDRESS]),
+        ("crawl.googlebot.com", ["198.51.100.1"]),
+    ],
+)
+def test_verify_lookup_rejects_spoofed_dns(monkeypatch, host, addresses):
+    fake_dns(monkeypatch, host, addresses)
+    assert not uaid.verify(GOOGLEBOT, LOOKUP_ADDRESS, lookup=True)
+
+
+def test_verify_lookup_treats_dns_errors_as_unverified(monkeypatch):
+    uaid.confirmed.cache_clear()
+    monkeypatch.setattr(uaid.socket, "gethostbyaddr", fail_dns)
+    assert not uaid.verify(GOOGLEBOT, LOOKUP_ADDRESS, lookup=True)
+
+
+def test_verify_lookup_skips_dns_without_rdns_suffixes(monkeypatch):
+    monkeypatch.setattr(uaid.socket, "gethostbyaddr", pytest.fail)
+    assert not uaid.verify("curl/8.4.0", LOOKUP_ADDRESS, lookup=True)
+    assert not uaid.verify(BROWSERS[0], LOOKUP_ADDRESS, lookup=True)
+
+
+def test_signals_explain_why_an_agent_is_a_bot():
+    assert uaid.identify(GOOGLEBOT)["signals"][:2] == ["database", "bot"]
+    assert uaid.identify("zzq/1.0")["signals"] == ["no-comment"]
+    assert "signals" not in uaid.identify(BROWSERS[0])
+
+
+def test_identify_caches_without_sharing_results():
+    first = uaid.identify(GOOGLEBOT)
+    first["urls"].append("changed")
+    first["signals"].clear()
+    assert uaid.identify(GOOGLEBOT)["urls"] == ["http://www.google.com/bot.html"]
+    assert uaid.identify(GOOGLEBOT)["signals"]
+
+
+def test_long_user_agents_are_cut():
+    agent = "Mozilla/5.0 (X11) " + "a" * uaid.max_length + " Googlebot/2.1"
+    assert not uaid.is_bot(agent)
+    assert not uaid.identify(agent)["bot"]
+
+
+def test_robots_txt_path_rejects_line_breaks():
+    assert uaid.robots_txt("ai-crawler", path="/private/").endswith(
+        "Disallow: /private/\n"
+    )
+    for path in ["/\nUser-agent: *", "/\rAllow: /"]:
+        with pytest.raises(ValueError):
+            uaid.robots_txt("ai-crawler", path=path)
+
+
+def run_cli(monkeypatch, capsys, arguments, stdin=""):
+    monkeypatch.setattr("sys.stdin", io.StringIO(stdin))
+    monkeypatch.setattr("sys.argv", ["uaid", *arguments])
+    runpy.run_module("uaid", run_name="__main__")
+    return capsys.readouterr().out
+
+
+def test_cli_describes_each_line(monkeypatch, capsys):
+    address = googlebot_address()
+    stdin = f"curl/8.4.0\n{address}\t{GOOGLEBOT}\r\nnot-an-ip\t{GOOGLEBOT}\n"
+    rows = [
+        json.loads(line) for line in run_cli(monkeypatch, capsys, [], stdin).splitlines()
+    ]
+    assert rows[0]["name"] == "curl"
+    assert (rows[1]["name"], rows[1]["ip"], rows[1]["verified"]) == (
+        "Googlebot",
+        address,
+        True,
+    )
+    assert rows[2]["verified"] is False
+
+
+def test_cli_lookup_flag_enables_dns(monkeypatch, capsys):
+    fake_dns(monkeypatch, "crawl.googlebot.com", [LOOKUP_ADDRESS])
+    stdin = f"{LOOKUP_ADDRESS}\t{GOOGLEBOT}\n"
+    assert '"verified": true' in run_cli(monkeypatch, capsys, ["--lookup"], stdin)
+
+
+def test_cli_prints_robots_txt(monkeypatch, capsys):
+    assert run_cli(monkeypatch, capsys, ["robots", "ai-crawler"]) == uaid.robots_txt(
+        "ai-crawler"
+    )
+
+
+def test_package_stays_within_line_limit():
+    sources = Path(uaid.__file__).parent.glob("*.py")
+    assert sum(len(source.read_text().splitlines()) for source in sources) <= 225

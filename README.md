@@ -17,38 +17,96 @@ uaid.identify(
     "Mozilla/5.0 (Linux; Android 14; SM-S918B) AppleWebKit/537.36 "
     "(KHTML, like Gecko) Chrome/120.0.6099.230 Mobile Safari/537.36"
 )
-# {'bot': False, 'links': [], 'languages': [], 'browser': 'Chrome',
-#  'browser_version': '120.0.6099.230', 'engine': 'Blink', 'engine_version': '120.0.6099.230',
-#  'os': 'Android', 'os_version': '14', 'device': 'mobile', 'brand': 'Samsung',
-#  'model': 'SM-S918B'}
+# {'bot': False, 'browser': 'Chrome', 'browser_version': '120.0.6099.230',
+#  'engine': 'Blink', 'engine_version': '120.0.6099.230', 'os': 'Android',
+#  'os_version': '14', 'device': 'mobile', 'brand': 'Samsung', 'model': 'SM-S918B'}
 
 googlebot = "Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)"
 uaid.identify(googlebot)
-# {'bot': True, 'links': ['http://www.google.com/bot.html'], 'languages': [],
-#  'name': 'Googlebot', 'version': '2.1', 'description': ..., 'tags': ['search-engine'],
-#  'url': ..., 'rdns': [...], 'ranges': [...]}
+# {'bot': True, 'urls': ['http://www.google.com/bot.html'],
+#  'signals': ['database', 'bot', 'http', '.com'], 'name': 'Googlebot', 'version': '2.1',
+#  'description': ..., 'tags': ['search-engine'], 'url': ..., 'rdns': [...], 'ranges': [...]}
 
 uaid.verify(googlebot, "66.249.66.1")  # True, no network request
+uaid.verify(googlebot, "66.249.79.1", lookup=True)  # live DNS if not in bundled data
 uaid.networks("66.249.66.1")  # ['.googlebot.com', 'https://developers.google.com/...']
-uaid.robots_txt("ai-crawler")  # 'User-agent: agentdatabot\n...\nDisallow: /\n'
+uaid.robots_txt("ai-crawler", path="/")  # 'User-agent: agentdatabot\n...\nDisallow: /\n'
 ```
 
 - `is_bot` checks ~4500 known crawlers plus a keyword heuristic for unknown bots
   (~92% recall, ~0.1% false positives on 30k real browser user agents).
   A missing user agent (`None` or `""`) counts as a bot.
-- `identify` describes any user agent. Keys without a value are left out:
-  - `bot`, `links` (embedded URLs and email addresses) and `languages` (`en-US`).
+- `identify` describes any user agent and leaves out keys without a value:
+  - `bot`, embedded `urls` and `emails`, and `languages` (`en-US`).
   - `browser`, `engine`, `os` with their `_version`, and `device` (desktop, mobile,
     tablet, tv, console, wearable), `brand`, `model` and `cpu`.
-  - For bots `name` and `version`. Known crawlers add their database entry, where `rdns`
-    lists forward-confirmed reverse DNS suffixes and `ranges` the URLs of IP lists the
-    operator publishes. Unknown bots are named after the word that looks like one.
+  - For bots `signals` (why it counts as one: `database`, `no-comment` or the matched
+    keywords), `name` and `version`. Known crawlers add their database entry, where
+    `rdns` lists forward-confirmed reverse DNS suffixes and `ranges` the URLs of IP lists
+    the operator publishes. Unknown bots are named after the word that looks like one.
 - `verify` checks that an IP belongs to the crawler its user agent claims, offline against
   the bundled networks of its `rdns` suffixes and `ranges` URLs (IPv4, IPv6, v4-mapped).
-  `networks` lists which known crawler networks contain an IP.
+  With `lookup=True` it falls back to a live forward-confirmed reverse DNS check for
+  addresses the bundled data does not know yet. `networks` lists which known crawler
+  networks contain an IP.
 - `agents` and `robots_txt` list the robots.txt tokens of crawlers with any of the tags.
-- ~0.3 µs per `is_bot` call on obvious bots, ~15 µs per `identify` or `verify` call on
-  bots and ~28 µs on browsers through trigram indexes, ~19 ms import time.
+- Results are cached for repeated user agents (~1 µs). Uncached, `identify` takes ~15 µs on
+  bots and ~28 µs on browsers through trigram indexes, `is_bot` ~0.3 µs on obvious bots.
+  Import takes ~19 ms. User agents are cut at 4096 characters.
+
+## Command line
+
+Reads one user agent per line, or `IP<TAB>user agent` to also verify the IP, and prints
+one JSON object per line:
+
+```
+awk -F'"' '{print $6}' access.log | python -m uaid
+awk '{print $1}' access.log | paste - <(awk -F'"' '{print $6}' access.log) | python -m uaid --lookup
+python -m uaid robots ai-crawler seo > robots.txt
+```
+
+## Web frameworks
+
+Reject requests whose user agent claims a verifiable crawler from an address it does not
+own, for example in Flask:
+
+```python
+from flask import Flask, abort, request
+
+import uaid
+
+app = Flask(__name__)
+
+
+@app.before_request
+def block_fake_crawlers():
+    crawler = uaid.identify(request.user_agent.string)
+    claims = crawler.get("rdns") or crawler.get("ranges")
+    if claims and not uaid.verify(request.user_agent.string, request.remote_addr):
+        abort(403)
+```
+
+The same check works as ASGI middleware for FastAPI or Starlette:
+
+```python
+class FakeCrawlerBlocker:
+    def __init__(self, app):
+        self.app = app
+
+    async def __call__(self, scope, receive, send):
+        headers = dict(scope.get("headers", []))
+        user_agent = headers.get(b"user-agent", b"").decode("latin-1")
+        crawler = uaid.identify(user_agent)
+        claims = crawler.get("rdns") or crawler.get("ranges")
+        client = (scope.get("client") or ("0.0.0.0", 0))[0]
+        if scope["type"] == "http" and claims and not uaid.verify(user_agent, client):
+            await send({"type": "http.response.start", "status": 403, "headers": []})
+            await send({"type": "http.response.body", "body": b""})
+            return
+        await self.app(scope, receive, send)
+```
+
+Behind a proxy, pass the client address your proxy reports instead of the socket address.
 
 ## Data
 
