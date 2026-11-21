@@ -8,11 +8,19 @@ regex, no dependencies, no network requests.
 pip install uaid
 ```
 
+## Bot or not
+
 ```python
 import uaid
 
 uaid.is_bot("curl/8.4.0")  # True
+uaid.is_bot("Mozilla/5.0 (Windows NT 10.0; Win64; x64) ... Chrome/120.0.0.0")  # False
+uaid.is_bot(None)  # True, so is ""
+```
 
+## What is it
+
+```python
 uaid.identify(
     "Mozilla/5.0 (Linux; Android 14; SM-S918B) AppleWebKit/537.36 "
     "(KHTML, like Gecko) Chrome/120.0.6099.230 Mobile Safari/537.36"
@@ -21,47 +29,136 @@ uaid.identify(
 #  'engine': 'Blink', 'engine_version': '120.0.6099.230', 'os': 'Android',
 #  'os_version': '14', 'device': 'mobile', 'brand': 'Samsung', 'model': 'SM-S918B'}
 
-googlebot = "Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)"
-uaid.identify(googlebot)
-# {'bot': True, 'urls': ['http://www.google.com/bot.html'],
-#  'signals': ['database', 'bot', 'http', '.com'], 'name': 'Googlebot', 'version': '2.1',
-#  'description': ..., 'tags': ['search-engine'], 'url': ..., 'rdns': [...], 'ranges': [...]}
+uaid.identify(
+    "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
+    "(KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36 Edg/120.0.2210.91"
+)
+# {'bot': False, 'browser': 'Edge', 'browser_version': '120.0.2210.91',
+#  'engine': 'Blink', 'engine_version': '120.0.0.0', 'os': 'Windows', 'os_version': '10',
+#  'device': 'desktop', 'cpu': 'amd64'}
 
-uaid.verify(googlebot, "66.249.66.1")  # True, no network request
-uaid.verify(googlebot, "66.249.79.1", lookup=True)  # live DNS if not in bundled data
-uaid.networks("66.249.66.1")  # ['.googlebot.com', 'https://developers.google.com/...']
-uaid.robots_txt("ai-crawler", path="/")  # 'User-agent: agentdatabot\n...\nDisallow: /\n'
+uaid.identify(
+    "Mozilla/5.0 (iPhone; CPU iPhone OS 17_1 like Mac OS X) AppleWebKit/605.1.15 "
+    "(KHTML, like Gecko) Version/17.1 Mobile/15E148 Safari/604.1"
+)
+# {'bot': False, 'browser': 'Safari', 'browser_version': '17.1', 'engine': 'WebKit',
+#  'engine_version': '605.1.15', 'os': 'iOS', 'os_version': '17.1', 'device': 'mobile',
+#  'brand': 'Apple', 'model': 'iPhone'}
 ```
 
-- `is_bot` checks ~4500 known crawlers plus a keyword heuristic for unknown bots
-  (~92% recall, ~0.1% false positives on 30k real browser user agents).
-  A missing user agent (`None` or `""`) counts as a bot.
-- `identify` describes any user agent and leaves out keys without a value:
-  - `bot`, embedded `urls` and `emails`, and `languages` (`en-US`).
-  - `browser`, `engine`, `os` with their `_version`, and `device` (desktop, mobile,
-    tablet, tv, console, wearable), `brand`, `model` and `cpu`.
-  - For bots `signals` (why it counts as one: `database`, `no-comment` or the matched
-    keywords), `name` and `version`. Known crawlers add their database entry, where
-    `rdns` lists forward-confirmed reverse DNS suffixes and `ranges` the URLs of IP lists
-    the operator publishes. Unknown bots are named after the word that looks like one.
-- `verify` checks that an IP belongs to the crawler its user agent claims, offline against
-  the bundled networks of its `rdns` suffixes and `ranges` URLs (IPv4, IPv6, v4-mapped).
-  With `lookup=True` it falls back to a live forward-confirmed reverse DNS check for
-  addresses the bundled data does not know yet. `networks` lists which known crawler
-  networks contain an IP.
-- `agents` and `robots_txt` list the robots.txt tokens of crawlers with any of the tags.
-- Results are cached for repeated user agents (~1 µs). Uncached, `identify` takes ~15 µs on
-  bots and ~28 µs on browsers through trigram indexes, `is_bot` ~0.3 µs on obvious bots.
-  Import takes ~19 ms. User agents are cut at 4096 characters.
+A known crawler gets its database entry on top:
+
+```python
+uaid.identify(
+    "Mozilla/5.0 (Linux; Android 6.0.1; Nexus 5X Build/MMB29P) AppleWebKit/537.36 "
+    "(KHTML, like Gecko) Chrome/120.0.6099.199 Mobile Safari/537.36 "
+    "(compatible; Googlebot/2.1; +http://www.google.com/bot.html)"
+)
+# {'bot': True,
+#  'urls': ['http://www.google.com/bot.html'],
+#  'browser': 'Chrome', 'browser_version': '120.0.6099.199',
+#  'engine': 'Blink', 'engine_version': '120.0.6099.199',
+#  'os': 'Android', 'os_version': '6.0.1',
+#  'device': 'mobile', 'brand': 'Google', 'model': 'Nexus 5X',
+#  'signals': ['database', 'bot', 'http', '.com'],
+#  'name': 'Googlebot', 'version': '2.1',
+#  'description': "Google's main web crawling bot for search indexing",
+#  'tags': ['search-engine'],
+#  'url': 'http://www.google.com/bot.html',
+#  'rdns': ['.1e100.net', '.googlebot.com', '.google.com'],
+#  'ranges': ['https://developers.google.com/static/crawling/ipranges/common-crawlers.json']}
+```
+
+An unknown bot is still named, and its contacts are pulled out:
+
+```python
+uaid.identify("FooBot/1.2 (de-DE; +https://foo.example/bot; ops@foo.example)")
+# {'bot': True, 'urls': ['https://foo.example/bot'], 'emails': ['ops@foo.example'],
+#  'languages': ['de-DE'], 'signals': ['bot', 'http', '@'], 'name': 'FooBot',
+#  'version': '1.2'}
+
+uaid.identify("curl/8.4.0")
+# {'bot': True, 'signals': ['database', 'no-comment', 'url'], 'name': 'curl',
+#  'version': '8.4.0', 'description': 'cURL command-line tool for HTTP requests',
+#  'tags': ['http-library'], 'url': 'https://curl.se/'}
+
+uaid.identify(None)
+# {'bot': True, 'signals': ['no-comment']}
+```
+
+| key | values |
+| --- | --- |
+| `bot` | always present, same answer as `is_bot` |
+| `browser`, `browser_version` | `Chrome`, `Safari`, `Firefox`, `Edge`, `Samsung Internet`, `Chrome WebView`, `Facebook`, ... |
+| `engine`, `engine_version` | `Blink`, `WebKit`, `Gecko`, `Trident`, `EdgeHTML`, `Presto` |
+| `os`, `os_version` | `Android` `14`, `iOS` `17.1`, `macOS` `10.15.7`, `Windows` `10`, `Linux`, `Chrome OS`, ... |
+| `device` | `desktop`, `mobile`, `tablet`, `tv`, `console`, `wearable` |
+| `brand`, `model` | `Samsung` `SM-S918B`, `Apple` `iPhone`, `Google` `Pixel 8`, ... |
+| `cpu` | `amd64`, `arm64`, `arm`, `ia32`, `ppc` |
+| `urls`, `emails`, `languages` | found in the user agent |
+| `signals` | bots only: why it is one, `database`, `no-comment` (no parentheses) or matched keywords |
+| `name`, `version` | bots only: the crawler or tool |
+| `description`, `tags`, `url` | known crawlers: from the database, `tags` such as `search-engine`, `ai-crawler`, `seo`, `monitoring`, `http-library` |
+| `rdns`, `ranges` | known crawlers: forward-confirmed reverse DNS suffixes and published IP list URLs |
+
+Keys without a value are left out. On a gold set of 644 user agents labeled by Claude
+Haiku, mostly rare ones, the browser is right 86% of the time, the OS 94% and the device
+92%.
+
+## Is it really that crawler
+
+```python
+googlebot = "Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)"
+
+uaid.verify(googlebot, "66.249.66.1")  # True, a Google address
+uaid.verify(googlebot, "::ffff:66.249.66.1")  # True, v4-mapped
+uaid.verify(googlebot, "2001:4860:4801:10::1")  # True, IPv6
+uaid.verify(googlebot, "203.0.113.7")  # False, someone pretending
+uaid.verify("curl/8.4.0", "66.249.66.1")  # False, curl publishes no addresses
+
+# also asks DNS when the bundled data has no match
+uaid.verify(googlebot, "203.0.113.7", lookup=True)
+```
+
+Without `lookup`, no request leaves the machine: the networks behind every `rdns` suffix and
+`ranges` URL ship with the package. `lookup=True` adds a live check for addresses newer than
+the data: the reverse DNS name must end in one of the crawler's suffixes and resolve back to
+the same address.
+
+```python
+uaid.networks("66.249.66.1")
+# ['.googlebot.com', 'https://developers.google.com/static/crawling/ipranges/common-crawlers.json']
+uaid.networks("203.0.113.7")  # []
+```
+
+## robots.txt
+
+```python
+uaid.agents("ai-crawler")  # ['agentdatabot', 'agenttimes', 'ai2bot', 'aisearchbot', ...]
+print(uaid.robots_txt("ai-crawler", "seo", path="/private/"))
+```
+
+```
+User-agent: agentdatabot
+User-agent: agenttimes
+...
+Disallow: /private/
+```
 
 ## Command line
 
-Reads one user agent per line, or `IP<TAB>user agent` to also verify the IP, and prints
-one JSON object per line:
+```
+$ printf 'curl/8.4.0\n66.249.66.1\tGooglebot/2.1\n203.0.113.7\tGooglebot/2.1\n' | python -m uaid
+{"bot": true, "signals": ["database", "no-comment", "url"], "name": "curl", ...}
+{"bot": true, ..., "name": "Googlebot", "version": "2.1", ..., "ip": "66.249.66.1", "verified": true}
+{"bot": true, ..., "name": "Googlebot", "version": "2.1", ..., "ip": "203.0.113.7", "verified": false}
+```
+
+One user agent per line, or `IP<TAB>user agent` to verify the address too. `--lookup` enables
+the DNS check.
 
 ```
 awk -F'"' '{print $6}' access.log | python -m uaid
-awk '{print $1}' access.log | paste - <(awk -F'"' '{print $6}' access.log) | python -m uaid --lookup
 python -m uaid robots ai-crawler seo > robots.txt
 ```
 
@@ -107,6 +204,19 @@ class FakeCrawlerBlocker:
 ```
 
 Behind a proxy, pass the client address your proxy reports instead of the socket address.
+
+## Performance
+
+| call | time |
+| --- | --- |
+| `is_bot` on an obvious bot | ~0.3 µs |
+| `identify` or `verify`, repeated user agent | ~1 µs |
+| `identify`, new bot | ~15 µs |
+| `identify`, new browser | ~28 µs |
+| `import uaid` | ~19 ms |
+
+Rules are found through trigram indexes, results of the last 4096 user agents are cached
+and user agents are cut at 4096 characters.
 
 ## Data
 
