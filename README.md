@@ -1,6 +1,8 @@
 # uaid
 
-Identify crawlers and bots by user agent. Plain substring matching, no regex, no dependencies.
+Identify bots, crawlers and browsers by user agent: name, version, engine, OS, device,
+brand and model, plus offline verification of crawler IPs. Plain substring matching, no
+regex, no dependencies, no network requests.
 
 ```
 pip install uaid

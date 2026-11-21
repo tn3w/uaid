@@ -1,7 +1,7 @@
 [project]
 name = "uaid"
 version = "1.3.0"
-description = "Identify crawlers and bots by user agent with plain substring matching"
+description = "Identify bots, crawlers and browsers by user agent and verify crawler IPs offline"
 readme = "README.md"
 license = "Apache-2.0"
 requires-python = ">=3.10"
@@ -21,6 +21,12 @@ keywords = [
     "robots",
     "seo",
     "reverse-dns",
+    "browser-detection",
+    "device-detection",
+    "os-detection",
+    "fcrdns",
+    "ip-verification",
+    "robots-txt",
 ]
 classifiers = [
     "Development Status :: 5 - Production/Stable",
