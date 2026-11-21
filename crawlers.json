@@ -2940,7 +2940,10 @@
     "tags": [
       "search-engine"
     ],
-    "addition_date": "2013/01/04"
+    "addition_date": "2013/01/04",
+    "rdns": [
+      ".coccoc.com"
+    ]
   },
   {
     "match": [
@@ -3389,7 +3392,10 @@
     "tags": [
       "archiver"
     ],
-    "addition_date": "2014/11/18"
+    "addition_date": "2014/11/18",
+    "rdns": [
+      ".bnf.fr"
+    ]
   },
   {
     "match": [
@@ -5472,7 +5478,10 @@
     "tags": [
       "seo"
     ],
-    "addition_date": "2018/02/09"
+    "addition_date": "2018/02/09",
+    "rdns": [
+      ".007ac9.net"
+    ]
   },
   {
     "match": [
@@ -6359,7 +6368,10 @@
     "tags": [
       "monitoring"
     ],
-    "addition_date": "2018/07/07"
+    "addition_date": "2018/07/07",
+    "rdns": [
+      ".probe.dareboost.com"
+    ]
   },
   {
     "match": [
@@ -7042,7 +7054,10 @@
     "tags": [
       "feed-reader"
     ],
-    "addition_date": "2018/10/23"
+    "addition_date": "2018/10/23",
+    "rdns": [
+      ".bazqux.com"
+    ]
   },
   {
     "match": [
@@ -7056,7 +7071,10 @@
     "tags": [
       "seo"
     ],
-    "addition_date": "2018/10/23"
+    "addition_date": "2018/10/23",
+    "rdns": [
+      ".twingly.com"
+    ]
   },
   {
     "match": [
@@ -8287,7 +8305,10 @@
     "tags": [
       "seo"
     ],
-    "addition_date": "2020/03/16"
+    "addition_date": "2020/03/16",
+    "rdns": [
+      ".bublup.com"
+    ]
   },
   {
     "match": [
@@ -8417,7 +8438,10 @@
     "tags": [
       "seo"
     ],
-    "addition_date": "2020/03/16"
+    "addition_date": "2020/03/16",
+    "rdns": [
+      ".servers.seobility.net"
+    ]
   },
   {
     "match": [
@@ -8827,7 +8851,10 @@
     "tags": [
       "monitoring"
     ],
-    "addition_date": "2022/11/13"
+    "addition_date": "2022/11/13",
+    "ranges": [
+      "https://uptime.betterstack.com/ips.txt"
+    ]
   },
   {
     "match": [
@@ -9329,7 +9356,10 @@
     "tags": [
       "academic"
     ],
-    "addition_date": "2023/09/08"
+    "addition_date": "2023/09/08",
+    "rdns": [
+      ".cispa.saarland"
+    ]
   },
   {
     "match": [
@@ -9385,7 +9415,10 @@
     "tags": [
       "seo"
     ],
-    "addition_date": "2023/09/08"
+    "addition_date": "2023/09/08",
+    "rdns": [
+      ".2ip.io"
+    ]
   },
   {
     "match": [
@@ -9427,7 +9460,10 @@
     "tags": [
       "seo"
     ],
-    "addition_date": "2023/09/08"
+    "addition_date": "2023/09/08",
+    "rdns": [
+      ".vuhuv.com"
+    ]
   },
   {
     "match": [
@@ -9795,7 +9831,10 @@
     "tags": [
       "scanner"
     ],
-    "addition_date": "2024/02/01"
+    "addition_date": "2024/02/01",
+    "ranges": [
+      "https://cortex-docs.paloaltonetworks.com/cortex-xpanse/reference/scanning-activity.md"
+    ]
   },
   {
     "match": [
@@ -9809,7 +9848,13 @@
     "tags": [
       "academic"
     ],
-    "addition_date": "2024/02/01"
+    "addition_date": "2024/02/01",
+    "rdns": [
+      ".internet-measurement.com"
+    ],
+    "ranges": [
+      "https://internet-measurement.com/"
+    ]
   },
   {
     "match": [
@@ -9855,7 +9900,10 @@
     "tags": [
       "seo"
     ],
-    "addition_date": "2024/03/14"
+    "addition_date": "2024/03/14",
+    "rdns": [
+      ".crawler.audisto.com"
+    ]
   },
   {
     "match": [
@@ -9909,7 +9957,10 @@
     "tags": [
       "monitoring"
     ],
-    "addition_date": "2024/05/14"
+    "addition_date": "2024/05/14",
+    "rdns": [
+      ".monsido.com"
+    ]
   },
   {
     "match": [
@@ -10249,7 +10300,13 @@
     "tags": [
       "scanner"
     ],
-    "addition_date": "2025/04/22"
+    "addition_date": "2025/04/22",
+    "rdns": [
+      ".censys-scanner.com"
+    ],
+    "ranges": [
+      "https://docs.censys.com/docs/opt-out-of-data-collection.md"
+    ]
   },
   {
     "match": [
@@ -10347,7 +10404,10 @@
     "tags": [
       "monitoring"
     ],
-    "addition_date": "2025/12/23"
+    "addition_date": "2025/12/23",
+    "rdns": [
+      ".observepoint.com"
+    ]
   },
   {
     "match": [
@@ -11119,7 +11179,10 @@
     "tags": [
       "scanner"
     ],
-    "addition_date": "2026/04/17"
+    "addition_date": "2026/04/17",
+    "rdns": [
+      ".bots.activecomply.com"
+    ]
   },
   {
     "match": [
@@ -11308,7 +11371,10 @@
     "tags": [
       "seo"
     ],
-    "addition_date": "2026/04/17"
+    "addition_date": "2026/04/17",
+    "rdns": [
+      ".allafrica.com"
+    ]
   },
   {
     "match": [
@@ -11492,7 +11558,10 @@
     "tags": [
       "seo"
     ],
-    "addition_date": "2026/04/17"
+    "addition_date": "2026/04/17",
+    "rdns": [
+      ".attracta.com"
+    ]
   },
   {
     "match": [
@@ -11506,7 +11575,10 @@
     "tags": [
       "seo"
     ],
-    "addition_date": "2026/04/17"
+    "addition_date": "2026/04/17",
+    "rdns": [
+      ".crawler.audisto.com"
+    ]
   },
   {
     "match": [
@@ -11666,7 +11738,10 @@
     "tags": [
       "archiver"
     ],
-    "addition_date": "2026/04/17"
+    "addition_date": "2026/04/17",
+    "rdns": [
+      ".bnf.fr"
+    ]
   },
   {
     "match": [
@@ -12154,7 +12229,10 @@
     "tags": [
       "monitoring"
     ],
-    "addition_date": "2026/04/17"
+    "addition_date": "2026/04/17",
+    "ranges": [
+      "https://check-host.net/nodes/ips"
+    ]
   },
   {
     "match": [
@@ -12360,7 +12438,10 @@
     "tags": [
       "monitoring"
     ],
-    "addition_date": "2026/04/17"
+    "addition_date": "2026/04/17",
+    "rdns": [
+      ".cloudtrellis.com"
+    ]
   },
   {
     "match": [
@@ -12594,7 +12675,10 @@
     "tags": [
       "monitoring"
     ],
-    "addition_date": "2026/04/17"
+    "addition_date": "2026/04/17",
+    "ranges": [
+      "https://api.cron-job.org/executor-nodes.json"
+    ]
   },
   {
     "match": [
@@ -12650,7 +12734,10 @@
     "tags": [
       "monitoring"
     ],
-    "addition_date": "2026/04/17"
+    "addition_date": "2026/04/17",
+    "rdns": [
+      ".downnotifier.com"
+    ]
   },
   {
     "match": [
@@ -12678,7 +12765,10 @@
     "tags": [
       "seo"
     ],
-    "addition_date": "2026/04/17"
+    "addition_date": "2026/04/17",
+    "rdns": [
+      ".crawler.drlinkcheck.com"
+    ]
   },
   {
     "match": [
@@ -12923,7 +13013,10 @@
     "tags": [
       "scanner"
     ],
-    "addition_date": "2026/04/17"
+    "addition_date": "2026/04/17",
+    "rdns": [
+      ".detectify.com"
+    ]
   },
   {
     "match": [
@@ -13275,7 +13368,13 @@
     "tags": [
       "feed-reader"
     ],
-    "addition_date": "2026/04/17"
+    "addition_date": "2026/04/17",
+    "rdns": [
+      ".feeder.co"
+    ],
+    "ranges": [
+      "https://feeder.co/1/service-urls/crawlers.txt"
+    ]
   },
   {
     "match": [
@@ -13345,7 +13444,11 @@
     "tags": [
       "feed-reader"
     ],
-    "addition_date": "2026/04/17"
+    "addition_date": "2026/04/17",
+    "rdns": [
+      ".flipboard.com",
+      ".flipboard.net"
+    ]
   },
   {
     "match": [
@@ -13892,7 +13995,10 @@
     "tags": [
       "seo"
     ],
-    "addition_date": "2026/04/17"
+    "addition_date": "2026/04/17",
+    "rdns": [
+      ".guestposts.com.br"
+    ]
   },
   {
     "match": [
@@ -14448,7 +14554,10 @@
     "tags": [
       "monitoring"
     ],
-    "addition_date": "2026/04/17"
+    "addition_date": "2026/04/17",
+    "ranges": [
+      "https://jetpack.com/ips-v4.txt"
+    ]
   },
   {
     "match": [
@@ -15001,7 +15110,10 @@
     "tags": [
       "seo"
     ],
-    "addition_date": "2026/04/17"
+    "addition_date": "2026/04/17",
+    "rdns": [
+      ".mlg.ru"
+    ]
   },
   {
     "match": [
@@ -15015,7 +15127,10 @@
     "tags": [
       "seo"
     ],
-    "addition_date": "2026/04/17"
+    "addition_date": "2026/04/17",
+    "rdns": [
+      ".mediamonitoringbot.com"
+    ]
   },
   {
     "match": [
@@ -15242,7 +15357,10 @@
     "tags": [
       "feed-reader"
     ],
-    "addition_date": "2026/04/17"
+    "addition_date": "2026/04/17",
+    "rdns": [
+      ".monitorss.xyz"
+    ]
   },
   {
     "match": [
@@ -15527,7 +15645,13 @@
     "tags": [
       "monitoring"
     ],
-    "addition_date": "2026/04/17"
+    "addition_date": "2026/04/17",
+    "rdns": [
+      ".nodeping.com"
+    ],
+    "ranges": [
+      "https://nodeping.com/content/txt/pinghosts.txt"
+    ]
   },
   {
     "match": [
@@ -15698,7 +15822,10 @@
     "tags": [
       "monitoring"
     ],
-    "addition_date": "2026/04/17"
+    "addition_date": "2026/04/17",
+    "ranges": [
+      "https://ohdear.app/used-ips"
+    ]
   },
   {
     "match": [
@@ -15926,7 +16053,10 @@
     "tags": [
       "feed-reader"
     ],
-    "addition_date": "2026/04/17"
+    "addition_date": "2026/04/17",
+    "rdns": [
+      ".overcast.fm"
+    ]
   },
   {
     "match": [
@@ -16064,7 +16194,10 @@
     "tags": [
       "monitoring"
     ],
-    "addition_date": "2026/04/17"
+    "addition_date": "2026/04/17",
+    "rdns": [
+      ".pingping.io"
+    ]
   },
   {
     "match": [
@@ -16106,7 +16239,10 @@
     "tags": [
       "feed-reader"
     ],
-    "addition_date": "2026/04/17"
+    "addition_date": "2026/04/17",
+    "rdns": [
+      ".pocketcasts.com"
+    ]
   },
   {
     "match": [
@@ -16359,7 +16495,10 @@
     "tags": [
       "monitoring"
     ],
-    "addition_date": "2026/04/17"
+    "addition_date": "2026/04/17",
+    "rdns": [
+      ".monitoring.rackspacecloud.com"
+    ]
   },
   {
     "match": [
@@ -16681,7 +16820,10 @@
     "tags": [
       "scanner"
     ],
-    "addition_date": "2026/04/17"
+    "addition_date": "2026/04/17",
+    "rdns": [
+      ".monitor.sansec.io"
+    ]
   },
   {
     "match": [
@@ -17441,7 +17583,13 @@
     "tags": [
       "monitoring"
     ],
-    "addition_date": "2026/04/17"
+    "addition_date": "2026/04/17",
+    "rdns": [
+      ".checker.spectate.net"
+    ],
+    "ranges": [
+      "https://docs.spectate.net/ip-addresses.txt"
+    ]
   },
   {
     "match": [
@@ -17761,7 +17909,10 @@
     "tags": [
       "scanner"
     ],
-    "addition_date": "2026/04/17"
+    "addition_date": "2026/04/17",
+    "rdns": [
+      ".termly.io"
+    ]
   },
   {
     "match": [
@@ -17901,7 +18052,10 @@
     "tags": [
       "seo"
     ],
-    "addition_date": "2026/04/17"
+    "addition_date": "2026/04/17",
+    "rdns": [
+      ".mediavine.com"
+    ]
   },
   {
     "match": [
@@ -18391,7 +18545,10 @@
     "tags": [
       "monitoring"
     ],
-    "addition_date": "2026/04/17"
+    "addition_date": "2026/04/17",
+    "rdns": [
+      ".probe.wedos.online"
+    ]
   },
   {
     "match": [
@@ -18699,7 +18856,10 @@
     "tags": [
       "scanner"
     ],
-    "addition_date": "2026/04/17"
+    "addition_date": "2026/04/17",
+    "rdns": [
+      ".wpsec.com"
+    ]
   },
   {
     "match": [
@@ -19063,7 +19223,10 @@
     "tags": [
       "advertising"
     ],
-    "addition_date": "2026/04/26"
+    "addition_date": "2026/04/26",
+    "rdns": [
+      ".crawler.adkernel.com"
+    ]
   },
   {
     "match": [
@@ -19444,7 +19607,10 @@
     "tags": [
       "scanner"
     ],
-    "addition_date": "2026/04/26"
+    "addition_date": "2026/04/26",
+    "rdns": [
+      ".crawl.obsrvr.net"
+    ]
   },
   {
     "match": [
@@ -19532,7 +19698,10 @@
     "tags": [
       "ai-crawler"
     ],
-    "addition_date": "2026/04/26"
+    "addition_date": "2026/04/26",
+    "rdns": [
+      ".bot.trychannel3.com"
+    ]
   },
   {
     "match": [
@@ -20017,7 +20186,10 @@
     "tags": [
       "search-engine"
     ],
-    "addition_date": "2026/04/26"
+    "addition_date": "2026/04/26",
+    "rdns": [
+      ".findfiles.net"
+    ]
   },
   {
     "match": [
@@ -21122,7 +21294,10 @@
     "tags": [
       "search-engine"
     ],
-    "addition_date": "2026/04/26"
+    "addition_date": "2026/04/26",
+    "rdns": [
+      ".smtnet.com"
+    ]
   },
   {
     "match": [
@@ -21358,7 +21533,10 @@
     "tags": [
       "scanner"
     ],
-    "addition_date": "2026/04/26"
+    "addition_date": "2026/04/26",
+    "rdns": [
+      ".visionheight.com"
+    ]
   },
   {
     "match": [
@@ -21540,7 +21718,10 @@
     "tags": [
       "archiver"
     ],
-    "addition_date": "2026/04/26"
+    "addition_date": "2026/04/26",
+    "rdns": [
+      ".bnf.fr"
+    ]
   },
   {
     "match": [
@@ -21708,7 +21889,10 @@
     "tags": [
       "ai-crawler"
     ],
-    "addition_date": "2026/04/26"
+    "addition_date": "2026/04/26",
+    "rdns": [
+      ".exte.ai"
+    ]
   },
   {
     "match": [
@@ -21918,7 +22102,10 @@
     "tags": [
       "academic"
     ],
-    "addition_date": "2026/04/26"
+    "addition_date": "2026/04/26",
+    "rdns": [
+      ".irl.cs.tamu.edu"
+    ]
   },
   {
     "match": [
@@ -22044,7 +22231,10 @@
     "tags": [
       "monitoring"
     ],
-    "addition_date": "2026/04/26"
+    "addition_date": "2026/04/26",
+    "rdns": [
+      ".scanner.modat.io"
+    ]
   },
   {
     "match": [
@@ -22240,7 +22430,10 @@
     "tags": [
       "monitoring"
     ],
-    "addition_date": "2026/04/26"
+    "addition_date": "2026/04/26",
+    "rdns": [
+      ".termly.io"
+    ]
   },
   {
     "match": [
@@ -22367,7 +22560,10 @@
     "tags": [
       "search-engine"
     ],
-    "addition_date": "2026/04/26"
+    "addition_date": "2026/04/26",
+    "rdns": [
+      ".wikido.com"
+    ]
   },
   {
     "match": [
@@ -26107,7 +26303,10 @@
     "tags": [
       "seo"
     ],
-    "addition_date": "2026/05/09"
+    "addition_date": "2026/05/09",
+    "rdns": [
+      ".boardreader.com"
+    ]
   },
   {
     "match": [
@@ -26290,7 +26489,10 @@
     "tags": [
       "scanner"
     ],
-    "addition_date": "2026/05/09"
+    "addition_date": "2026/05/09",
+    "rdns": [
+      ".cispa.saarland"
+    ]
   },
   {
     "match": [
@@ -28681,7 +28883,10 @@
     "tags": [
       "feed-reader"
     ],
-    "addition_date": "2026/05/09"
+    "addition_date": "2026/05/09",
+    "rdns": [
+      ".zbozi.cz"
+    ]
   },
   {
     "match": [
@@ -31351,7 +31556,11 @@
     "tags": [
       "social-preview"
     ],
-    "addition_date": "2026/05/09"
+    "addition_date": "2026/05/09",
+    "rdns": [
+      ".flipboard.com",
+      ".flipboard.net"
+    ]
   },
   {
     "match": [
@@ -34646,7 +34855,10 @@
     "tags": [
       "monitoring"
     ],
-    "addition_date": "2026/05/09"
+    "addition_date": "2026/05/09",
+    "rdns": [
+      ".crawler.drlinkcheck.com"
+    ]
   },
   {
     "match": [
@@ -35878,7 +36090,10 @@
     "tags": [
       "monitoring"
     ],
-    "addition_date": "2026/05/09"
+    "addition_date": "2026/05/09",
+    "ranges": [
+      "https://ohdear.app/used-ips"
+    ]
   },
   {
     "match": [
@@ -37388,7 +37603,10 @@
     "tags": [
       "seo"
     ],
-    "addition_date": "2026/05/09"
+    "addition_date": "2026/05/09",
+    "rdns": [
+      ".servers.seobility.net"
+    ]
   },
   {
     "match": [
@@ -37620,7 +37838,10 @@
     "tags": [
       "search-engine"
     ],
-    "addition_date": "2026/05/09"
+    "addition_date": "2026/05/09",
+    "rdns": [
+      ".sklik.cz"
+    ]
   },
   {
     "match": [
@@ -39926,7 +40147,13 @@
     "tags": [
       "scanner"
     ],
-    "addition_date": "2026/05/09"
+    "addition_date": "2026/05/09",
+    "rdns": [
+      ".censys-scanner.com"
+    ],
+    "ranges": [
+      "https://docs.censys.com/docs/opt-out-of-data-collection.md"
+    ]
   },
   {
     "match": [
@@ -39995,7 +40222,10 @@
     "tags": [
       "search-engine"
     ],
-    "addition_date": "2026/05/09"
+    "addition_date": "2026/05/09",
+    "rdns": [
+      ".coccoc.com"
+    ]
   },
   {
     "match": [
@@ -42876,7 +43106,10 @@
     "tags": [
       "scanner"
     ],
-    "addition_date": "2026/11/14"
+    "addition_date": "2026/11/14",
+    "rdns": [
+      ".outbound.watchtowr.com"
+    ]
   },
   {
     "match": [
@@ -42890,7 +43123,13 @@
     "tags": [
       "monitoring"
     ],
-    "addition_date": "2026/11/14"
+    "addition_date": "2026/11/14",
+    "rdns": [
+      ".probe.watchfor.io"
+    ],
+    "ranges": [
+      "https://watchfor.io/ips.json"
+    ]
   },
   {
     "match": [
@@ -43125,7 +43364,13 @@
     "tags": [
       "ai-crawler"
     ],
-    "addition_date": "2026/11/14"
+    "addition_date": "2026/11/14",
+    "rdns": [
+      ".reflection.ai"
+    ],
+    "ranges": [
+      "https://reflection.ai/bot/ips.json"
+    ]
   },
   {
     "match": [
@@ -43662,7 +43907,10 @@
     "tags": [
       "search-engine"
     ],
-    "addition_date": "2026/11/14"
+    "addition_date": "2026/11/14",
+    "rdns": [
+      ".boardreader.com"
+    ]
   },
   {
     "match": [
@@ -43921,7 +44169,10 @@
     "tags": [
       "search-engine"
     ],
-    "addition_date": "2026/11/14"
+    "addition_date": "2026/11/14",
+    "rdns": [
+      ".vuhuv.com"
+    ]
   },
   {
     "match": [
@@ -45946,7 +46197,10 @@
     "tags": [
       "seo"
     ],
-    "addition_date": "2026/11/14"
+    "addition_date": "2026/11/14",
+    "rdns": [
+      ".openrobotstxt.org"
+    ]
   },
   {
     "match": [
@@ -45960,7 +46214,10 @@
     "tags": [
       "scanner"
     ],
-    "addition_date": "2026/11/14"
+    "addition_date": "2026/11/14",
+    "rdns": [
+      ".crawl.obsrvr.net"
+    ]
   },
   {
     "match": [
@@ -46221,7 +46478,10 @@
     "tags": [
       "seo"
     ],
-    "addition_date": "2026/11/14"
+    "addition_date": "2026/11/14",
+    "rdns": [
+      ".stackscope.dev"
+    ]
   },
   {
     "match": [
@@ -46332,7 +46592,10 @@
     "tags": [
       "seo"
     ],
-    "addition_date": "2026/11/14"
+    "addition_date": "2026/11/14",
+    "rdns": [
+      ".piperic.com"
+    ]
   },
   {
     "match": [
@@ -46416,7 +46679,10 @@
     "tags": [
       "seo"
     ],
-    "addition_date": "2026/11/14"
+    "addition_date": "2026/11/14",
+    "rdns": [
+      ".webatla.com"
+    ]
   },
   {
     "match": [
@@ -51865,7 +52131,10 @@
     "tags": [
       "seo"
     ],
-    "addition_date": "2026/11/14"
+    "addition_date": "2026/11/14",
+    "rdns": [
+      ".ilse.nl"
+    ]
   },
   {
     "match": [
@@ -58062,7 +58331,10 @@
     "tags": [
       "seo"
     ],
-    "addition_date": "2026/11/14"
+    "addition_date": "2026/11/14",
+    "rdns": [
+      ".007ac9.net"
+    ]
   },
   {
     "match": [
@@ -59348,7 +59620,10 @@
     "tags": [
       "search-engine"
     ],
-    "addition_date": "2026/11/14"
+    "addition_date": "2026/11/14",
+    "rdns": [
+      ".ilse.nl"
+    ]
   },
   {
     "match": [
@@ -62709,7 +62984,13 @@
     ],
     "description": "webXtrend web crawler",
     "tags": [],
-    "addition_date": "2026/11/20"
+    "addition_date": "2026/11/20",
+    "rdns": [
+      ".webxtrend.com"
+    ],
+    "ranges": [
+      "https://webxtrend.com/webxtrendbot.json"
+    ]
   },
   {
     "match": [
@@ -62773,7 +63054,13 @@
     "tags": [
       "search-engine"
     ],
-    "addition_date": "2026/11/20"
+    "addition_date": "2026/11/20",
+    "rdns": [
+      ".crawl.generalretrieval.com"
+    ],
+    "ranges": [
+      "https://keys.generalretrieval.com/crawler-ips.json"
+    ]
   },
   {
     "match": [
