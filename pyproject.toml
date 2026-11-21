@@ -1,6 +1,6 @@
 [project]
 name = "uaid"
-version = "1.3.0"
+version = "2.0.0"
 description = "Identify bots, crawlers and browsers by user agent and verify crawler IPs offline"
 readme = "README.md"
 license = "Apache-2.0"
