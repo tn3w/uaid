@@ -32,11 +32,19 @@ jobs:
       - run: uv run --no-project --with dnspython python .github/crawler_ips.py rdns-v4.rdns
       - run: gh release upload robots crawler-ips.json --clobber
       - run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add crawler-ips.json
-          git diff --cached --quiet || git commit -m "Update crawler IPs"
-          git pull --rebase && git push
+          git diff --quiet -- crawler-ips.json && exit 0
+          base64 -w0 crawler-ips.json > contents.b64
+          jq -n --rawfile contents contents.b64 \
+            --arg head "$(gh api "repos/$GITHUB_REPOSITORY/commits/main" -q .sha)" \
+            --arg repository "$GITHUB_REPOSITORY" \
+            --arg query 'mutation($input: CreateCommitOnBranchInput!) {
+              createCommitOnBranch(input: $input) { commit { url } } }' \
+            '{query: $query, variables: {input: {
+              branch: {repositoryNameWithOwner: $repository, branchName: "main"},
+              expectedHeadOid: $head,
+              message: {headline: "Update crawler IPs"},
+              fileChanges: {additions: [{path: "crawler-ips.json", contents: $contents}]}
+            }}}' | gh api graphql --input -
 
   crawler-info:
     needs: robots
