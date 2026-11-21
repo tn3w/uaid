@@ -3,13 +3,11 @@ from collections import Counter, defaultdict
 from ipaddress import ip_network
 from itertools import pairwise
 from pathlib import Path
-from urllib.request import urlopen
 
 from hatchling.builders.hooks.plugin.interface import BuildHookInterface
 
 FIELDS = ("description", "tags", "url", "rdns", "ranges")
 TARGET = "src/uaid/rules.json"
-IPS = "https://github.com/tn3w/uaid/releases/download/robots/crawler-ips.json"
 
 
 def trigrams(text):
@@ -54,9 +52,8 @@ def encode(networks):
     return [bound - previous for previous, bound in pairwise([0, *bounds])]
 
 
-def build_networks():
-    with urlopen(IPS) as response:
-        ips = json.load(response)
+def build_networks(path):
+    ips = json.loads(path.read_text())
     keyed = ips["rdns"] | ips["ranges"]
     return {key: encode(networks) for key, networks in keyed.items() if networks}
 
@@ -69,7 +66,7 @@ class CustomBuildHook(BuildHookInterface):
             "index": build_index(rules),
             "rules": rules,
             "crawlers": list(map(build_info, crawlers)),
-            "networks": build_networks(),
+            "networks": build_networks(Path(self.root, "crawler-ips.json")),
         }
         Path(self.root, TARGET).write_text(json.dumps(data, separators=(",", ":")))
         build_data["artifacts"].append(TARGET)

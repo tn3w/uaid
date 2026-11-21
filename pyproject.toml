@@ -54,6 +54,7 @@ build-backend = "hatchling.build"
 cache-keys = [
     { file = "pyproject.toml" },
     { file = "crawlers.json" },
+    { file = "crawler-ips.json" },
     { file = "hatch_build.py" },
 ]
 

@@ -31,6 +31,12 @@ jobs:
       - run: gh release download -R tn3w/iplore -p rdns-v4.rdns
       - run: uv run --no-project --with dnspython python .github/crawler_ips.py rdns-v4.rdns
       - run: gh release upload robots crawler-ips.json --clobber
+      - run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add crawler-ips.json
+          git diff --cached --quiet || git commit -m "Update crawler IPs"
+          git pull --rebase && git push
 
   crawler-info:
     needs: robots

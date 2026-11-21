@@ -41,44 +41,33 @@ uaid.robots_txt("ai-crawler")  # 'User-agent: agentdatabot\n...\nDisallow: /\n'
 
 `crawlers.json` is the source database. Each `match` rule is tested against the lowercased
 user agent: a string must be contained, a leading `^` anchors it to the start, a nested
-list requires all parts. The wheel ships a compact, pre-indexed version generated at build
-time, including the networks from the latest `crawler-ips.json` as delta-encoded spans.
+list requires all parts. `crawler-ips.json` holds the networks behind every `rdns` suffix
+and `ranges` URL. The wheel ships both as one compact, pre-indexed `rules.json` generated
+at build time, without network access.
 
-## Robots.txt stats
+A daily workflow refreshes `crawler-ips.json` in the repository and publishes it, along
+with more data, to the [`robots` release](https://github.com/tn3w/uaid/releases/tag/robots):
 
-A daily workflow reads the robots.txt of the top 25,000 [Tranco](https://tranco-list.eu)
-sites and publishes two files to the [`robots` release](https://github.com/tn3w/uaid/releases/tag/robots):
+- `crawler-ips.json`: `rdns` networks come from every IPv4 PTR record in the
+  [iplore rDNS database](https://github.com/tn3w/iplore). Records ending in a suffix are
+  grouped per /24, and a group is kept only if a sampled address forward-confirms (its name
+  resolves back to it), which drops spoofed PTR records. `ranges` networks are parsed from
+  each URL, following IP lists linked from the page. So `uaid.verify` gives the result of a
+  full-circle DNS check without any lookup, as fresh as the build.
 
-- `robots-today.json`: fetch status counts, per user agent how many sites block it fully,
-  partially or allow it (and set a crawl delay), Content-Signal counts, and per site the
-  blocked and partially blocked agents.
-- `robots-history.json`: per date and user agent, the share of sites that restrict it.
+  ```json
+  {"date": "2026-11-21", "rdns": {".googlebot.com": ["66.249.64.0/27", ...]},
+   "ranges": {"https://openai.com/gptbot.json": ["132.196.86.0/24", ...]}}
+  ```
 
-## Crawler IPs
-
-The same workflow publishes `crawler-ips.json` to the `robots` release: the IPv4 networks
-behind every `rdns` suffix and the parsed networks of every `ranges` URL.
-
-```json
-{"date": "2026-11-20", "rdns": {".googlebot.com": ["66.249.64.0/27", ...]},
- "ranges": {"https://openai.com/gptbot.json": ["132.196.86.0/24", ...]}}
-```
-
-`rdns` networks come from every IPv4 PTR record in the
-[iplore rDNS database](https://github.com/tn3w/iplore). Records ending in a suffix are
-grouped per /24, and a group is kept only if a sampled address forward-confirms (its name
-resolves back to it), which drops spoofed PTR records. Each build bundles this file, so
-`uaid.verify` gives the result of a full-circle DNS check without any lookup; it is as
-fresh as the release it was built from.
-
-## Crawler info
-
-`crawler-info.json` in the same release adds context per crawler and per `rdns` domain:
-
-- `domains`: for each registered domain behind an `rdns` suffix, the HTTP status of its
-  `robots.txt` and `security.txt`, MX records, SPF record, and RDAP registration date,
-  registrar and registrant (when the registry publishes them).
-- `crawlers`, keyed by the first `match` rule: `url_status` of the crawler's info page,
-  `observed` traffic from [tn3w/opendata](https://github.com/tn3w/opendata) (addresses,
-  requests, addresses that fetched robots.txt, verified addresses, first and last seen),
-  and `robots`, today's robots.txt stats for its token with the share of sites restricting it.
+- `robots-today.json`: robots.txt of the top 25,000 [Tranco](https://tranco-list.eu) sites,
+  with fetch status counts, per user agent how many sites block it fully, partially or
+  allow it (and set a crawl delay), Content-Signal counts, and per site the blocked and
+  partially blocked agents. `robots-history.json` has per date and user agent the share of
+  sites that restrict it.
+- `crawler-info.json`: per registered domain behind an `rdns` suffix the HTTP status of its
+  `robots.txt` and `security.txt`, MX and SPF records, and RDAP registration date,
+  registrar and registrant (when published). Per crawler, keyed by the first `match` rule,
+  the `url_status` of its info page, `observed` traffic from
+  [tn3w/opendata](https://github.com/tn3w/opendata) (addresses, requests, addresses that
+  fetched robots.txt, verified addresses, first and last seen) and its robots.txt stats.

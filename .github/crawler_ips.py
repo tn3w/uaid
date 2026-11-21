@@ -10,6 +10,7 @@ from collections import defaultdict
 from concurrent.futures import ProcessPoolExecutor, ThreadPoolExecutor
 from datetime import date
 from pathlib import Path
+from urllib.parse import urlparse
 
 import dns.asyncresolver
 import dns.exception
@@ -21,6 +22,7 @@ NAMESERVERS = ["1.1.1.1", "1.0.0.1", "8.8.8.8", "8.8.4.4", "9.9.9.9", "149.112.1
 HEADERS = {"User-Agent": "uaid-crawler-ips/1.0 (+https://github.com/tn3w/uaid)"}
 SAMPLES = 6
 ADDRESS = re.compile(r"[0-9a-fA-F:.]+(?:/\d{1,3})?")
+LINKED_LIST = re.compile(r"https?://[^\"'\s<>]*ip[^\"'\s<>]*\.(?:json|txt)", re.I)
 
 CRAWLERS = json.loads(Path("crawlers.json").read_text())
 SUFFIXES = sorted({suffix for crawler in CRAWLERS for suffix in crawler.get("rdns", [])})
@@ -191,6 +193,12 @@ def download(url):
         print(f"skipping {url}: {error}")
 
 
+def with_linked_lists(url, text):
+    host = urlparse(url).netloc
+    links = {link for link in LINKED_LIST.findall(text) if urlparse(link).netloc == host}
+    return "\n".join([text, *filter(None, map(download, sorted(links)))])
+
+
 def extract(text):
     networks = []
     for candidate in ADDRESS.findall(text):
@@ -210,9 +218,13 @@ def main():
     urls = sorted({url for crawler in CRAWLERS for url in crawler.get("ranges", [])})
     with ThreadPoolExecutor(16) as pool:
         texts = dict(zip(urls, pool.map(download, urls), strict=True))
-    ranges = {url: extract(text) for url, text in texts.items() if text is not None}
+    ranges = {
+        url: extract(with_linked_lists(url, text))
+        for url, text in texts.items()
+        if text is not None
+    }
     output = {"date": date.today().isoformat(), "rdns": rdns, "ranges": ranges}
-    Path("crawler-ips.json").write_text(json.dumps(output, separators=(",", ":")))
+    Path("crawler-ips.json").write_text(json.dumps(output, indent=0) + "\n")
     print(
         f"{len(groups)} rdns groups, {sum(map(len, confirmed.values()))} confirmed runs"
     )
