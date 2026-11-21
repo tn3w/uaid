@@ -37,6 +37,16 @@ def build_info(crawler):
     return {key: crawler[key] for key in FIELDS if key in crawler}
 
 
+def build_browsers(groups):
+    rules = [
+        [field, *rule] for field, field_rules in groups.items() for rule in field_rules
+    ]
+    index = defaultdict(list)
+    for position, (_, token, *_) in enumerate(rules):
+        index[token[:3]].append(position)
+    return rules, index
+
+
 def span(network):
     network = ip_network(network)
     return int(network.network_address), int(network.broadcast_address) + 1
@@ -62,11 +72,15 @@ class CustomBuildHook(BuildHookInterface):
     def initialize(self, version, build_data):
         crawlers = json.loads(Path(self.root, "crawlers.json").read_text())
         rules = sorted(build_rules(crawlers), key=rule_length, reverse=True)
+        browsers = json.loads(Path(self.root, "browsers.json").read_text())
+        browser_rules, browser_index = build_browsers(browsers)
         data = {
             "index": build_index(rules),
             "rules": rules,
             "crawlers": list(map(build_info, crawlers)),
             "networks": build_networks(Path(self.root, "crawler-ips.json")),
+            "browsers": browser_rules,
+            "browser_index": browser_index,
         }
         Path(self.root, TARGET).write_text(json.dumps(data, separators=(",", ":")))
         build_data["artifacts"].append(TARGET)

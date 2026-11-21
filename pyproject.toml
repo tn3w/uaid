@@ -42,21 +42,26 @@ classifiers = [
 Repository = "https://github.com/tn3w/uaid"
 
 [dependency-groups]
-dev = ["pytest"]
+dev = ["pytest", "pytest-cov"]
 
 [build-system]
 requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [tool.hatch.build.hooks.custom]
+path = "hatch_build.py"
 
 [tool.uv]
 cache-keys = [
     { file = "pyproject.toml" },
     { file = "crawlers.json" },
     { file = "crawler-ips.json" },
+    { file = "browsers.json" },
     { file = "hatch_build.py" },
 ]
+
+[tool.pytest.ini_options]
+addopts = "--cov=uaid --cov-branch --cov-report=term-missing --cov-fail-under=100"
 
 [tool.ruff]
 line-length = 90

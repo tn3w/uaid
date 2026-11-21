@@ -116,8 +116,8 @@ def test_identify_most_specific_crawler(agent, name, description):
 
 
 def test_anchored_rules_only_match_at_start():
-    assert uaid.identify("Mozilla/5.0 (X11; Linux) lightning/1.0b1") is None
-    assert uaid.identify("Mozilla/5.0 (X11; Linux) Firefox/3.0 FirePHP/0.4") is None
+    assert uaid.match("Mozilla/5.0 (X11; Linux) lightning/1.0b1") is None
+    assert uaid.match("Mozilla/5.0 (X11; Linux) Firefox/3.0 FirePHP/0.4") is None
 
 
 @pytest.mark.parametrize("agent", [None, "", " ", "Mozilla/5.0", "\x00\xff"])
@@ -169,7 +169,7 @@ def googlebot_address():
     ],
 )
 def test_identify_extracts_version(agent, version):
-    assert uaid.identify(agent)["version"] == version
+    assert uaid.identify(agent).get("version") == version
 
 
 def links(agent):
@@ -197,13 +197,105 @@ def test_links_finds_urls_and_emails():
 )
 def test_identify_guesses_unknown_bots(agent, name, version):
     found = uaid.identify(agent)
-    assert (found["name"], found["version"]) == (name, version)
+    assert (found.get("name"), found.get("version")) == (name, version)
     assert "tags" not in found
 
 
-def test_identify_is_none_exactly_for_non_bots():
+def test_identify_flags_bots_like_is_bot():
     for agent in BROWSERS[:2000] + INSTANCES[:2000]:
-        assert (uaid.identify(agent) is not None) == uaid.is_bot(agent), agent
+        assert uaid.identify(agent)["bot"] == uaid.is_bot(agent), agent
+
+
+GOLD = json.loads((ROOT / "gold.json").read_text())
+ACCURACY = {
+    "bot": 0.97,
+    "browser": 0.85,
+    "browser_version": 0.87,
+    "engine": 0.92,
+    "os": 0.93,
+    "os_version": 0.91,
+    "device": 0.91,
+    "brand": 0.89,
+    "model": 0.84,
+}
+
+
+@pytest.mark.parametrize(("field", "minimum"), ACCURACY.items())
+def test_gold_set_accuracy(field, minimum):
+    found = [uaid.identify(row["ua"]).get(field) for row in GOLD]
+    right = sum(value == row[field] for value, row in zip(found, GOLD, strict=True))
+    assert right / len(GOLD) >= minimum
+
+
+@pytest.mark.parametrize(
+    ("agent", "expected"),
+    [
+        (
+            "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
+            "(KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36 Edg/120.0.2210.91",
+            {
+                "browser": "Edge",
+                "browser_version": "120.0.2210.91",
+                "engine": "Blink",
+                "os": "Windows",
+                "os_version": "10",
+                "device": "desktop",
+                "cpu": "amd64",
+            },
+        ),
+        (
+            "Mozilla/5.0 (iPhone; CPU iPhone OS 17_1 like Mac OS X) AppleWebKit/605.1.15 "
+            "(KHTML, like Gecko) Version/17.1 Mobile/15E148 Safari/604.1",
+            {
+                "browser": "Safari",
+                "browser_version": "17.1",
+                "os": "iOS",
+                "os_version": "17.1",
+                "device": "mobile",
+                "brand": "Apple",
+                "model": "iPhone",
+            },
+        ),
+        (
+            "Mozilla/5.0 (Linux; Android 14; SM-S918B Build/UP1A.231005.007; wv) "
+            "AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/120.0.6099.230 "
+            "Mobile Safari/537.36",
+            {
+                "browser": "Chrome WebView",
+                "os": "Android",
+                "os_version": "14",
+                "device": "mobile",
+                "brand": "Samsung",
+                "model": "SM-S918B",
+            },
+        ),
+        (
+            "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:121.0) Gecko/20100101 "
+            "Firefox/121.0",
+            {
+                "browser": "Firefox",
+                "browser_version": "121.0",
+                "engine": "Gecko",
+                "engine_version": "121.0",
+                "os": "Linux",
+                "device": "desktop",
+                "cpu": "amd64",
+            },
+        ),
+        (
+            "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7; de-DE) AppleWebKit/605.1.15",
+            {
+                "os": "macOS",
+                "os_version": "10.15.7",
+                "languages": ["de-DE"],
+                "bot": False,
+            },
+        ),
+    ],
+)
+def test_identify_describes_browsers(agent, expected):
+    found = uaid.identify(agent)
+    assert {key: found.get(key) for key in expected} == expected
 
 
 def test_verify_confirms_crawler_networks():
