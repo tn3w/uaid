@@ -5458,7 +5458,7 @@
     ],
     "addition_date": "2018/02/01",
     "rdns": [
-      ".botify.com"
+      ".bot.botify.com"
     ]
   },
   {
@@ -5773,6 +5773,9 @@
     "rdns": [
       ".sentry.dev",
       ".sentry.io"
+    ],
+    "ranges": [
+      "https://docs.sentry.io/api/ip-ranges"
     ]
   },
   {
@@ -7620,8 +7623,7 @@
     ],
     "addition_date": "2019/11/11",
     "rdns": [
-      ".bytedance.com",
-      ".tiktokv.com"
+      ".crawl.bytedance.com"
     ]
   },
   {
@@ -8634,7 +8636,10 @@
     "tags": [
       "monitoring"
     ],
-    "addition_date": "2021/12/05"
+    "addition_date": "2021/12/05",
+    "ranges": [
+      "https://www.webpagetest.org/addresses.php?f=json"
+    ]
   },
   {
     "match": [
@@ -9096,6 +9101,9 @@
     "addition_date": "2023/08/23",
     "rdns": [
       ".dataforseo.com"
+    ],
+    "ranges": [
+      "https://dataforseo.com/dataforseo-bot"
     ]
   },
   {
@@ -9187,8 +9195,7 @@
     ],
     "addition_date": "2023/09/08",
     "rdns": [
-      ".you.com",
-      ".youbot.com"
+      ".search.you.com"
     ]
   },
   {
@@ -14011,7 +14018,13 @@
     "tags": [
       "monitoring"
     ],
-    "addition_date": "2026/04/17"
+    "addition_date": "2026/04/17",
+    "rdns": [
+      ".hetrixtools.com"
+    ],
+    "ranges": [
+      "https://hetrixtools.com/resources/uptime-monitor-ips.txt"
+    ]
   },
   {
     "match": [
@@ -16868,7 +16881,10 @@
     "tags": [
       "monitoring"
     ],
-    "addition_date": "2026/04/17"
+    "addition_date": "2026/04/17",
+    "ranges": [
+      "https://sentry.io/api/0/uptime-ips/"
+    ]
   },
   {
     "match": [
@@ -17128,6 +17144,9 @@
     "addition_date": "2026/04/17",
     "rdns": [
       ".site24x7.com"
+    ],
+    "ranges": [
+      "https://www.site24x7.com/tools/public/location-ips.txt"
     ]
   },
   {
@@ -18008,7 +18027,13 @@
     "tags": [
       "monitoring"
     ],
-    "addition_date": "2026/04/17"
+    "addition_date": "2026/04/17",
+    "rdns": [
+      ".updn.io"
+    ],
+    "ranges": [
+      "https://updown.io/api/nodes/ips"
+    ]
   },
   {
     "match": [
@@ -19753,6 +19778,9 @@
       ".deepcrawl.co",
       ".deepcrawl.com",
       ".lumar.io"
+    ],
+    "ranges": [
+      "https://www.lumar.io/wp-content/uploads/2026/02/lumar_ip_list_feb_2026.json"
     ]
   },
   {
@@ -26133,7 +26161,10 @@
     "tags": [
       "http-library"
     ],
-    "addition_date": "2026/05/09"
+    "addition_date": "2026/05/09",
+    "ranges": [
+      "https://assets.braintreegateway.com/json/ips.json"
+    ]
   },
   {
     "match": [
@@ -30866,7 +30897,10 @@
     "tags": [
       "monitoring"
     ],
-    "addition_date": "2026/05/09"
+    "addition_date": "2026/05/09",
+    "ranges": [
+      "https://www.webpagetest.org/addresses.php?f=json"
+    ]
   },
   {
     "match": [
