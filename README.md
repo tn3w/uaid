@@ -8,6 +8,9 @@ regex, no dependencies, no network requests.
 pip install uaid
 ```
 
+Try it in the browser at [uaid.tn3w.dev](https://uaid.tn3w.dev): analyzer, a page per
+crawler with robots.txt stats, and a free JSON API.
+
 ## Bot or not
 
 ```python
