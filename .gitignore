@@ -4,3 +4,4 @@ __pycache__/
 dist/
 src/uaid/rules.json
 .coverage
+target/

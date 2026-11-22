@@ -15,3 +15,11 @@ updates:
     groups:
       python:
         patterns: ["*"]
+
+  - package-ecosystem: cargo
+    directory: /.github/api
+    schedule:
+      interval: weekly
+    groups:
+      rust:
+        patterns: ["*"]
