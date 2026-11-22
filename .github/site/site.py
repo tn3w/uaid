@@ -1102,7 +1102,8 @@ sitemap.</p>
         def version_key(item: tuple[str, str]) -> list[int]:
             return [int(piece) for piece in re.findall(r"\d+", item[0])[:4]]
 
-        samples = sorted(set(group["samples"]), key=version_key, reverse=True)[:25]
+        unique = dict.fromkeys(group["samples"])
+        samples = sorted(unique, key=version_key, reverse=True)[:25]
         folder = "browsers" if field == "browser" else "os"
         tokens = [
             token for token, rule_name, *_ in self.browsers[field] if rule_name == name
