@@ -15,7 +15,10 @@
       "Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko; compatible; Googlebot/2.1; +http://www.google.com/bot.html) Safari/537.36",
       "Mozilla/5.0 (Linux; Android 6.0.1; Nexus 5X Build/MMB29P) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.8010.52 Mobile Safari/537.36 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)",
       "Mozilla/5.0 (Linux; Android 6.0.1; Nexus 5X Build/MMB29P) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/157.0.8103.78 Mobile Safari/537.36 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)",
-      "Mozilla/5.0 (Linux; Android 6.0.1; Nexus 5X Build/MMB29P) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.84 Mobile Safari/537.36 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)"
+      "Mozilla/5.0 (Linux; Android 6.0.1; Nexus 5X Build/MMB29P) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.84 Mobile Safari/537.36 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)",
+      "Mozilla/5.0 (Linux; Android 6.0.1; Nexus 5X Build/MMB29P) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/158.0.8127.36 Mobile Safari/537.36 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)",
+      "Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko; compatible; Googlebot/2.1; +http://www.google.com/bot.html) Chrome/157.0.8103.78 Safari/537.36",
+      "Mozilla/5.0 (Linux; Android 6.0.1; Nexus 5X Build/MMB29P) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.8037.97 Mobile Safari/537.36 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)"
     ],
     "description": "Google's main web crawling bot for search indexing",
     "tags": [
@@ -425,7 +428,8 @@
       "python-requests/2.20.0",
       "python-requests/2.21.0",
       "python-requests/2.22.0",
-      "python-requests/2.34.2"
+      "python-requests/2.34.2",
+      "python-requests/2.28.2"
     ],
     "description": "Popular Python HTTP library for making web requests",
     "tags": [
@@ -4336,7 +4340,8 @@
       "WhatsApp/2.19.258 A",
       "WhatsApp/2.19.308 A",
       "WhatsApp/2.19.330 A",
-      "WhatsApp/2.23.20.0"
+      "WhatsApp/2.23.20.0",
+      "WhatsApp/2"
     ],
     "description": "WhatsApp's web crawler for link previews",
     "tags": [
@@ -7199,11 +7204,13 @@
   },
   {
     "match": [
-      "nmap scripting engine"
+      "nmap scripting engine",
+      "nmap-elasticsearch-info"
     ],
     "url": "https://nmap.org/book/nse.html",
     "instances": [
-      "Mozilla/5.0 (compatible; Nmap Scripting Engine; https://nmap.org/book/nse.html)"
+      "Mozilla/5.0 (compatible; Nmap Scripting Engine; https://nmap.org/book/nse.html)",
+      "Mozilla/5.0 (compatible; nmap-elasticsearch-info)"
     ],
     "description": "Nmap NSE web crawler for security scanning",
     "tags": [
@@ -7483,7 +7490,9 @@
       "curl/8.14.1",
       "curl/7.4.0",
       "curl/8.22.0",
-      "curl/8.5.0"
+      "curl/8.5.0",
+      "curl/8.7.1",
+      "curl/7.74.0"
     ],
     "description": "cURL command-line tool for HTTP requests",
     "tags": [
@@ -11031,7 +11040,8 @@
       "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:147.0) Gecko/20100101 Firefox/147.0 (compatible; meta-webindexer/1.1 (+https://developers.facebook.com/docs/sharing/webmasters/crawler))",
       "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36 (compatible; meta-webindexer/1.1 (+https://developers.facebook.com/docs/sharing/webmasters/crawler))",
       "Mozilla/5.0 (X11; Linux x86_64; rv:147.0) Gecko/20100101 Firefox/147.0 (compatible; meta-webindexer/1.1 (+https://developers.facebook.com/docs/sharing/webmasters/crawler))",
-      "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:147.0) Gecko/20100101 Firefox/147.0 (compatible; meta-webindexer/1.1 (+https://developers.facebook.com/docs/sharing/webmasters/crawler))"
+      "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:147.0) Gecko/20100101 Firefox/147.0 (compatible; meta-webindexer/1.1 (+https://developers.facebook.com/docs/sharing/webmasters/crawler))",
+      "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.7632.6 Safari/537.36 (compatible; meta-webindexer/1.1 (+https://developers.facebook.com/docs/sharing/webmasters/crawler))"
     ],
     "description": "Meta web indexer bot for Facebook and Instagram content crawling",
     "tags": [
@@ -15494,7 +15504,8 @@
     ],
     "url": "https://datadome.co/bots/netapi/",
     "instances": [
-      "NetAPI v1"
+      "NetAPI v1",
+      "NetAPI/1.1 (+https://netapi.com/bot.html)"
     ],
     "description": "Automated crawler interacting with websites for data collection",
     "tags": [
@@ -22225,7 +22236,8 @@
     ],
     "url": "https://www.modat.io/",
     "instances": [
-      "Mozilla/5.0 (compatible; ModatScanner/1.2; +https://modat.io/)"
+      "Mozilla/5.0 (compatible; ModatScanner/1.2; +https://modat.io/)",
+      "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 ModatScanner/1.2 (+https://modat.io/)"
     ],
     "description": "Website monitoring and change detection service crawler bot",
     "tags": [
@@ -39154,7 +39166,8 @@
       "webfetch"
     ],
     "instances": [
-      "WebFetch"
+      "WebFetch",
+      "ZCode-WebFetch/0.1 (+https://zcode.ai; coding-agent-cli)"
     ],
     "description": "WebFetch HTTP client",
     "tags": [
@@ -63132,5 +63145,262 @@
       "ai-fetcher"
     ],
     "addition_date": "2026/11/20"
+  },
+  {
+    "match": [
+      "zmap-proxy-probe/"
+    ],
+    "instances": [
+      "zmap-proxy-probe/1.0"
+    ],
+    "description": "ZMap-based open proxy probe",
+    "tags": [
+      "scanner"
+    ],
+    "addition_date": "2026/11/23"
+  },
+  {
+    "match": [
+      "jetpack/",
+      "jetpack by wordpress.com"
+    ],
+    "url": "https://jetpack.com",
+    "instances": [
+      "Jetpack/12.1; WordPress/6.1",
+      "Jetpack by WordPress.com (Jetpack 12.0; WordPress 6.2)"
+    ],
+    "description": "Jetpack WordPress uptime and site monitoring",
+    "tags": [
+      "monitoring"
+    ],
+    "addition_date": "2026/11/23"
+  },
+  {
+    "match": [
+      "^cgrab/"
+    ],
+    "instances": [
+      "CGrab/v8.24.1-dev-throughput"
+    ],
+    "description": "CGrab network scanner",
+    "tags": [
+      "scanner"
+    ],
+    "addition_date": "2026/11/23"
+  },
+  {
+    "match": [
+      "mwmbl/"
+    ],
+    "url": "https://github.com/mwmbl/mwmbl/",
+    "instances": [
+      "mwmbl/1.1.3 (https://github.com/mwmbl/mwmbl/ contact dev@agalmic.ltd)"
+    ],
+    "description": "Mwmbl open-source non-profit search engine crawler",
+    "tags": [
+      "search-engine"
+    ],
+    "addition_date": "2026/11/23"
+  },
+  {
+    "match": [
+      "^cms-scanner/"
+    ],
+    "instances": [
+      "cms-scanner/2.0 (research)"
+    ],
+    "description": "CMS detection research scanner",
+    "tags": [
+      "scanner"
+    ],
+    "addition_date": "2026/11/23"
+  },
+  {
+    "match": [
+      "flowiqlabsbot/"
+    ],
+    "url": "https://flowiq-labs.com/scanning-info",
+    "instances": [
+      "Mozilla/5.0 (compatible; FlowIQLabsBot/1.0; +https://flowiq-labs.com/scanning-info)"
+    ],
+    "description": "FlowIQ Labs internet scanner",
+    "tags": [
+      "scanner"
+    ],
+    "addition_date": "2026/11/23"
+  },
+  {
+    "match": [
+      "internetdata.io/"
+    ],
+    "url": "https://internetdata.io/scan",
+    "instances": [
+      "Mozilla/5.0 (compatible; InternetData.io/1.0; +https://internetdata.io/scan)"
+    ],
+    "description": "InternetData.io internet scanner",
+    "tags": [
+      "scanner"
+    ],
+    "addition_date": "2026/11/23"
+  },
+  {
+    "match": [
+      "^proxy-prefilter/",
+      "^prefilter"
+    ],
+    "instances": [
+      "proxy-prefilter/1",
+      "prefilter"
+    ],
+    "description": "Open proxy prefilter probe",
+    "tags": [
+      "scanner"
+    ],
+    "addition_date": "2026/11/23"
+  },
+  {
+    "match": [
+      "barkscan/"
+    ],
+    "url": "https://barkscan.com/about",
+    "instances": [
+      "BarkScan/1.0 (+https://barkscan.com/about; security research scanner)"
+    ],
+    "description": "BarkScan security research scanner",
+    "tags": [
+      "scanner"
+    ],
+    "addition_date": "2026/11/23"
+  },
+  {
+    "match": [
+      "ipbase-scanner"
+    ],
+    "url": "https://ipbase.com/scanner",
+    "instances": [
+      "ipbase-scanner (+https://ipbase.com/scanner)"
+    ],
+    "description": "ipbase.com internet scanner",
+    "tags": [
+      "scanner"
+    ],
+    "addition_date": "2026/11/23"
+  },
+  {
+    "match": [
+      "opensourcealternative.io-bot/"
+    ],
+    "url": "https://opensourcealternative.io/about",
+    "instances": [
+      "opensourcealternative.io-bot/1.0 (+https://opensourcealternative.io/about)"
+    ],
+    "description": "OpenSourceAlternative.io directory crawler",
+    "tags": [
+      "search-engine"
+    ],
+    "addition_date": "2026/11/23"
+  },
+  {
+    "match": [
+      "seojuice-searchbot/"
+    ],
+    "url": "https://seojuice.io/bot",
+    "instances": [
+      "Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko); compatible; SEOJuice-SearchBot/1.0; +https://seojuice.io/bot"
+    ],
+    "description": "SEOJuice SEO crawler",
+    "tags": [
+      "seo"
+    ],
+    "addition_date": "2026/11/23"
+  },
+  {
+    "match": [
+      "^mtmkilledyou"
+    ],
+    "instances": [
+      "MtmKilledYou"
+    ],
+    "description": "Malicious botnet scanner",
+    "tags": [
+      "scanner"
+    ],
+    "addition_date": "2026/11/23"
+  },
+  {
+    "match": [
+      "^libredtail-http"
+    ],
+    "instances": [
+      "libredtail-http"
+    ],
+    "description": "RedTail cryptomining botnet exploit scanner",
+    "tags": [
+      "scanner"
+    ],
+    "addition_date": "2026/11/23"
+  },
+  {
+    "match": [
+      "criminalip/"
+    ],
+    "url": "https://security.criminalip.io/",
+    "instances": [
+      "Mozilla/5.0 (compatible; CriminalIP/1.0; +https://security.criminalip.io/)"
+    ],
+    "description": "Criminal IP internet asset scanner",
+    "tags": [
+      "scanner"
+    ],
+    "addition_date": "2026/11/23",
+    "rdns": [
+      ".criminalip.io"
+    ]
+  },
+  {
+    "match": [
+      "opendir-scanner/"
+    ],
+    "instances": [
+      "Mozilla/5.0 (compatible; opendir-scanner/1.0)"
+    ],
+    "description": "Open directory listing scanner",
+    "tags": [
+      "scanner"
+    ],
+    "addition_date": "2026/11/23"
+  },
+  {
+    "match": [
+      "librarianbot/"
+    ],
+    "url": "https://apps.geniofab.com/librarian/bot",
+    "instances": [
+      "LibrarianBot/1.0 (+https://apps.geniofab.com/librarian/bot)"
+    ],
+    "description": "GenioFab Librarian news feed discovery crawler",
+    "tags": [
+      "feed-reader"
+    ],
+    "addition_date": "2026/11/23",
+    "rdns": [
+      ".geniofab.com"
+    ],
+    "ranges": [
+      "https://apps.geniofab.com/librarian/bot/addresses.txt"
+    ]
+  },
+  {
+    "match": [
+      "^svprobe/"
+    ],
+    "instances": [
+      "svprobe/1.0"
+    ],
+    "description": "svprobe network scanner",
+    "tags": [
+      "scanner"
+    ],
+    "addition_date": "2026/11/23"
   }
 ]
