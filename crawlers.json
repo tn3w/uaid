@@ -18,7 +18,8 @@
       "Mozilla/5.0 (Linux; Android 6.0.1; Nexus 5X Build/MMB29P) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.84 Mobile Safari/537.36 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)",
       "Mozilla/5.0 (Linux; Android 6.0.1; Nexus 5X Build/MMB29P) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/158.0.8127.36 Mobile Safari/537.36 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)",
       "Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko; compatible; Googlebot/2.1; +http://www.google.com/bot.html) Chrome/157.0.8103.78 Safari/537.36",
-      "Mozilla/5.0 (Linux; Android 6.0.1; Nexus 5X Build/MMB29P) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.8037.97 Mobile Safari/537.36 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)"
+      "Mozilla/5.0 (Linux; Android 6.0.1; Nexus 5X Build/MMB29P) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.8037.97 Mobile Safari/537.36 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)",
+      "Mozilla/5.0 (Linux; Android 6.0.1; Nexus 5X Build/MMB29P) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/158.0.8127.88 Mobile Safari/537.36 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)"
     ],
     "description": "Google's main web crawling bot for search indexing",
     "tags": [
@@ -327,7 +328,8 @@
       "Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko; compatible; bingbot/2.0; +http://www.bing.com/bingbot.htm) Safari/537.36",
       "Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko; compatible; bingbot/2.0; +http://www.bing.com/bingbot.htm) Chrome/103.0.5060.134 Safari/537.36",
       "Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko; compatible; bingbot/2.0; +http://www.bing.com/bingbot.htm) Chrome/116.0.1938.76 Safari/537.36",
-      "Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko; compatible; bingbot/2.0; +http://www.bing.com/bingbot.htm) Chrome/136.0.0.0 Safari/537.36 AppleWebKit/537.36 (KHTML, like Gecko; compatible; bingbot/2.0; +http://www.bing.com/bingbot.htm) Chrome/116.0.1938"
+      "Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko; compatible; bingbot/2.0; +http://www.bing.com/bingbot.htm) Chrome/136.0.0.0 Safari/537.36 AppleWebKit/537.36 (KHTML, like Gecko; compatible; bingbot/2.0; +http://www.bing.com/bingbot.htm) Chrome/116.0.1938",
+      "Mozilla/5.0 (compatible; bingbot/2.0  http://www.bing.com/bingbot.htm)"
     ],
     "description": "Microsoft's web crawling bot for Bing search indexing",
     "tags": [
@@ -409,7 +411,8 @@
       "Python-urllib/3.6",
       "Python-urllib/3.7",
       "Python-urllib/3.11",
-      "Python-urllib/3.12"
+      "Python-urllib/3.12",
+      "Python-urllib/3.10"
     ],
     "description": "Python's built-in URL library for HTTP requests",
     "tags": [
@@ -429,7 +432,8 @@
       "python-requests/2.21.0",
       "python-requests/2.22.0",
       "python-requests/2.34.2",
-      "python-requests/2.28.2"
+      "python-requests/2.28.2",
+      "python-requests/2.31.0"
     ],
     "description": "Popular Python HTTP library for making web requests",
     "tags": [
@@ -3331,7 +3335,8 @@
     "url": "https://developer.twitter.com/",
     "instances": [
       "Twitterbot/0.1",
-      "Twitterbot/1.0"
+      "Twitterbot/1.0",
+      "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_1) AppleWebKit/601.2.4 (KHTML, like Gecko) Version/9.0.1 Safari/601.2.4 facebookexternalhit/1.1 Facebot Twitterbot/1.0"
     ],
     "description": "Twitter web crawler for link previews",
     "tags": [
@@ -7205,12 +7210,14 @@
   {
     "match": [
       "nmap scripting engine",
-      "nmap-elasticsearch-info"
+      "nmap-elasticsearch-info",
+      "nmap-http-info"
     ],
     "url": "https://nmap.org/book/nse.html",
     "instances": [
       "Mozilla/5.0 (compatible; Nmap Scripting Engine; https://nmap.org/book/nse.html)",
-      "Mozilla/5.0 (compatible; nmap-elasticsearch-info)"
+      "Mozilla/5.0 (compatible; nmap-elasticsearch-info)",
+      "Mozilla/5.0 (compatible; nmap-http-info)"
     ],
     "description": "Nmap NSE web crawler for security scanning",
     "tags": [
@@ -7351,7 +7358,8 @@
       "Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/27.0.1453.116 Safari/537.36 HubSpot Webcrawler - web-crawlers@hubspot.com",
       "Mozilla/5.0 (X11; Linux x86_64; HubSpot Single Page link check; web-crawlers+links@hubspot.com) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.103 Safari/537.36",
       "Mozilla/5.0 (compatible; HubSpot Crawler; web-crawlers@hubspot.com)",
-      "HubSpot Connect 2.0 (http://dev.hubspot.com/) - BizOpsCompanies-Tq2-BizCoDomainValidationAudit"
+      "HubSpot Connect 2.0 (http://dev.hubspot.com/) - BizOpsCompanies-Tq2-BizCoDomainValidationAudit",
+      "Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko; compatible; HubSpot Crawler; +https://www.hubspot.com) Chrome/131.0.0.0 Safari/537.36"
     ],
     "description": "HubSpot web crawler for marketing automation",
     "tags": [
@@ -7492,7 +7500,10 @@
       "curl/8.22.0",
       "curl/8.5.0",
       "curl/8.7.1",
-      "curl/7.74.0"
+      "curl/7.74.0",
+      "curl/8.21.0",
+      "curl/7.86.0",
+      "curl/7.68.0"
     ],
     "description": "cURL command-line tool for HTTP requests",
     "tags": [
@@ -8099,7 +8110,8 @@
     ],
     "url": "https://domainsbot.com/pandalytics/",
     "instances": [
-      "Pandalytics/1.0 (https://domainsbot.com/pandalytics/)"
+      "Pandalytics/1.0 (https://domainsbot.com/pandalytics/)",
+      "Pandalytics/2.0 (+https://domainsbot.com/network-crawler-pandalytics-kdc68dhsbd/)"
     ],
     "description": "Pandalytics web crawler for domain analysis",
     "tags": [
@@ -10071,7 +10083,10 @@
       "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:145.0) Gecko/20100101 Firefox/145.0 (compatible; meta-externalagent/1.1 (+https://developers.facebook.com/docs/sharing/webmasters/crawler))",
       "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36 (compatible; meta-externalagent/1.1 (+https://developers.facebook.com/docs/sharing/webmasters/crawler))",
       "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36 (compatible; meta-externalagent/1.1 (+https://developers.facebook.com/docs/sharing/webmasters/crawler))",
-      "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36 Edg/145.0.0.0 (compatible; meta-externalagent/1.1 (+https://developers.facebook.com/docs/sharing/webmasters/crawler))"
+      "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36 Edg/145.0.0.0 (compatible; meta-externalagent/1.1 (+https://developers.facebook.com/docs/sharing/webmasters/crawler))",
+      "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36 Edg/144.0.0.0 (compatible; meta-externalagent/1.1 (+https://developers.facebook.com/docs/sharing/webmasters/crawler))",
+      "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36 Edg/146.0.0.0 (compatible; meta-externalagent/1.1 (+https://developers.facebook.com/docs/sharing/webmasters/crawler))",
+      "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36 Edg/143.0.0.0 (compatible; meta-externalagent/1.1 (+https://developers.facebook.com/docs/sharing/webmasters/crawler))"
     ],
     "description": "Meta external agent web crawler bot",
     "tags": [
@@ -10747,7 +10762,8 @@
     ],
     "url": "https://github.com/robertdavidgraham/masscan",
     "instances": [
-      "masscan/1.0 (https://github.com/robertdavidgraham/masscan)"
+      "masscan/1.0 (https://github.com/robertdavidgraham/masscan)",
+      "masscan/1.3 (https://github.com/robertdavidgraham/masscan)"
     ],
     "description": "Masscan network scanner web crawler bot",
     "tags": [
@@ -12201,7 +12217,8 @@
     ],
     "url": "https://chatglm.cn/",
     "instances": [
-      "Mozilla/5.0 (compatible; ChatGLM-Spider/1.0; +https://chatglm.cn/)"
+      "Mozilla/5.0 (compatible; ChatGLM-Spider/1.0; +https://chatglm.cn/)",
+      "Mozilla/5.0 (compatible; ChatGLM-Spider/1.0; +https://zhipuai.cn/)"
     ],
     "description": "AI model training data collection crawler",
     "tags": [
@@ -13653,7 +13670,8 @@
     "instances": [
       "github-camo (c006e452)",
       "github-camo (ea45cab4)",
-      "github-camo (90e6e24a)"
+      "github-camo (90e6e24a)",
+      "github-camo (dee8f5d1)"
     ],
     "description": "GitHub image proxy fetching external images for secure rendering",
     "tags": [
@@ -18819,7 +18837,8 @@
     ],
     "url": "https://datadome.co/bots/wpbot/",
     "instances": [
-      "Mozilla/5.0 (compatible; wpbot/1.1; +https://forms.gle/ajBaxygz9jSR8p8G9)"
+      "Mozilla/5.0 (compatible; wpbot/1.1; +https://forms.gle/ajBaxygz9jSR8p8G9)",
+      "Mozilla/5.0 (compatible; wpbot/1.4; +https://forms.gle/ajBaxygz9jSR8p8G9)"
     ],
     "description": "Web crawler indexing websites and analyzing content for search optimization",
     "tags": [
@@ -20191,7 +20210,8 @@
     ],
     "url": "https://findfiles.net/en/bot",
     "instances": [
-      "FindFiles.net-FaviconFetcher/1.0 (+https://findfiles.net/bot)"
+      "FindFiles.net-FaviconFetcher/1.0 (+https://findfiles.net/bot)",
+      "FindFiles.net-LinkChecker/1.1 https://findfiles.net/bot"
     ],
     "description": "FindFiles.net search engine crawler",
     "tags": [
@@ -43329,7 +43349,8 @@
     ],
     "url": "https://www.kimi.com/policies/kimi-crawlers",
     "instances": [
-      "Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko); compatible; Kimi-SearchBot/1.0; +https://www.kimi.com/policies/kimi-crawlers"
+      "Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko); compatible; Kimi-SearchBot/1.0; +https://www.kimi.com/policies/kimi-crawlers",
+      "Mozilla/5.0 (compatible; Kimi-SearchBot/1.0; +https://kimi.ai/)"
     ],
     "description": "Kimi-SearchBot search crawler",
     "tags": [
@@ -46543,7 +46564,8 @@
     ],
     "url": "https://truster.info/en/",
     "instances": [
-      "TrustBot/1.0 (+https://truster.info/bot)"
+      "TrustBot/1.0 (+https://truster.info/bot)",
+      "AgentTrustBot/1.0 (id=d579116dc047; +https://agenttru.st/crawler; purpose=AI agent directory; contact=admin@agenttru.st)"
     ],
     "description": "TrustBot crawler",
     "tags": [
@@ -47327,7 +47349,9 @@
     "match": [
       "grokbot"
     ],
-    "instances": [],
+    "instances": [
+      "Mozilla/5.0 (compatible; GrokBot/1.0; +https://x.ai/)"
+    ],
     "description": "GrokBot crawler by xAI",
     "tags": [
       "ai-crawler"
@@ -47430,7 +47454,9 @@
     "match": [
       "moonshotbot"
     ],
-    "instances": [],
+    "instances": [
+      "Mozilla/5.0 (compatible; MoonshotBot/1.0; +https://kimi.ai/)"
+    ],
     "description": "MoonshotBot training crawler by Kimi",
     "tags": [
       "ai-crawler"
@@ -47518,7 +47544,9 @@
     "match": [
       "qwenbot"
     ],
-    "instances": [],
+    "instances": [
+      "Mozilla/5.0 (compatible; Qwenbot/1.0; +https://qwen.alibaba.com/)"
+    ],
     "description": "QwenBot AI crawler",
     "tags": [
       "ai-crawler"
@@ -63167,7 +63195,9 @@
     "url": "https://jetpack.com",
     "instances": [
       "Jetpack/12.1; WordPress/6.1",
-      "Jetpack by WordPress.com (Jetpack 12.0; WordPress 6.2)"
+      "Jetpack by WordPress.com (Jetpack 12.0; WordPress 6.2)",
+      "Jetpack/12.1; WordPress/6.3",
+      "Jetpack by WordPress.com"
     ],
     "description": "Jetpack WordPress uptime and site monitoring",
     "tags": [
@@ -63402,5 +63432,273 @@
       "scanner"
     ],
     "addition_date": "2026/11/23"
+  },
+  {
+    "match": [
+      "trainingdatafoundationbot/"
+    ],
+    "url": "https://huggingface.co/datasets/Battam/training-data-foundation",
+    "instances": [
+      "TrainingDataFoundationBot/1.0 (+https://huggingface.co/datasets/Battam/training-data-foundation/discussions; page metadata for an index of public files, no page body kept)"
+    ],
+    "description": "Training data foundation dataset metadata crawler",
+    "tags": [
+      "ai-crawler"
+    ],
+    "addition_date": "2026/11/26"
+  },
+  {
+    "match": [
+      "spiceharvester/"
+    ],
+    "instances": [
+      "Mozilla/5.0 (compatible; SpiceHarvester/1.0; research; contact: searchbot@faustian.trade)"
+    ],
+    "description": "SpiceHarvester research crawler",
+    "tags": [
+      "academic"
+    ],
+    "addition_date": "2026/11/26"
+  },
+  {
+    "match": [
+      "go-resty/"
+    ],
+    "url": "https://github.com/go-resty/resty",
+    "instances": [
+      "go-resty/2.16.5 (https://github.com/go-resty/resty)"
+    ],
+    "description": "Resty HTTP client library for Go",
+    "tags": [
+      "http-library"
+    ],
+    "addition_date": "2026/11/26"
+  },
+  {
+    "match": [
+      "elasticsearch-py/"
+    ],
+    "url": "https://github.com/elastic/elasticsearch-py",
+    "instances": [
+      "elasticsearch-py/7.13.4 (Python 3.10.22)"
+    ],
+    "description": "Official Python client for Elasticsearch",
+    "tags": [
+      "http-library"
+    ],
+    "addition_date": "2026/11/26"
+  },
+  {
+    "match": [
+      "sppb-rce-poc"
+    ],
+    "instances": [
+      "Mozilla/5.0 (X11; Linux x86_64) sppb-rce-poc"
+    ],
+    "description": "Remote code execution proof-of-concept exploit scanner",
+    "tags": [
+      "scanner"
+    ],
+    "addition_date": "2026/11/26"
+  },
+  {
+    "match": [
+      "^tiagoscan"
+    ],
+    "instances": [
+      "tiagoscan (+mailto:scarf-snort-entree@duck.com)"
+    ],
+    "description": "tiagoscan internet scanner",
+    "tags": [
+      "scanner"
+    ],
+    "addition_date": "2026/11/26"
+  },
+  {
+    "match": [
+      "^rawgrab"
+    ],
+    "instances": [
+      "rawgrab"
+    ],
+    "description": "rawgrab content scraper",
+    "tags": [
+      "scanner"
+    ],
+    "addition_date": "2026/11/26"
+  },
+  {
+    "match": [
+      "hermesagent-localextract/"
+    ],
+    "instances": [
+      "HermesAgent-LocalExtract/1.0"
+    ],
+    "description": "Hermes agent local page extraction fetcher",
+    "tags": [
+      "ai-fetcher"
+    ],
+    "addition_date": "2026/11/26"
+  },
+  {
+    "match": [
+      "jenkinsscanner/"
+    ],
+    "instances": [
+      "Mozilla/5.0 (X11; Linux x86_64) JenkinsScanner/1.0"
+    ],
+    "description": "Scanner probing for exposed Jenkins servers",
+    "tags": [
+      "scanner"
+    ],
+    "addition_date": "2026/11/26"
+  },
+  {
+    "match": [
+      "^robotstxtfetcher/"
+    ],
+    "instances": [
+      "RobotsTxtFetcher/1.0"
+    ],
+    "description": "robots.txt file fetcher",
+    "tags": [
+      "seo"
+    ],
+    "addition_date": "2026/11/26"
+  },
+  {
+    "match": [
+      "compatible; j4s/"
+    ],
+    "instances": [
+      "Mozilla/5.0 (compatible; j4s/1.0)"
+    ],
+    "description": "j4s web scanner",
+    "tags": [
+      "scanner"
+    ],
+    "addition_date": "2026/11/26"
+  },
+  {
+    "match": [
+      "pagehubbot/"
+    ],
+    "instances": [
+      "Mozilla/5.0 (compatible; PageHubBot/1.0; +https://[DOMAIN]/bot)"
+    ],
+    "description": "PageHub web crawler",
+    "tags": [
+      "seo"
+    ],
+    "addition_date": "2026/11/26"
+  },
+  {
+    "match": [
+      "ammaticscrm/"
+    ],
+    "url": "https://crm.ammatics.com",
+    "instances": [
+      "Mozilla/5.0 (compatible; AmmaticsCRM/1.0; +https://crm.ammatics.com)"
+    ],
+    "description": "Ammatics CRM website data enrichment crawler",
+    "tags": [
+      "seo"
+    ],
+    "addition_date": "2026/11/26"
+  },
+  {
+    "match": [
+      "^domaincommercepilot"
+    ],
+    "instances": [
+      "DomainCommercePilot"
+    ],
+    "description": "Domain commerce analysis crawler",
+    "tags": [
+      "seo"
+    ],
+    "addition_date": "2026/11/26"
+  },
+  {
+    "match": [
+      "scout-research/"
+    ],
+    "url": "https://github.com/geosurge-ai/bot-and-scrapers",
+    "instances": [
+      "scout-research/0.1 (+https://github.com/geosurge-ai/bot-and-scrapers)"
+    ],
+    "description": "Geosurge AI research scraper",
+    "tags": [
+      "ai-crawler"
+    ],
+    "addition_date": "2026/11/26"
+  },
+  {
+    "match": [
+      "dnsq-domainintel-web-probe/"
+    ],
+    "instances": [
+      "dnsq-domainintel-web-probe/1.0"
+    ],
+    "description": "dnsq domain intelligence web probe",
+    "tags": [
+      "scanner"
+    ],
+    "addition_date": "2026/11/26"
+  },
+  {
+    "match": [
+      "^scopeatlas/"
+    ],
+    "instances": [
+      "ScopeAtlas/1.0 (+asset-fingerprint)",
+      "ScopeAtlas/1.0 (+bounded-collection)"
+    ],
+    "description": "ScopeAtlas internet asset fingerprinting scanner",
+    "tags": [
+      "scanner"
+    ],
+    "addition_date": "2026/11/26"
+  },
+  {
+    "match": [
+      "anticlonebot/"
+    ],
+    "url": "https://anticlone.de/bot",
+    "instances": [
+      "Mozilla/5.0 (compatible; AntiCloneBot/0.1; finds copies of online shops and fake shops; no login, no orders; contact: support@anticlone.de) radar; +https://anticlone.de/bot"
+    ],
+    "description": "AntiClone crawler detecting cloned and fake online shops",
+    "tags": [
+      "monitoring"
+    ],
+    "addition_date": "2026/11/26"
+  },
+  {
+    "match": [
+      "geminisearchmcp/"
+    ],
+    "instances": [
+      "Mozilla/5.0 (compatible; GeminiSearchMCP/1.0)"
+    ],
+    "description": "Gemini search MCP server page fetcher",
+    "tags": [
+      "ai-fetcher"
+    ],
+    "addition_date": "2026/11/26"
+  },
+  {
+    "match": [
+      "^wordpress.com; "
+    ],
+    "url": "https://wordpress.com/",
+    "instances": [
+      "WordPress.com; https://wordpress.com"
+    ],
+    "description": "WordPress.com site fetcher",
+    "tags": [
+      "social-preview"
+    ],
+    "addition_date": "2026/11/26"
   }
 ]
